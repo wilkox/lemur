@@ -1,3 +1,3 @@
-# GPTR (development version)
+# GPTR 0.1.0
 
-- Basic API functionality (from [GPTscreenR](https://github.com/wilkox/GPTscreenR)) working
+- Basic API functionality imported from [GPTscreenR](https://github.com/wilkox/GPTscreenR)
