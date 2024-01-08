@@ -1,0 +1,71 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# GPTR
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/wilkox/GPTR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilkox/GPTR/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+GPTR is an R package that provides a wrapper for the OpenAI GPT API. It
+is a repackaging of code I originally developed for [the GPTscreenR
+package](https://github.com/wilkox/GPTscreenR). I created this package
+for my personal use and it is not planned to ever be released to CRAN.
+
+## Installation
+
+You can install the development version of GPTR from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("wilkox/GPTR")
+```
+
+## OpenAI API key
+
+Using GPTR requires an OpenAI API key, which you must store in an R
+environmental variable called `OPENAI_API_KEY`. OpenAI charges fees to
+use their API. To obtain and set up an API key:
+
+1.  [Create an OpenAI
+    account](https://platform.openai.com/signup?launch), if you don’t
+    have one already.
+2.  Once you have created and signed in to your account, go to the [View
+    API Keys page](https://platform.openai.com/account/api-keys).
+3.  Click on the ‘Create new secret key’ button.
+4.  Give your new key a name, for example ‘GPTR’, and click ‘Create
+    secret key’.
+5.  The page will display your new secret API key. You must copy the key
+    now, as it will never be displayed again.
+6.  Store your API key in an R environmental variable by adding the
+    following line to your `.Renviron` file:
+    `OPENAI_API_KEY=<your secret API key goes here>`. There are a few
+    different ways to edit this file:
+    1.  On any operating system, you can use the function
+        `usethis::edit_r_environ()` from [the usethis
+        package](https://usethis.r-lib.org) to open and edit your
+        `.Renviron` file.
+    2.  On macOS or Linux, you can create or edit a file in your home
+        directory called `~/.Renviron`.
+    3.  You can also make an `.Renviron` file for a particular project.
+        I strongly recommend that you *do not* check this file into a
+        version control system like git, as this means other people with
+        access to the repository (including the public, if the
+        repository is publicly accessible) can see your secret key.
+
+To check that you have set the environmental variable successfully, open
+a new R session and load GPTR with `library(GPTR)`. You should see the
+following message:
+
+`` ✔ The `OPENAI_API_KEY` environmental variable is set ``
+
+If instead you see:
+
+`` ✖ The `OPENAI_API_KEY` environmental variable is not set ``
+
+this means the environmental variable has not been set correctly. Note
+that this does not check whether or not you have stored a valid key.
