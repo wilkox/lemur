@@ -1,0 +1,10 @@
+Package: GPTR
+Title: Access the OpenAI GPT API
+Version: 0.0.0.9000
+Authors@R: 
+    person("David", "Wilkins", , "david@wilkox.org", role = c("aut", "cre"))
+Description: Provides an R wrapper for the OpenAI GPT API.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
