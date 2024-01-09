@@ -2,10 +2,10 @@
 % Please edit documentation in R/API.R
 \name{set_model}
 \alias{set_model}
-\title{Set the GPT model to use}
+\title{Set model to the OPENAI_MODEL environmental variable}
 \usage{
 set_model()
 }
 \description{
-Set the GPT model to use
+Set model to the OPENAI_MODEL environmental variable
 }
