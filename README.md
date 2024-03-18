@@ -1,33 +1,33 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# GPTR
+# lemur
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/wilkox/GPTR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilkox/GPTR/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/wilkox/lemur/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilkox/lemur/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-GPTR is an R package that provides a wrapper for the OpenAI GPT API. It
+lemur is an R package that provides a wrapper for the OpenAI GPT API. It
 is a repackaging of code I originally developed for [the GPTscreenR
 package](https://github.com/wilkox/GPTscreenR). I created this package
 for my personal use and it is not planned to ever be released to CRAN.
 
 ## Installation
 
-You can install the development version of GPTR from
+You can install the development version of lemur from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("wilkox/GPTR")
+devtools::install_github("wilkox/lemur")
 ```
 
 ## OpenAI API key
 
-Using GPTR requires an OpenAI API key, which you must store in an R
+Using lemur requires an OpenAI API key, which you must store in an R
 environmental variable called `OPENAI_API_KEY`. OpenAI charges fees to
 use their API. To obtain and set up an API key:
 
@@ -37,7 +37,7 @@ use their API. To obtain and set up an API key:
 2.  Once you have created and signed in to your account, go to the [View
     API Keys page](https://platform.openai.com/account/api-keys).
 3.  Click on the ‘Create new secret key’ button.
-4.  Give your new key a name, for example ‘GPTR’, and click ‘Create
+4.  Give your new key a name, for example ‘lemur’, and click ‘Create
     secret key’.
 5.  The page will display your new secret API key. You must copy the key
     now, as it will never be displayed again.
@@ -58,7 +58,7 @@ use their API. To obtain and set up an API key:
         repository is publicly accessible) can see your secret key.
 
 To check that you have set the environmental variable successfully, open
-a new R session and load GPTR with `library(GPTR)`. You should see the
+a new R session and load lemur with `library(lemur)`. You should see the
 following message:
 
 `` ✔ The `OPENAI_API_KEY` environmental variable is set ``

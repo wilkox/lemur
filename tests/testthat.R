@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(GPTR)
+library(lemur)
 
-test_check("GPTR")
+test_check("lemur")
