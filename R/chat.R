@@ -201,7 +201,7 @@ add_message.GPT_messages <- function(x, content, role = "user") {
 
 }
 
-add_message <- function(x, content, role) {
+add_message <- function(x, content, role, ...) {
   UseMethod("add_message")
 }
 
