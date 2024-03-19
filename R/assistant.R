@@ -62,7 +62,10 @@ GPT_assistant <- function(
 
   # POST to assistants endpoint
   if (.dry_run) {
-    response <- data.frame(status_code = 200, content = "This is a placeholder response.")
+    assistant$id <- "dry run id"
+    assistant$created_at <- 123456L
+    validate_GPT_assistant(assistant)
+    return(assistant)
 
   } else {
     response <- httr::POST(
@@ -89,13 +92,12 @@ GPT_assistant <- function(
   assistant$created_at <- httr::content(response)$created_at
   validate_GPT_assistant(assistant)
 
-  assistant
+  return(assistant)
 }
 
 #' A validator function for GPT_assistant
 #'
 #' @param x A GPT_assistant object
-#'
 validate_GPT_assistant <- function(x) {
 
   params <- unclass(x)
@@ -221,4 +223,63 @@ print.GPT_assistant <- function(x, ...) {
   cli::cli_h1("GPT_assistant object")
 
   print(unclass(x))
+}
+
+#' List GPT assistants
+#'
+#' @references \url{https://platform.openai.com/docs/api-reference/assistants/listAssistants}
+#'
+#' @param name limit A limit on the number of assistants to be returned. Can be
+#' between 1-100, defaults to 20.
+#' @param order Sort order for the created_at timestamp. Either 'asc' for
+#' ascending or 'dsc' (default) for descending.
+#' @param after Return assistants after the named assistant id
+#' @param before Return assistants before the named assistant id
+#' @param .dry_run If TRUE, will merely pretend to call the OpenAI API
+#'
+#' @return List of GPT assistants as a data frame
+#'
+#' @export
+list_GPT_assistants <- function(limit = 20, order = "dsc", before = NULL, after = NULL, .dry_run = FALSE) {
+
+  # Check arguments
+  qassert(limit, "x1[0,100]")
+  assertChoice(order, choices = c("asc", "dsc"))
+  if (! testNull(before)) qassert(before, "s1")
+  if (! testNull(after)) qassert(after, "s1")
+  qassert(.dry_run, "b1")
+
+  # Retrieve and set API key
+  openai_api_key <- Sys.getenv("OPENAI_API_KEY")
+  if (stringr::str_length(openai_api_key) == 0 | is.na(openai_api_key)) {
+    cli::cli_abort("Cannot find environmental variable {.envvar OPENAI_API_KEY}")
+  }
+
+  # GET from assiatants endpoint
+  if (.dry_run) {
+    assistants <- data.frame(id = "dry run")
+    return(assistants)
+
+  } else {
+    response <- httr::GET(
+      "https://api.openai.com/v1/assistants",
+      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+      httr::add_headers("OpenAI-Beta" = "assistants=v1")
+    )
+  }
+
+  # Check status code of response
+  if (! response$status_code %in% 200:299) {
+    cli::cli_abort(c(
+        "The OpenAI API returned an error:",
+        "!" = "  Code: {response$status_code}",
+        "!" = "  Type: {httr::content(response)$error$type}",
+        "!" = "  Message: {httr::content(response)$error$message}"
+    ))
+  }
+
+  # Response
+  response <- httr::content(response)$data
+  assistants <- as.data.frame(do.call(rbind, response))
+  return(assistants)
 }
