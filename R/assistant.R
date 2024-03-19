@@ -222,18 +222,18 @@ print.GPT_assistant <- function(x, ...) {
 #' @param name limit A limit on the number of assistants to be returned. Can be
 #' between 1-100, defaults to 20.
 #' @param order Sort order for the created_at timestamp. Either 'asc' for
-#' ascending or 'dsc' (default) for descending.
+#' ascending or 'desc' (default) for descending.
 #' @param after Return assistants after the named assistant id
 #' @param before Return assistants before the named assistant id
 #'
 #' @return List of GPT assistants as a data frame
 #'
 #' @export
-list_GPT_assistants <- function(limit = 20, order = "dsc", before = NULL, after = NULL) {
+list_GPT_assistants <- function(limit = 20, order = "desc", before = NULL, after = NULL) {
 
   # Check arguments
   qassert(limit, "x1[0,100]")
-  assertChoice(order, choices = c("asc", "dsc"))
+  assertChoice(order, choices = c("asc", "desc"))
   if (! testNull(before)) qassert(before, "s1")
   if (! testNull(after)) qassert(after, "s1")
 
@@ -243,11 +243,16 @@ list_GPT_assistants <- function(limit = 20, order = "dsc", before = NULL, after 
     cli::cli_abort("Cannot find environmental variable {.envvar OPENAI_API_KEY}")
   }
 
-  # GET from assiatants endpoint
+  # Set up params
+  params <- list(limit = limit, order = order, before = before, after = after)
+  params <- Filter(Negate(is.null), params)
+
+  # GET from assistants endpoint
   response <- httr::GET(
     "https://api.openai.com/v1/assistants",
     httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    query = params
   )
 
   # Check status code of response

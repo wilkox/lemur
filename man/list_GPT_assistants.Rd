@@ -4,11 +4,11 @@
 \alias{list_GPT_assistants}
 \title{List GPT assistants}
 \usage{
-list_GPT_assistants(limit = 20, order = "dsc", before = NULL, after = NULL)
+list_GPT_assistants(limit = 20, order = "desc", before = NULL, after = NULL)
 }
 \arguments{
 \item{order}{Sort order for the created_at timestamp. Either 'asc' for
-ascending or 'dsc' (default) for descending.}
+ascending or 'desc' (default) for descending.}
 
 \item{before}{Return assistants before the named assistant id}
 
