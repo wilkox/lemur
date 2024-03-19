@@ -3,6 +3,8 @@
 
 ## usethis namespace: start
 #' @importFrom checkmate assertChoice
+#' @importFrom checkmate assertList
+#' @importFrom checkmate assertString
 #' @importFrom checkmate qassert
 #' @importFrom checkmate qtest
 #' @importFrom checkmate testNull

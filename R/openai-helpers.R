@@ -68,3 +68,15 @@ check_API_key <- function(show_key = FALSE) {
   )
   rlang::inform(cli::format_inline(msg), class = "packageStartupMessage")
 }
+
+#' Check the status code of a response from the OpenAI API
+check_openai_response <- function(response) {
+  if (! response$status_code %in% 200:299) {
+    cli::cli_abort(c(
+        "The OpenAI API returned an error:",
+        "!" = "  Code: {response$status_code}",
+        "!" = "  Type: {httr::content(response)$error$type}",
+        "!" = "  Message: {httr::content(response)$error$message}"
+    ))
+  }
+}

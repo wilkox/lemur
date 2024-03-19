@@ -14,7 +14,7 @@ with_mock_api({ test_that("Chat completion works", {
     data.frame(role = "assistant", content = "Hi there :)"),
     data.frame(role = "user", content = "What is the Southern Cross")
   )
-  messages <- as_GPT_messages(messages)
+  messages <- as_chat(messages)
   if (has_key) {
     completion <- complete_GPT(messages)
   } else {
@@ -22,6 +22,6 @@ with_mock_api({ test_that("Chat completion works", {
   }
   expect_no_error(completion)
   expect_type(completion, "list")
-  expect_s3_class(completion, "GPT_messages")
+  expect_s3_class(completion, "chat")
   expect_length(completion$content, 5)
 }) })
