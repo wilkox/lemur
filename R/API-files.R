@@ -2,10 +2,9 @@
 #'
 #' @param file The file to upload
 #' @param purpose The purpose of the file, usually either 'assistants' or 'fine-tuning'
-#' @param .dry_run If TRUE, will not make an actual call to the GPT API
 #'
 #' @export
-upload_file <- function(file, purpose = "assistants", .dry_run = FALSE) {
+upload_file <- function(file, purpose = "assistants") {
 
   # Retrieve and set API key
   openai_api_key <- Sys.getenv("OPENAI_API_KEY")
@@ -30,17 +29,12 @@ upload_file <- function(file, purpose = "assistants", .dry_run = FALSE) {
   )
 
   # POST to files endpoint
-  if (.dry_run) {
-    response <- data.frame(status_code = 200, content = "This is a placeholder response.")
-
-  } else {
-    response <- httr::POST(
-      "https://api.openai.com/v1/files",
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-      body = params,
-      encode = "multipart"
-    )
-  }
+  response <- httr::POST(
+    "https://api.openai.com/v1/files",
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+    body = params,
+    encode = "multipart"
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {
@@ -60,10 +54,9 @@ upload_file <- function(file, purpose = "assistants", .dry_run = FALSE) {
 
 #' List files belonging to the user's organisation
 #'
-#' @param .dry_run If TRUE, will not make an actual call to the GPT API
 #'
 #' @export
-list_files <- function(.dry_run = FALSE) {
+list_files <- function() {
 
   # Retrieve and set API key
   openai_api_key <- Sys.getenv("OPENAI_API_KEY")
@@ -72,15 +65,10 @@ list_files <- function(.dry_run = FALSE) {
   }
 
   # GET from files endpoint
-  if (.dry_run) {
-    response <- data.frame(status_code = 200, content = "This is a placeholder response.")
-
-  } else {
-    response <- httr::GET(
-      "https://api.openai.com/v1/files",
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key))
-    )
-  }
+  response <- httr::GET(
+    "https://api.openai.com/v1/files",
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key))
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {

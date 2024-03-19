@@ -4,7 +4,7 @@
 \alias{GPT_thread}
 \title{Helper to create GPT_thread objects}
 \usage{
-GPT_thread(messages = list(), metadata = NULL, .dry_run = FALSE)
+GPT_thread(messages = list(), metadata = NULL)
 }
 \arguments{
 \item{messages}{A list of GPT_message objects (not GPT_messages objects) to
@@ -13,12 +13,10 @@ start the thread with}
 \item{metadata}{A named character vector of up to 16 metadata values, with
 names (keys) maximum 64 characters long and values maximum 512 characters
 long}
-
-\item{.dry_run}{If TRUE, will merely pretend to call the OpenAI API}
 }
 \description{
 As part of creating the (local) GPT_thread object, a linked thread entity
-will be created with the OpenAI API, unless .dry_run is set.
+will be created with the OpenAI API.
 }
 \details{
 API documented at

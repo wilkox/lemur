@@ -4,14 +4,12 @@
 \alias{upload_file}
 \title{Upload a file}
 \usage{
-upload_file(file, purpose = "assistants", .dry_run = FALSE)
+upload_file(file, purpose = "assistants")
 }
 \arguments{
 \item{file}{The file to upload}
 
 \item{purpose}{The purpose of the file, usually either 'assistants' or 'fine-tuning'}
-
-\item{.dry_run}{If TRUE, will not make an actual call to the GPT API}
 }
 \description{
 Upload a file

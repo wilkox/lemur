@@ -1,4 +1,4 @@
-test_that("Chat completion works", {
+with_mock_api({ test_that("Chat completion works", {
 
   openai_api_key <- Sys.getenv("OPENAI_API_KEY")
   has_key <- TRUE
@@ -16,12 +16,12 @@ test_that("Chat completion works", {
   )
   messages <- as_GPT_messages(messages)
   if (has_key) {
-    completion <- complete_GPT(messages, .dry_run = FALSE)
+    completion <- complete_GPT(messages)
   } else {
-    completion <- complete_GPT(messages, .dry_run = TRUE)
+    completion <- complete_GPT(messages)
   }
   expect_no_error(completion)
   expect_type(completion, "list")
   expect_s3_class(completion, "GPT_messages")
   expect_length(completion$content, 5)
-})
+}) })

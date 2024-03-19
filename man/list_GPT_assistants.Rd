@@ -4,7 +4,7 @@
 \alias{list_GPT_assistants}
 \title{List GPT assistants}
 \usage{
-list_GPT_assistants(limit = 20, order = "dsc", before, after)
+list_GPT_assistants(limit = 20, order = "dsc", before = NULL, after = NULL)
 }
 \arguments{
 \item{order}{Sort order for the created_at timestamp. Either 'asc' for
@@ -16,8 +16,9 @@ ascending or 'dsc' (default) for descending.}
 
 \item{name}{limit A limit on the number of assistants to be returned. Can be
 between 1-100, defaults to 20.}
-
-\item{.dry_run}{If TRUE, will merely pretend to call the OpenAI API}
+}
+\value{
+List of GPT assistants as a data frame
 }
 \description{
 List GPT assistants

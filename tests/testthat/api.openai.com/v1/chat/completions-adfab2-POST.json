@@ -1,0 +1,23 @@
+{
+    "id": "chatcmpl-94K1wnDWnXd5ESACYLcMkH0T6i93g",
+    "object": "chat.completion",
+    "created": 1710817336,
+    "model": "gpt-4-0613",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "The Southern Cross is a group of stars that can be seen from the southern hemisphere of Earth. It is a small, bright constellation that looks like a cross. The Southern Cross is very important because it helps travelers find their way south. It's like a compass in the sky."
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 59,
+        "completion_tokens": 56,
+        "total_tokens": 115
+    },
+    "system_fingerprint": null
+}

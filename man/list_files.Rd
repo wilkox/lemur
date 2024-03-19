@@ -4,10 +4,7 @@
 \alias{list_files}
 \title{List files belonging to the user's organisation}
 \usage{
-list_files(.dry_run = FALSE)
-}
-\arguments{
-\item{.dry_run}{If TRUE, will not make an actual call to the GPT API}
+list_files()
 }
 \description{
 List files belonging to the user's organisation

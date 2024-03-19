@@ -13,7 +13,7 @@ new_GPT_assistant <- function(x = list()) {
 #' other parameters are optional.
 #'
 #' As part of creating the (local) GPT_assistant object, a linked assistant
-#' object will be created with the OpenAI API, unless .dry_run is set.
+#' object will be created with the OpenAI API.
 #'
 #' API documented at
 #' \url{https://platform.openai.com/docs/api-reference/assistants/createAssistant}
@@ -29,7 +29,6 @@ new_GPT_assistant <- function(x = list()) {
 #' @param metadata A named character vector of up to 16 metadata values, with
 #' names (keys) maximum 64 characters long and values maximum 512 characters
 #' long
-#' @param .dry_run If TRUE, will merely pretend to call the OpenAI API
 #'
 #' @export
 GPT_assistant <- function(
@@ -38,8 +37,7 @@ GPT_assistant <- function(
   instructions = NULL,
   tools = NULL,
   files = NULL,
-  metadata = NULL,
-  .dry_run = FALSE
+  metadata = NULL
 ) {
 
   # Retrieve and set API key and model
@@ -61,21 +59,13 @@ GPT_assistant <- function(
   validate_GPT_assistant(assistant)
 
   # POST to assistants endpoint
-  if (.dry_run) {
-    assistant$id <- "dry run id"
-    assistant$created_at <- 123456L
-    validate_GPT_assistant(assistant)
-    return(assistant)
-
-  } else {
-    response <- httr::POST(
-      "https://api.openai.com/v1/assistants",
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-      httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-      httr::content_type_json(),
-      body = jsonlite::toJSON(params, auto_unbox = TRUE)
-    )
-  }
+  response <- httr::POST(
+    "https://api.openai.com/v1/assistants",
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    httr::content_type_json(),
+    body = jsonlite::toJSON(params, auto_unbox = TRUE)
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {
@@ -235,19 +225,17 @@ print.GPT_assistant <- function(x, ...) {
 #' ascending or 'dsc' (default) for descending.
 #' @param after Return assistants after the named assistant id
 #' @param before Return assistants before the named assistant id
-#' @param .dry_run If TRUE, will merely pretend to call the OpenAI API
 #'
 #' @return List of GPT assistants as a data frame
 #'
 #' @export
-list_GPT_assistants <- function(limit = 20, order = "dsc", before = NULL, after = NULL, .dry_run = FALSE) {
+list_GPT_assistants <- function(limit = 20, order = "dsc", before = NULL, after = NULL) {
 
   # Check arguments
   qassert(limit, "x1[0,100]")
   assertChoice(order, choices = c("asc", "dsc"))
   if (! testNull(before)) qassert(before, "s1")
   if (! testNull(after)) qassert(after, "s1")
-  qassert(.dry_run, "b1")
 
   # Retrieve and set API key
   openai_api_key <- Sys.getenv("OPENAI_API_KEY")
@@ -256,17 +244,11 @@ list_GPT_assistants <- function(limit = 20, order = "dsc", before = NULL, after 
   }
 
   # GET from assiatants endpoint
-  if (.dry_run) {
-    assistants <- data.frame(id = "dry run")
-    return(assistants)
-
-  } else {
-    response <- httr::GET(
-      "https://api.openai.com/v1/assistants",
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-      httr::add_headers("OpenAI-Beta" = "assistants=v1")
-    )
-  }
+  response <- httr::GET(
+    "https://api.openai.com/v1/assistants",
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {

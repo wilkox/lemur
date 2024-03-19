@@ -4,14 +4,7 @@
 \alias{add_message.GPT_thread}
 \title{Add a message to a GPT_thread}
 \usage{
-\method{add_message}{GPT_thread}(
-  x,
-  content,
-  role = "user",
-  files = NULL,
-  metadata = NULL,
-  .dry_run = FALSE
-)
+\method{add_message}{GPT_thread}(x, content, role = "user", files = NULL, metadata = NULL)
 }
 \arguments{
 \item{content}{The content of the message}
@@ -24,8 +17,6 @@
 \item{metadata}{A named character vector of up to 16 metadata values, with
 names (keys) maximum 64 characters long and values maximum 512 characters
 long}
-
-\item{.dry_run}{If TRUE, will merely pretend to call the OpenAI API}
 
 \item{thread}{GPT_thread object representing the thread in which the message
 is to be created}

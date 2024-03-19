@@ -4,12 +4,10 @@
 \alias{get_messages.GPT_thread}
 \title{Update a thread with the current list of messages}
 \usage{
-\method{get_messages}{GPT_thread}(x, .dry_run = FALSE)
+\method{get_messages}{GPT_thread}(x)
 }
 \arguments{
 \item{x}{A GPT_thread object}
-
-\item{.dry_run}{If TRUE, will merely pretend to call the OpenAI API}
 }
 \description{
 Update a thread with the current list of messages

@@ -10,7 +10,7 @@ new_GPT_thread <- function(x = list()) {
 #' Helper to create GPT_thread objects
 #'
 #' As part of creating the (local) GPT_thread object, a linked thread entity
-#' will be created with the OpenAI API, unless .dry_run is set.
+#' will be created with the OpenAI API.
 #'
 #' API documented at
 #' \url{https://platform.openai.com/docs/api-reference/threads/createThread}
@@ -20,13 +20,11 @@ new_GPT_thread <- function(x = list()) {
 #' @param metadata A named character vector of up to 16 metadata values, with
 #' names (keys) maximum 64 characters long and values maximum 512 characters
 #' long
-#' @param .dry_run If TRUE, will merely pretend to call the OpenAI API
 #'
 #' @export
 GPT_thread <- function(
   messages = list(),
-  metadata = NULL,
-  .dry_run = FALSE
+  metadata = NULL
 ) {
 
   # Retrieve API key
@@ -42,18 +40,13 @@ GPT_thread <- function(
   validate_GPT_thread(thread)
 
   # POST to thread endpoint
-  if (.dry_run) {
-    response <- data.frame(status_code = 200, content = "This is a placeholder response.")
-
-  } else {
-    response <- httr::POST(
-      "https://api.openai.com/v1/threads",
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-      httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-      httr::content_type_json(),
-      body = jsonlite::toJSON(params, auto_unbox = TRUE)
-    )
-  }
+  response <- httr::POST(
+    "https://api.openai.com/v1/threads",
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    httr::content_type_json(),
+    body = jsonlite::toJSON(params, auto_unbox = TRUE)
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {
@@ -166,9 +159,8 @@ print.GPT_thread <- function(x, get_messages = TRUE, ...) {
 #' Update a thread with the current list of messages
 #'
 #' @param x A GPT_thread object
-#' @param .dry_run If TRUE, will merely pretend to call the OpenAI API
 #'
-get_messages.GPT_thread <- function(x, .dry_run = FALSE) {
+get_messages.GPT_thread <- function(x) {
 
   message("Getting messages!! Need to fix this!!")
   return(x)
@@ -177,17 +169,12 @@ get_messages.GPT_thread <- function(x, .dry_run = FALSE) {
   openai_api_key <- openai_api_key()
 
   # GET from thread endpoint
-  if (.dry_run) {
-    response <- data.frame(status_code = 200, content = "This is a placeholder response.")
-
-  } else {
-    response <- httr::GET(
-      url = paste0("https://api.openai.com/v1/threads/", x$id, "/messages"),
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-      httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-      httr::content_type_json()
-    )
-  }
+  response <- httr::GET(
+    url = paste0("https://api.openai.com/v1/threads/", x$id, "/messages"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    httr::content_type_json()
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {
@@ -206,15 +193,14 @@ get_messages.GPT_thread <- function(x, .dry_run = FALSE) {
     m <- GPT_message(
       thread = x,
       role = message$role,
-      content = message$content[[1]]$text$value,
-      .dry_run = TRUE
+      content = message$content[[1]]$text$value
     )
     messages <- c(messages, message)
   }
 
 }
 
-get_messages <- function(x, get_messages = TRUE, .dry_run = FALSE) {
+get_messages <- function(x, get_messages = TRUE) {
   UseMethod("get_messages")
 }
 
@@ -229,7 +215,6 @@ get_messages <- function(x, get_messages = TRUE, .dry_run = FALSE) {
 #' @param metadata A named character vector of up to 16 metadata values, with
 #' names (keys) maximum 64 characters long and values maximum 512 characters
 #' long
-#' @param .dry_run If TRUE, will merely pretend to call the OpenAI API
 #'
 #' @export
 add_message.GPT_thread <- function(
@@ -237,8 +222,7 @@ add_message.GPT_thread <- function(
   content,
   role = "user",
   files = NULL,
-  metadata = NULL,
-  .dry_run = FALSE
+  metadata = NULL
 ) {
 
   # Retrieve API key
@@ -309,18 +293,13 @@ add_message.GPT_thread <- function(
   params <- params[! unlist(lapply(params, is.null))]
 
   # POST to threads endpoint
-  if (.dry_run) {
-    response <- data.frame(status_code = 200, content = "This is a placeholder response.")
-
-  } else {
-    response <- httr::POST(
-      paste0("https://api.openai.com/v1/threads/", x$id, "/messages"),
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-      httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-      httr::content_type_json(),
-      body = jsonlite::toJSON(params, auto_unbox = TRUE)
-    )
-  }
+  response <- httr::POST(
+    paste0("https://api.openai.com/v1/threads/", x$id, "/messages"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    httr::content_type_json(),
+    body = jsonlite::toJSON(params, auto_unbox = TRUE)
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {

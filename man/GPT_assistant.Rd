@@ -10,8 +10,7 @@ GPT_assistant(
   instructions = NULL,
   tools = NULL,
   files = NULL,
-  metadata = NULL,
-  .dry_run = FALSE
+  metadata = NULL
 )
 }
 \arguments{
@@ -31,8 +30,6 @@ vector of maximum length 32,768 characters}
 \item{metadata}{A named character vector of up to 16 metadata values, with
 names (keys) maximum 64 characters long and values maximum 512 characters
 long}
-
-\item{.dry_run}{If TRUE, will merely pretend to call the OpenAI API}
 }
 \description{
 The model will be set from the OPENAI_MODEL environmental variable. All
@@ -40,7 +37,7 @@ other parameters are optional.
 }
 \details{
 As part of creating the (local) GPT_assistant object, a linked assistant
-object will be created with the OpenAI API, unless .dry_run is set.
+object will be created with the OpenAI API.
 
 API documented at
 \url{https://platform.openai.com/docs/api-reference/assistants/createAssistant}

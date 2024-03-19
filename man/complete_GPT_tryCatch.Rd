@@ -4,14 +4,12 @@
 \alias{complete_GPT_tryCatch}
 \title{tryCatch-buffered complete_GPT}
 \usage{
-complete_GPT_tryCatch(x, tries = 3, .dry_run = FALSE)
+complete_GPT_tryCatch(x, tries = 3)
 }
 \arguments{
 \item{x}{A GPT_messages object}
 
 \item{tries}{How many times to try before giving up}
-
-\item{.dry_run}{If TRUE, will not make an actual call to the GPT API}
 }
 \description{
 tryCatch-buffered complete_GPT

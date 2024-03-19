@@ -4,10 +4,9 @@
 #' \url{https://platform.openai.com/docs/api-reference/chat/create}
 #'
 #' @param x A GPT_messages object
-#' @param .dry_run If TRUE, will merely pretend to call the OpenAI API
 #'
 #' @export
-complete_GPT.GPT_messages <- function(x, .dry_run = FALSE) {
+complete_GPT.GPT_messages <- function(x) {
 
   # Must be a valid GPT_messages object
   x <- validate_GPT_messages(x)
@@ -23,17 +22,12 @@ complete_GPT.GPT_messages <- function(x, .dry_run = FALSE) {
   )
 
   # POST to chat completion endpoint
-  if (.dry_run) {
-    response <- data.frame(status_code = 200, content = "This is a placeholder response.")
-
-  } else {
-    response <- httr::POST(
-      "https://api.openai.com/v1/chat/completions",
-      httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-      httr::content_type_json(),
-      body = jsonlite::toJSON(params, auto_unbox = TRUE)
-    )
-  }
+  response <- httr::POST(
+    "https://api.openai.com/v1/chat/completions",
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
+    httr::content_type_json(),
+    body = jsonlite::toJSON(params, auto_unbox = TRUE)
+  )
 
   # Check status code of response
   if (! response$status_code %in% 200:299) {
@@ -46,17 +40,13 @@ complete_GPT.GPT_messages <- function(x, .dry_run = FALSE) {
   }
 
   # Extract and return message content
-  if (.dry_run) {
-    content <- response$content
-  } else {
-    content <- httr::content(response)$choices[[1]]$message$content
-  }
+  content <- httr::content(response)$choices[[1]]$message$content
   x <- add_message(x, role = "assistant", content = content)
   return(x)
 }
 
 #' @export
-complete_GPT <- function(x, .dry_run) {
+complete_GPT <- function(x) {
   UseMethod("complete_GPT")
 }
 
@@ -64,14 +54,13 @@ complete_GPT <- function(x, .dry_run) {
 #'
 #' @param x A GPT_messages object
 #' @param tries How many times to try before giving up
-#' @param .dry_run If TRUE, will not make an actual call to the GPT API
 #'
 #' @export
-complete_GPT_tryCatch <- function(x, tries = 3, .dry_run = FALSE) {
+complete_GPT_tryCatch <- function(x, tries = 3) {
 
   while (tries > 0) {
     r <- tryCatch(
-      list(result = complete_GPT(x, .dry_run = .dry_run), error = NULL),
+      list(result = complete_GPT(x), error = NULL),
       error = function(e) list(result = NULL, error = e)
     )
     if (is.null(r$result)) {
@@ -264,15 +253,14 @@ as.vector.GPT_messages <- function(x, mode = "any") {
 #' @param x A GPT_messages object
 #' @param content The content of the message
 #' @param role The role of the message (defaults to "user")
-#' @param .dry_run If TRUE, will not make an actual call to the GPT API
 #' @export
-say_GPT.GPT_messages <- function(x, content, role = "user", .dry_run = FALSE) {
+say_GPT.GPT_messages <- function(x, content, role = "user") {
   x <- add_message(x, role = role, content = content)
-  x <- complete_GPT(x, .dry_run = .dry_run)
+  x <- complete_GPT(x)
   x
 }
 
 #' @export
-say_GPT <- function(x, content, role = "user", .dry_run) {
+say_GPT <- function(x, content, role = "user") {
   UseMethod("say_GPT")
 }

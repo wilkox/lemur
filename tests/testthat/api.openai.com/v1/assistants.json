@@ -1,0 +1,134 @@
+{
+    "object": "list",
+    "data": [
+        {
+            "id": "asst_Q061TdDRsGUcKBAssTMr5cGk",
+            "object": "assistant",
+            "created_at": 1710817200,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_bvhhnZ252OEQmQcoJsFSDapH",
+            "object": "assistant",
+            "created_at": 1710814427,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_CyUmcnR9DtubX0h1DEzc4K3X",
+            "object": "assistant",
+            "created_at": 1710807395,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_HrOGT7Vlx1YT21uW92rwaNMz",
+            "object": "assistant",
+            "created_at": 1710807141,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_WAONhz2YX07DR7anKkb4pi0S",
+            "object": "assistant",
+            "created_at": 1704761682,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": "You are a friendly astronomy teacher",
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_ifvmm1LsYWwL1dWI9jhWPf6g",
+            "object": "assistant",
+            "created_at": 1704761147,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": "You are a friendly astronomy teacher",
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_0fmVDwsWKLoUefZP8s1NdZj2",
+            "object": "assistant",
+            "created_at": 1704760863,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        }
+    ],
+    "first_id": "asst_Q061TdDRsGUcKBAssTMr5cGk",
+    "last_id": "asst_0fmVDwsWKLoUefZP8s1NdZj2",
+    "has_more": false
+}
