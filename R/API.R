@@ -20,6 +20,7 @@ openai_model <- function() {
 
 #' Set model to the OPENAI_MODEL environmental variable
 #'
+#' @export
 set_model <- function() {
   model <- "gpt-4"
   Sys.setenv(OPENAI_MODEL = model)

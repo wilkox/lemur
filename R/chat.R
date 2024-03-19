@@ -55,6 +55,7 @@ complete_GPT.GPT_messages <- function(x, .dry_run = FALSE) {
   return(x)
 }
 
+#' @export
 complete_GPT <- function(x, .dry_run) {
   UseMethod("complete_GPT")
 }
@@ -65,6 +66,7 @@ complete_GPT <- function(x, .dry_run) {
 #' @param tries How many times to try before giving up
 #' @param .dry_run If TRUE, will not make an actual call to the GPT API
 #'
+#' @export
 complete_GPT_tryCatch <- function(x, tries = 3, .dry_run = FALSE) {
 
   while (tries > 0) {
@@ -163,6 +165,7 @@ as_GPT_messages.data.frame <- function(df = data.frame()) {
   validate_GPT_messages(x)
 }
 
+#' @export
 as_GPT_messages <- function(df) {
   UseMethod("as_GPT_messages")
 }
@@ -178,9 +181,11 @@ as.data.frame.GPT_messages <- function(x, ...) {
 
 #' Add a message to a GPT_messages object
 #'
+#' @export
 #' @param x A GPT_messages object
 #' @param content The content of the message
 #' @param role The role of the message (defaults to "user")
+#'
 #' @export
 add_message.GPT_messages <- function(x, content, role = "user") {
 
@@ -201,6 +206,7 @@ add_message.GPT_messages <- function(x, content, role = "user") {
 
 }
 
+#' @export
 add_message <- function(x, content, role, ...) {
   UseMethod("add_message")
 }
@@ -220,6 +226,7 @@ remove_message.GPT_messages <- function(x) {
 
 }
 
+#' @export
 remove_message <- function(x) {
   UseMethod("remove_message")
 }
@@ -234,6 +241,7 @@ last_message.GPT_messages <- function(x) {
   return(x$content[length(x$content)])
 }
 
+#' @export
 last_message <- function(x) {
   UseMethod("last_message")
 }
@@ -264,6 +272,7 @@ say_GPT.GPT_messages <- function(x, content, role = "user", .dry_run = FALSE) {
   x
 }
 
+#' @export
 say_GPT <- function(x, content, role = "user", .dry_run) {
   UseMethod("say_GPT")
 }

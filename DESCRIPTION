@@ -3,7 +3,7 @@ Title: R bindings for LLM APIs
 Version: 0.1.0
 Authors@R: 
     person("David", "Wilkins", , "david@wilkox.org", role = c("aut", "cre"))
-Description: Provides R bindings for LLM APIs
+Description: Provides R bindings for LLM APIs.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
