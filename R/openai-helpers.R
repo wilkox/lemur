@@ -22,7 +22,8 @@ openai_model <- function() {
 #'
 #' @export
 set_model <- function() {
-  model <- "gpt-4"
+  model <- Sys.getenv("OPENAI_MODEL")
+  if (model == "") model <- "gpt-4"
   Sys.setenv(OPENAI_MODEL = model)
   msg <- paste0(
     cli::col_blue("{cli::symbol$info}"),

@@ -1,0 +1,20 @@
+{
+    "id": "asst_SIUj04jVyhWSuSVbFd9YRS4G",
+    "object": "assistant",
+    "created_at": 1711421702,
+    "name": "Created in automated testing",
+    "description": null,
+    "model": "gpt-4-0125-preview",
+    "instructions": null,
+    "tools": [
+        {
+            "type": "retrieval"
+        }
+    ],
+    "file_ids": [
+
+    ],
+    "metadata": {
+
+    }
+}

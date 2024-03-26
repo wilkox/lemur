@@ -1,0 +1,302 @@
+{
+    "object": "list",
+    "data": [
+        {
+            "id": "asst_SIUj04jVyhWSuSVbFd9YRS4G",
+            "object": "assistant",
+            "created_at": 1711421702,
+            "name": "Created in automated testing",
+            "description": null,
+            "model": "gpt-4-0125-preview",
+            "instructions": null,
+            "tools": [
+                {
+                    "type": "retrieval"
+                }
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_37XgUAJO2jyW3L6Q07X6IdeN",
+            "object": "assistant",
+            "created_at": 1711421237,
+            "name": "Bob the test assistant",
+            "description": null,
+            "model": "gpt-4-0125-preview",
+            "instructions": null,
+            "tools": [
+                {
+                    "type": "retrieval"
+                }
+            ],
+            "file_ids": [
+                "file-AHSZgHzZjwUUCSA02qAhBIH1"
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_oWlZprg49vAsS4cq7uouku0z",
+            "object": "assistant",
+            "created_at": 1711417697,
+            "name": "Bob the test assistant",
+            "description": null,
+            "model": "gpt-4-0125-preview",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_R92n3sDx5a51vKbqApoLbTYI",
+            "object": "assistant",
+            "created_at": 1711417568,
+            "name": null,
+            "description": null,
+            "model": "gpt-4-0125-preview",
+            "instructions": null,
+            "tools": [
+                {
+                    "type": "retrieval"
+                }
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_vOOyyzxaNBXbjXhYX74efVcs",
+            "object": "assistant",
+            "created_at": 1710822961,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_gSnl1nZrk0uootI73B5eGR9k",
+            "object": "assistant",
+            "created_at": 1710821488,
+            "name": "thismanealkshdlkjghaljkshdglkjanwenfagnblaksjbdjgbasldbgalbsgdjabsjgbaslkbdgjaksbdgljkablgdbajkslbgjaksbdgjlkbalkbdlkabgjsakbdglakbsdjgbalksbdgjbasldjgbalsdbgasbd",
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_cglt8HiLezimTXhwOPa1rw0H",
+            "object": "assistant",
+            "created_at": 1710819032,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_Sje6YVYWI4LmYsjKYLo8KgWN",
+            "object": "assistant",
+            "created_at": 1710818996,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_6ZiOapDhahGq93yEJIN1i78D",
+            "object": "assistant",
+            "created_at": 1710818960,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_Q061TdDRsGUcKBAssTMr5cGk",
+            "object": "assistant",
+            "created_at": 1710817200,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_bvhhnZ252OEQmQcoJsFSDapH",
+            "object": "assistant",
+            "created_at": 1710814427,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_CyUmcnR9DtubX0h1DEzc4K3X",
+            "object": "assistant",
+            "created_at": 1710807395,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_HrOGT7Vlx1YT21uW92rwaNMz",
+            "object": "assistant",
+            "created_at": 1710807141,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_WAONhz2YX07DR7anKkb4pi0S",
+            "object": "assistant",
+            "created_at": 1704761682,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": "You are a friendly astronomy teacher",
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_ifvmm1LsYWwL1dWI9jhWPf6g",
+            "object": "assistant",
+            "created_at": 1704761147,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": "You are a friendly astronomy teacher",
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        },
+        {
+            "id": "asst_0fmVDwsWKLoUefZP8s1NdZj2",
+            "object": "assistant",
+            "created_at": 1704760863,
+            "name": null,
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [
+
+            ],
+            "file_ids": [
+
+            ],
+            "metadata": {
+
+            }
+        }
+    ],
+    "first_id": "asst_SIUj04jVyhWSuSVbFd9YRS4G",
+    "last_id": "asst_0fmVDwsWKLoUefZP8s1NdZj2",
+    "has_more": false
+}

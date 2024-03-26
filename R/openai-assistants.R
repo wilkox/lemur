@@ -1,12 +1,3 @@
-#' A constructor function for assistant objects
-#'
-#' @param x A list containing parameters for the assistant, as documented in
-#' assistant()
-new_assistant <- function(x = list()) {
-  stopifnot(! missing(x))
-  structure(x, class = "assistant")
-}
-
 #' Create an assistant
 #'
 #' The model will be set from the OPENAI_MODEL environmental variable. All
@@ -23,7 +14,7 @@ new_assistant <- function(x = list()) {
 #' @param instructions Instructions for the assistance, an atomic character
 #' vector of maximum length 32,768 characters
 #' @param tools A list of assistant_tool objects, maximum of 128
-#' @param files A list of assistant_file objects, maximum of 20
+#' @param file_ids A vector of file_ids to be attached to the assistant, maximum of 20
 #' @param metadata A named character vector of up to 16 metadata values, with
 #' names (keys) maximum 64 characters long and values maximum 512 characters
 #' long
@@ -34,7 +25,7 @@ create_assistant <- function(
   description = NULL,
   instructions = NULL,
   tools = NULL,
-  files = NULL,
+  file_ids = NULL,
   metadata = NULL
 ) {
 
@@ -45,12 +36,16 @@ create_assistant <- function(
     description = description,
     instructions = instructions,
     tools = tools,
-    files = files,
+    file_ids = file_ids,
     metadata = metadata
   )
   params <- params[! unlist(lapply(params, is.null))]
   assistant <- new_assistant(c(list(id = character(1), created_at = integer(1)), params))
   validate_assistant(assistant)
+
+  # Mung parameters into the format expected by the API
+  if (! testNull(params$tools)) params$tools <- lapply(params$tools, unclass)
+  if (! testNull(params$file_ids)) params$file_ids <- as.list(params$file_ids)
 
   # POST to assistants endpoint
   response <- httr::POST(
@@ -72,55 +67,48 @@ create_assistant <- function(
   return(assistant)
 }
 
-#' A validator function for assistant objects
+#' Create an assistant file
 #'
-#' @param x A assistant object
-validate_assistant <- function(x) {
-
-  params <- unclass(x)
-
-  assertList(x)
-  for (param in names(x)) assertChoice(param, c("id", "created_at", "name", "model", "description", "instructions", "tools", "files", "metadata"))
-  qassert(params$id, "S1")
-  qassert(params$created_at, "X1")
-  assertString(params$model, max.chars = 256)
-  if (! testNull(params$name)) assertString(params$name, max.chars = 256)
-  if (! testNull(params$description)) assertString(params$description, max.chars = 512)
-  if (! testNull(params$instructions)) assertString(params$instructions, max.chars = 32768)
-  if (! testNull(params$tools)) {
-    assertList(params$tools, max.len = 128)
-    for (tool in params$tools) assertClass(tool, "assistant_tool")
-  }
-  if (! testNull(params$files)) {
-    assertList(params$files, max.len = 20)
-    for (file in params$files) assertClass(tool, "assistant_file")
-  }
-  if (! testNull(params$metatdata)) {
-    assertCharacter(params$metadata, max.len = 16, names = "named")
-    for (key in names(params$metadata)) assertString(key, max.chars = 64)
-    for (value in params$metadata) assertString(value, max.chars = 512)
-  }
-
-  x
-}
-
-#' A print method for assistants
+#' @return An assistant_file object.
 #'
-#' Coloured output based on
-#' \url{https://github.com/r-lib/testthat/blob/717b02164def5c1f027d3a20b889dae35428b6d7/R/colour-text.r}
+#' @references \url{https://platform.openai.com/docs/api-reference/assistants/createAssistantFile}
 #'
-#' @param x An assistant object
-#' @param ... Other arguments to be passed to print()
+#' @param assistant_id The ID of the assistant
+#' @param file_id The ID of the file
 #'
 #' @export
-print.assistant <- function(x, ...) {
+create_assistant_file <- function(assistant_id, file_id) {
 
-  cli::cli_h1("assistant object")
+  # Check arguments
+  qassert(assistant_id, "S1")
+  qassert(file_id, "S1")
 
-  print(unclass(x))
+  # Set params
+  params <- list(file_id = file_id)
+
+  # POST to assistants endpoint
+  response <- httr::POST(
+    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    body = jsonlite::toJSON(params, auto_unbox = TRUE)
+  )
+
+  # Check status code of response
+  check_openai_response(response)
+
+  # Response
+  assistant_file <- assistant_file(
+    id = httr::content(response)$id,
+    created_at = httr::content(response)$created_at,
+    assistant_id = httr::content(response)$assistant_id
+  )
+  validate_assistant_file(assistant_file)
+
+  return(assistant_file)
 }
 
-#' List GPT assistants
+#' List assistants
 #'
 #' @references \url{https://platform.openai.com/docs/api-reference/assistants/listAssistants}
 #'

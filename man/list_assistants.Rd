@@ -2,7 +2,7 @@
 % Please edit documentation in R/openai-assistants.R
 \name{list_assistants}
 \alias{list_assistants}
-\title{List GPT assistants}
+\title{List assistants}
 \usage{
 list_assistants(limit = 20, order = "desc", before = NULL, after = NULL)
 }
@@ -21,7 +21,7 @@ ascending or 'desc' (default) for descending.}
 Data frame of GPT assistants
 }
 \description{
-List GPT assistants
+List assistants
 }
 \references{
 \url{https://platform.openai.com/docs/api-reference/assistants/listAssistants}
