@@ -32,4 +32,10 @@ with_mock_api({ test_that("Assistants API bindings", {
   expect_no_error({ assistant <- modify_assistant(assistant$id, name = "Aristotle") })
   expect_s3_class(assistant, "assistant")
 
+  # Delete an assistant file
+  expect_message({ delete_assistant_file(assistant$id, "file-sN6eG4TkNq2Quj1LpgCdUVdo") }, "deleted from")
+
+  # Delete an assistant
+  expect_message({ delete_assistant(assistant$id) }, "deleted")
+
 }) })

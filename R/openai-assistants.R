@@ -196,7 +196,7 @@ list_assistant_files <- function(assistant_id, limit = 20, order = "desc", befor
   return(files)
 }
 
-#' Retrieve an assitant
+#' Retrieve an assistant
 #'
 #' @references \url{https://platform.openai.com/docs/api-reference/assistants/getAssistant}
 #'
@@ -226,7 +226,7 @@ retrieve_assistant <- function(assistant_id) {
   return(assistant)
 }
 
-#' Retrieve an assitant file
+#' Retrieve an assistant file
 #'
 #' @references \url{https://platform.openai.com/docs/api-reference/assistants/getAssistantFile}
 #'
@@ -331,3 +331,60 @@ modify_assistant <- function(
 
   return(assistant)
 }
+
+#' Delete an assistant
+#'
+#' @references \url{https://platform.openai.com/docs/api-reference/assistants/deleteAssistant}
+#'
+#' @param assistant_id The ID of the assistant
+#'
+#' @return Nothing
+#'
+#' @export
+delete_assistant <- function(assistant_id) {
+
+  # Check arguments
+  qassert(assistant_id, "S1")
+
+  # DELETE to assistants endpoint
+  response <- httr::DELETE(
+    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+  )
+
+  # Check status code of response
+  check_openai_response(response)
+
+  cli::cli_alert_success("Assistant with id {.val {assistant_id}} deleted")
+}
+
+#' Delete an assistant file
+#'
+#' @references \url{https://platform.openai.com/docs/api-reference/assistants/deleteAssistantFile}
+#'
+#' @param assistant_id The ID of the assistant
+#' @param file_id The ID of the assistant file
+#'
+#' @return Nothing
+#'
+#' @export
+delete_assistant_file <- function(assistant_id, file_id) {
+
+  # Check arguments
+  qassert(assistant_id, "S1")
+  qassert(file_id, "S1")
+
+  # DELETE to assistants endpoint
+  response <- httr::DELETE(
+    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+  )
+
+  # Check status code of response
+  check_openai_response(response)
+
+  cli::cli_alert_success("Assistant file with id {.val {file_id}} deleted from assistant with id {.val {assistant_id}}")
+}
+

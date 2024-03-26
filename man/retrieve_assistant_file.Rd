@@ -2,7 +2,7 @@
 % Please edit documentation in R/openai-assistants.R
 \name{retrieve_assistant_file}
 \alias{retrieve_assistant_file}
-\title{Retrieve an assitant file}
+\title{Retrieve an assistant file}
 \usage{
 retrieve_assistant_file(assistant_id, file_id)
 }
@@ -15,7 +15,7 @@ retrieve_assistant_file(assistant_id, file_id)
 An assistant_file object
 }
 \description{
-Retrieve an assitant file
+Retrieve an assistant file
 }
 \references{
 \url{https://platform.openai.com/docs/api-reference/assistants/getAssistantFile}

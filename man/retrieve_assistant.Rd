@@ -2,7 +2,7 @@
 % Please edit documentation in R/openai-assistants.R
 \name{retrieve_assistant}
 \alias{retrieve_assistant}
-\title{Retrieve an assitant}
+\title{Retrieve an assistant}
 \usage{
 retrieve_assistant(assistant_id)
 }
@@ -13,7 +13,7 @@ retrieve_assistant(assistant_id)
 An assistant object
 }
 \description{
-Retrieve an assitant
+Retrieve an assistant
 }
 \references{
 \url{https://platform.openai.com/docs/api-reference/assistants/getAssistant}
