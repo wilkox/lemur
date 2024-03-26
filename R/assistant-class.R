@@ -12,25 +12,23 @@ new_assistant <- function(x = list()) {
 #' @param x A assistant object
 validate_assistant <- function(x) {
 
-  params <- unclass(x)
-
   assertList(x)
   for (param in names(x)) assertChoice(param, c("id", "created_at", "name", "model", "description", "instructions", "tools", "file_ids", "metadata"))
-  qassert(params$id, "S1")
-  qassert(params$created_at, "X1")
-  assertString(params$model, max.chars = 256)
-  if (! testNull(params$name)) assertString(params$name, max.chars = 256)
-  if (! testNull(params$description)) assertString(params$description, max.chars = 512)
-  if (! testNull(params$instructions)) assertString(params$instructions, max.chars = 32768)
-  if (! testNull(params$tools)) {
-    assertList(params$tools, max.len = 128)
-    for (tool in params$tools) assertClass(tool, "assistant_tool")
+  qassert(x$id, "S1")
+  qassert(x$created_at, "X1")
+  assertString(x$model, max.chars = 256)
+  if (! testNull(x$name)) assertString(x$name, max.chars = 256)
+  if (! testNull(x$description)) assertString(x$description, max.chars = 512)
+  if (! testNull(x$instructions)) assertString(x$instructions, max.chars = 32768)
+  if (! testNull(x$tools)) {
+    assertList(x$tools, max.len = 128)
+    for (tool in x$tools) assertClass(tool, "assistant_tool")
   }
-  if (! testNull(params$file_ids)) assertCharacter(params$file_ids, max.len = 20)
-  if (! testNull(params$metatdata)) {
-    assertCharacter(params$metadata, max.len = 16, names = "named")
-    for (key in names(params$metadata)) assertString(key, max.chars = 64)
-    for (value in params$metadata) assertString(value, max.chars = 512)
+  if (! testNull(x$file_ids)) assertCharacter(x$file_ids, max.len = 20)
+  if (! testNull(x$metatdata)) {
+    assertCharacter(x$metadata, max.len = 16, names = "named")
+    for (key in names(x$metadata)) assertString(key, max.chars = 64)
+    for (value in x$metadata) assertString(value, max.chars = 512)
   }
 
   x
