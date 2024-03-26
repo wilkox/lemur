@@ -48,3 +48,24 @@ print.assistant <- function(x, ...) {
 
   print(unclass(x))
 }
+
+#' An as_assistant method for httr responses
+#'
+#' @param response The httr response
+#'
+as_assistant.response <- function(response) {
+
+  content <- httr::content(response)
+  if (! testNull(content$tools)) content$tools <- lapply(content$tools, function(tool) assistant_tool(type = tool$type))
+  if (! testNull(content$object)) content$object <- NULL
+  if (! testNull(content$file_ids)) content$file_ids <- as.character(content$file_ids)
+  assistant <- new_assistant(content)
+  assistant <- validate_assistant(assistant)
+  assistant
+
+}
+
+#' @export
+as_assistant <- function(x) {
+  UseMethod("as_assistant")
+}

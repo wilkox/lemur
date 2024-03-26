@@ -221,6 +221,113 @@ retrieve_assistant <- function(assistant_id) {
   check_openai_response(response)
 
   # Response
-  assistant <- new_assistant(httr::content(response))
+  assistant <- as_assistant(response)
+  validate_assistant(assistant)
+  return(assistant)
+}
+
+#' Retrieve an assitant file
+#'
+#' @references \url{https://platform.openai.com/docs/api-reference/assistants/getAssistantFile}
+#'
+#' @param assistant_id The ID of the assistant
+#' @param file_id The ID of the assistant file
+#'
+#' @return An assistant_file object
+#'
+#' @export
+retrieve_assistant_file <- function(assistant_id, file_id) {
+
+  # Check arguments
+  qassert(assistant_id, "S1")
+  qassert(file_id, "S1")
+
+  # GET from assistants endpoint
+  response <- httr::GET(
+    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+  )
+
+  # Check status code of response
+  check_openai_response(response)
+
+  # Response
+  assistant_file <- assistant_file(
+    id = httr::content(response)$id,
+    created_at = httr::content(response)$created_at,
+    assistant_id = httr::content(response)$assistant_id
+  )
+  validate_assistant_file(assistant_file)
+  return(assistant_file)
+}
+
+#' Modify an assistant
+#'
+#' The model will be set from the OPENAI_MODEL environmental variable.
+#'
+#' @return An assistant object.
+#'
+#' @references \url{https://platform.openai.com/docs/api-reference/assistants/modifyAssistant}
+#'
+#' @param assistant_id The ID of the assistant to modify (required)
+#' @param name The name of the assistant, an atomic character vector of maximum
+#' length 256 characters
+#' @param description A description of the assistant, an atomic character
+#' vector of maximum length 512 characters
+#' @param instructions Instructions for the assistance, an atomic character
+#' vector of maximum length 32,768 characters
+#' @param tools A list of assistant_tool objects, maximum of 128
+#' @param file_ids A vector of file_ids to be attached to the assistant, maximum of 20
+#' @param metadata A named character vector of up to 16 metadata values, with
+#' names (keys) maximum 64 characters long and values maximum 512 characters
+#' long
+#'
+#' @export
+modify_assistant <- function(
+  assistant_id,
+  name = NULL,
+  description = NULL,
+  instructions = NULL,
+  tools = NULL,
+  file_ids = NULL,
+  metadata = NULL
+) {
+
+  # Set up and validate the instance
+  qassert(assistant_id, "S1")
+  params <- list(
+    model = openai_model(),
+    name = name,
+    description = description,
+    instructions = instructions,
+    tools = tools,
+    file_ids = file_ids,
+    metadata = metadata
+  )
+  params <- params[! unlist(lapply(params, is.null))]
+  assistant <- new_assistant(c(list(id = character(1), created_at = integer(1)), params))
+  validate_assistant(assistant)
+
+  # Mung parameters into the format expected by the API
+  if (! testNull(params$tools)) params$tools <- lapply(params$tools, unclass)
+  if (! testNull(params$file_ids)) params$file_ids <- as.list(params$file_ids)
+
+  # POST to assistants endpoint
+  response <- httr::POST(
+    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    httr::content_type_json(),
+    body = jsonlite::toJSON(params, auto_unbox = TRUE)
+  )
+
+  # Check status code of response
+  check_openai_response(response)
+  
+  # Extract params of new assistant
+  assistant <- as_assistant(response)
+  validate_assistant(assistant)
+
   return(assistant)
 }
