@@ -46,6 +46,7 @@ create_assistant <- function(
   # Mung parameters into the format expected by the API
   if (! testNull(params$tools)) params$tools <- lapply(params$tools, unclass)
   if (! testNull(params$file_ids)) params$file_ids <- as.list(params$file_ids)
+  if (! testNull(params$metadata)) params$metadata <- as.list(params$metadata)
 
   # POST to assistants endpoint
   response <- httr::POST(

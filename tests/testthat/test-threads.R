@@ -1,7 +1,7 @@
 with_mock_api({ test_that("Threads API bindings", {
 
   # Create a thread
-  expect_no_error({ thread <- create_thread(metadata = c(county = "Australia")) })
+  expect_no_error({ thread <- create_thread(metadata = c(country = "Australia")) })
   expect_s3_class(thread, "thread")
 
   # Retrieve a thread

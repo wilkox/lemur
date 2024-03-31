@@ -10,12 +10,20 @@
 #' @return A thread object
 create_thread <- function(messages = NULL, metadata = NULL) {
 
-  # Set up and validate the instance
+  # Set up and validate the arguments
   params <- list(
     messages = messages,
     metadata = metadata
   )
   params <- params[! unlist(lapply(params, is.null))]
+  if (! is.null(messages)) {
+    assertList(messages)
+    if (length(messages) > 0) for (m in messages) assertClass(m, "message")
+  }
+  if (! is.null(metadata)) {
+    assertCharacter(metadata, max.len = 16, max.chars = 512, names = "named")
+    if (length(metadata) > 0) assertCharacter(names(metadata), max.chars = 64)
+  }
 
   # Mung parameters into the format expected by the API
   if (! testNull(params$messages)) params$messages <- lapply(params$messages, unclass)

@@ -38,10 +38,30 @@ print.assistant_file <- function(x, ...) {
 
 #' Helper to create assistant_file objects
 #'
-#' @param type The type of file, one of "retrieval" (the default), "code_interpreter", or "function"
+#' @param id The assistant_file id
+#' @param created_at The created_at time
+#' @param assistant_id The id of the associated assistant
 #' @export
 assistant_file <- function(id = NULL, created_at = NULL, assistant_id = NULL) {
   x <- list(id = id, created_at = created_at, assistant_id = assistant_id)
   x <- new_assistant_file(x)
   validate_assistant_file(x)
+}
+
+#' An as_assistant_file method for httr responses
+#'
+#' @param response The httr response
+#'
+as_assistant_file.response <- function(response) {
+
+  content <- httr::content(response)
+  content$object <- NULL
+  assistant_file <- new_assistant_file(content)
+  assistant_file <- validate_assistant_file(assistant_file)
+  assistant_file
+}
+
+#' @export
+as_assistant_file <- function(x) {
+  UseMethod("as_assistant_file")
 }

@@ -16,8 +16,10 @@ validate_thread <- function(x) {
   for (param in names(x)) assertChoice(param, c("id", "created_at", "metadata"))
   qassert(x$id, "S1")
   qassert(x$created_at, "X1")
-  assertCharacter(x$metadata, max.len = 16, max.chars = 512, names = "named")
-  if (length(x$metadata) > 0) assertCharacter(names(x$metadata), max.chars = 64)
+  if (! is.null(x$metadata)) {
+    assertCharacter(x$metadata, max.len = 16, max.chars = 512, names = "named")
+    if (length(x$metadata) > 0) assertCharacter(names(x$metadata), max.chars = 64)
+  }
 
   x
 }
