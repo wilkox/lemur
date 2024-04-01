@@ -54,8 +54,9 @@ upload_file <- function(file, purpose = "assistants") {
 
 #' List files belonging to the user's organisation
 #'
-#'
 #' @export
+#'
+#' @return A data frame of files
 list_files <- function() {
 
   # Retrieve and set API key
@@ -84,5 +85,32 @@ list_files <- function() {
   response <- httr::content(response)$data
   files <- as.data.frame(do.call(rbind, response))
   return(files)
+
+}
+
+#' Delete a file
+#'
+#' @references \url{https://platform.openai.com/docs/api-reference/files/delete}
+#'
+#' @param file_id The ID of the file to delete
+#'
+#' @export
+#'
+delete_file <- function(file_id) {
+
+  # Check arguments
+  qassert(file_id, "S1")
+
+  # DELETE to threads endpoint
+  response <- httr::DELETE(
+    glue::glue("https://api.openai.com/v1/files/{file_id}"),
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+  )
+
+  # Check status code of response
+  check_openai_response(response)
+
+  cli::cli_alert_success("File with id {.val {file_id}} deleted")
 
 }

@@ -6,6 +6,9 @@
 \usage{
 list_files()
 }
+\value{
+A data frame of files
+}
 \description{
 List files belonging to the user's organisation
 }
