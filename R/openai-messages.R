@@ -12,6 +12,8 @@
 #' long
 #'
 #' @return A thread object
+#'
+#' @export
 create_message <- function(
   thread_id,
   role = "user",
