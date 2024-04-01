@@ -21,6 +21,8 @@
 #' between 0 and 2. Defaults to 1.
 #' @param stream Logical value; if TRUE, will return a stream. Defaults to
 #' FALSE.
+#'
+#' @export
 create_run <- function(
   thread_id,
   assistant_id,
