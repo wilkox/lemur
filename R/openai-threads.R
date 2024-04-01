@@ -8,6 +8,8 @@
 #' long
 #'
 #' @return A thread object
+#'
+#' @export
 create_thread <- function(messages = NULL, metadata = NULL) {
 
   # Set up and validate the arguments
