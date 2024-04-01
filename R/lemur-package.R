@@ -6,6 +6,7 @@
 #' @importFrom checkmate assertChoice
 #' @importFrom checkmate assertClass
 #' @importFrom checkmate assertList
+#' @importFrom checkmate assertSetEqual
 #' @importFrom checkmate assertString
 #' @importFrom checkmate qassert
 #' @importFrom checkmate qtest

@@ -11,7 +11,7 @@
 #' length 256 characters
 #' @param description A description of the assistant, an atomic character
 #' vector of maximum length 512 characters
-#' @param instructions Instructions for the assistance, an atomic character
+#' @param instructions Instructions for the assistant, an atomic character
 #' vector of maximum length 32,768 characters
 #' @param tools A list of assistant_tool objects, maximum of 128
 #' @param file_ids A vector of file_ids to be attached to the assistant, maximum of 20
@@ -29,7 +29,7 @@ create_assistant <- function(
   metadata = NULL
 ) {
 
-  # Set up and validate the instance
+  # Set up and validate the parameters
   params <- list(
     model = openai_model(),
     name = name,

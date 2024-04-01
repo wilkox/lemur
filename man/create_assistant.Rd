@@ -20,7 +20,7 @@ length 256 characters}
 \item{description}{A description of the assistant, an atomic character
 vector of maximum length 512 characters}
 
-\item{instructions}{Instructions for the assistance, an atomic character
+\item{instructions}{Instructions for the assistant, an atomic character
 vector of maximum length 32,768 characters}
 
 \item{tools}{A list of assistant_tool objects, maximum of 128}

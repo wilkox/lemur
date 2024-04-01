@@ -25,7 +25,7 @@ validate_assistant <- function(x) {
     for (tool in x$tools) assertClass(tool, "assistant_tool")
   }
   if (! testNull(x$file_ids)) assertCharacter(x$file_ids, max.len = 20)
-  if (! testNull(x$metatdata)) {
+  if (! testNull(x$metadata)) {
     assertCharacter(x$metadata, max.len = 16, names = "named")
     for (key in names(x$metadata)) assertString(key, max.chars = 64)
     for (value in x$metadata) assertString(value, max.chars = 512)
@@ -57,6 +57,7 @@ as_assistant.response <- function(response) {
   if (! testNull(content$tools)) content$tools <- lapply(content$tools, function(tool) assistant_tool(type = tool$type))
   if (! testNull(content$object)) content$object <- NULL
   if (! testNull(content$file_ids)) content$file_ids <- as.character(content$file_ids)
+  if (! testNull(content$metadata)) content$metadata <- unlist(content$metadata)
   assistant <- new_assistant(content)
   assistant <- validate_assistant(assistant)
   assistant
