@@ -45,6 +45,11 @@ complete_GPT.chat <- function(x) {
   return(x)
 }
 
+#' Generic method to complete an object such as a chat with GPT
+#'
+#' @param x The object
+#'
+#' @export
 complete_GPT <- function(x) {
   UseMethod("complete_GPT")
 }
@@ -153,6 +158,11 @@ as_chat.data.frame <- function(x = data.frame()) {
   validate_chat(x)
 }
 
+#' Generic method to coerce an object to a chat
+#'
+#' @param x The object to coerce
+#'
+#' @export
 as_chat <- function(x) {
   UseMethod("as_chat")
 }
@@ -169,6 +179,7 @@ as.data.frame.chat <- function(x, ...) {
 #' Add a message to a chat object
 #'
 #' @export
+#'
 #' @param x A chat object
 #' @param content The content of the message
 #' @param role The role of the message (defaults to "user")
@@ -193,7 +204,16 @@ add_message.chat <- function(x, content, role = "user") {
 
 }
 
-add_message <- function(x, content, role) {
+#' Generic function to add a message
+#'
+#' @export
+#'
+#' @param x Object to add message to
+#' @param content The content of the message
+#' @param role The role of the message (defaults to "user")
+#'
+#' @export
+add_message <- function(x, content, role = "user") {
   UseMethod("add_message")
 }
 
@@ -226,6 +246,11 @@ last_message.chat <- function(x) {
   return(x$content[length(x$content)])
 }
 
+#' Generic method to return the last message from an object like a chat
+#'
+#' @param x The object
+#'
+#' @export
 last_message <- function(x) {
   UseMethod("last_message")
 }
