@@ -38,6 +38,10 @@ print.message_file <- function(x, ...) {
 
 #' Helper to create message_file objects
 #'
+#' @param id The id
+#' @param created_at The created_at time
+#' @param message_id The message id
+#'
 #' @export
 message_file <- function(id = NULL, created_at = NULL, message_id = NULL) {
   x <- list(id = id, created_at = created_at, message_id = message_id)
@@ -48,7 +52,6 @@ message_file <- function(id = NULL, created_at = NULL, message_id = NULL) {
 #' An as_message_file method for httr responses
 #'
 #' @param response The httr response
-#'
 as_message_file.response <- function(response) {
 
   content <- httr::content(response)
@@ -58,7 +61,6 @@ as_message_file.response <- function(response) {
   message_file
 }
 
-#' @export
 as_message_file <- function(x) {
   UseMethod("as_message_file")
 }

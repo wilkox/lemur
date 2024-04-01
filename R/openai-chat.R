@@ -45,7 +45,6 @@ complete_GPT.chat <- function(x) {
   return(x)
 }
 
-#' @export
 complete_GPT <- function(x) {
   UseMethod("complete_GPT")
 }
@@ -147,15 +146,14 @@ chat <- function(role = character(), content = character()) {
 
 #' Convert data frame to chat object
 #'
-#' @param df A data frame with columns 'role' and 'content' of character type
+#' @param x A data frame with columns 'role' and 'content' of character type
 #' @export
-as_chat.data.frame <- function(df = data.frame()) {
-  x <- new_chat(unclass(df))
+as_chat.data.frame <- function(x = data.frame()) {
+  x <- new_chat(unclass(x))
   validate_chat(x)
 }
 
-#' @export
-as_chat <- function(df) {
+as_chat <- function(x) {
   UseMethod("as_chat")
 }
 
@@ -195,8 +193,7 @@ add_message.chat <- function(x, content, role = "user") {
 
 }
 
-#' @export
-add_message <- function(x, content, role, ...) {
+add_message <- function(x, content, role) {
   UseMethod("add_message")
 }
 
@@ -215,7 +212,6 @@ remove_message.chat <- function(x) {
 
 }
 
-#' @export
 remove_message <- function(x) {
   UseMethod("remove_message")
 }
@@ -230,7 +226,6 @@ last_message.chat <- function(x) {
   return(x$content[length(x$content)])
 }
 
-#' @export
 last_message <- function(x) {
   UseMethod("last_message")
 }
@@ -253,6 +248,7 @@ as.vector.chat <- function(x, mode = "any") {
 #' @param x A chat object
 #' @param content The content of the message
 #' @param role The role of the message (defaults to "user")
+#'
 #' @export
 say_GPT.chat <- function(x, content, role = "user") {
   x <- add_message(x, role = role, content = content)
@@ -260,7 +256,6 @@ say_GPT.chat <- function(x, content, role = "user") {
   x
 }
 
-#' @export
 say_GPT <- function(x, content, role = "user") {
   UseMethod("say_GPT")
 }

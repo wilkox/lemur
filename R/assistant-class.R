@@ -63,7 +63,6 @@ as_assistant.response <- function(response) {
 
 }
 
-#' @export
 as_assistant <- function(x) {
   UseMethod("as_assistant")
 }

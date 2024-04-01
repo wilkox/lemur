@@ -61,7 +61,6 @@ as_assistant_file.response <- function(response) {
   assistant_file
 }
 
-#' @export
 as_assistant_file <- function(x) {
   UseMethod("as_assistant_file")
 }

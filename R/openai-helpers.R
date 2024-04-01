@@ -71,6 +71,9 @@ check_API_key <- function(show_key = FALSE) {
 }
 
 #' Check the status code of a response from the OpenAI API
+#'
+#' @param response The response from the httr call
+#'
 check_openai_response <- function(response) {
   if (! response$status_code %in% 200:299) {
     cli::cli_abort(c(

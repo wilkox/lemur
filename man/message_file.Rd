@@ -6,6 +6,13 @@
 \usage{
 message_file(id = NULL, created_at = NULL, message_id = NULL)
 }
+\arguments{
+\item{id}{The id}
+
+\item{created_at}{The created_at time}
+
+\item{message_id}{The message id}
+}
 \description{
 Helper to create message_file objects
 }

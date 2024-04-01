@@ -4,10 +4,10 @@
 \alias{as_chat.data.frame}
 \title{Convert data frame to chat object}
 \usage{
-\method{as_chat}{data.frame}(df = data.frame())
+\method{as_chat}{data.frame}(x = data.frame())
 }
 \arguments{
-\item{df}{A data frame with columns 'role' and 'content' of character type}
+\item{x}{A data frame with columns 'role' and 'content' of character type}
 }
 \description{
 Convert data frame to chat object

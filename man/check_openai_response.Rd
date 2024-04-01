@@ -6,6 +6,9 @@
 \usage{
 check_openai_response(response)
 }
+\arguments{
+\item{response}{The response from the httr call}
+}
 \description{
 Check the status code of a response from the OpenAI API
 }

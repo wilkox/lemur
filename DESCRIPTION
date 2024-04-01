@@ -23,5 +23,7 @@ Imports:
     cli (>= 3.6.1),
     dplyr (>= 1.1.2),
     rlang (>= 1.1.1),
-    checkmate
+    checkmate,
+    fs,
+    glue
 VignetteBuilder: knitr

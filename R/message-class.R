@@ -60,7 +60,6 @@ as_message.response <- function(response) {
   message
 }
 
-#' @export
 as_message <- function(x) {
   UseMethod("as_message")
 }
