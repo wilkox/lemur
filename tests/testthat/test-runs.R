@@ -4,8 +4,8 @@ with_mock_api({ test_that("Runs API bindings", {
   expect_no_error({ thread <- create_thread(metadata = c(test = "test-runs")) })
   expect_s3_class(thread, "thread")
 
-  # Create an assistant
-  expect_no_error({ assistant <- create_assistant(metadata = c(test = "test-runs")) })
+  # Create an assistant with a tool
+  expect_no_error({ assistant <- create_assistant(tools = list(assistant_tool()), metadata = c(test = "test-runs")) })
   expect_s3_class(assistant, "assistant")
 
   # Create a run

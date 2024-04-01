@@ -34,7 +34,6 @@ validate_run <- function(x) {
   if (! testNull(x$instructions)) qassert(x$instructions, "S1")
   if (! testNull(x$tools)) {
     assertList(x$tools, max.len = 128)
-    for (tool in x$tools) assertClass(tool, "assistant_tool")
   }
   if (! testNull(x$file_ids)) assertCharacter(x$file_ids, max.len = 20)
   if (! testNull(x$metadata)) {
