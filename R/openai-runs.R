@@ -37,7 +37,7 @@ create_run <- function(
   # Check arguments
   qassert(thread_id, "S1")
   qassert(assistant_id, "S1")
-  qassert(temperature, "N1[0,1]")
+  qassert(temperature, "N1[0,2]")
 
   # Set up and validate the parameters
   params <- list(
