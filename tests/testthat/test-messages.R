@@ -9,7 +9,7 @@ with_mock_api({ test_that("Messages API bindings", {
   expect_s3_class(assistant, "assistant")
 
   # Create an assistant_file
-  expect_no_error({ assistant_file <- create_assistant_file(assistant$id, "file-sN6eG4TkNq2Quj1LpgCdUVdo") })
+  expect_no_error({ assistant_file <- create_assistant_file(assistant$id, "file-P6XH5bDZSo311u3yKlM6bFFn") })
   expect_s3_class(assistant_file, "assistant_file")
 
   # Create a thread
@@ -27,7 +27,7 @@ with_mock_api({ test_that("Messages API bindings", {
   # List message files
   expect_no_error({ message_files_list <- list_message_files(thread$id, message$id) })
   expect_s3_class(message_files_list, "data.frame")
-  expect_equal(message_files_list$id[[1]], "file-sN6eG4TkNq2Quj1LpgCdUVdo")
+  expect_equal(message_files_list$id[[1]], "file-P6XH5bDZSo311u3yKlM6bFFn")
 
   # Retrieve a message
   expect_no_error({ retrieved_message <- retrieve_message(thread$id, message$id) })

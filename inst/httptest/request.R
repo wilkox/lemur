@@ -12,6 +12,7 @@ set_requester(function (request) {
   request <- gsub_request(request, "run_", "r_")
   request <- gsub_request(request, "step_", "s_")
   request <- gsub_request(request, "file-sN6eG4TkNq2Quj1LpgCdUVdo", "file-s")
+  request <- gsub_request(request, "file-P6XH5bDZSo311u3yKlM6bFFn", "file-P")
   request <- gsub_request(request, "s_.+\\/", "longstep/")
   request <- gsub_request(request, "s_.+", "longstep")
   request

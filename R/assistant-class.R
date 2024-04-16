@@ -13,7 +13,7 @@ new_assistant <- function(x = list()) {
 validate_assistant <- function(x) {
 
   assertList(x)
-  for (param in names(x)) assertChoice(param, c("id", "created_at", "name", "model", "description", "instructions", "tools", "file_ids", "metadata"))
+  for (param in names(x)) assertChoice(param, c("id", "created_at", "name", "model", "description", "instructions", "tools", "file_ids", "metadata", "top_p", "temperature", "response_format"))
   qassert(x$id, "S1")
   qassert(x$created_at, "X1")
   assertString(x$model, max.chars = 256)

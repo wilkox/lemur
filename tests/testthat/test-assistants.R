@@ -13,7 +13,7 @@ with_mock_api({ test_that("Assistants API bindings", {
   expect_s3_class(assistants_list, "data.frame")
 
   # Create an assistant_file
-  expect_no_error({ assistant_file <- create_assistant_file(assistant$id, "file-sN6eG4TkNq2Quj1LpgCdUVdo") })
+  expect_no_error({ assistant_file <- create_assistant_file(assistant$id, "file-P6XH5bDZSo311u3yKlM6bFFn") })
   expect_s3_class(assistant_file, "assistant_file")
 
   # List assistant files
@@ -25,7 +25,7 @@ with_mock_api({ test_that("Assistants API bindings", {
   expect_s3_class(assistant, "assistant")
 
   # Retrieve an assistant file
-  expect_no_error({ assistant_file <- retrieve_assistant_file(assistant$id, "file-sN6eG4TkNq2Quj1LpgCdUVdo") })
+  expect_no_error({ assistant_file <- retrieve_assistant_file(assistant$id, "file-P6XH5bDZSo311u3yKlM6bFFn") })
   expect_s3_class(assistant_file, "assistant_file")
 
   # Modify an assistant
@@ -33,7 +33,7 @@ with_mock_api({ test_that("Assistants API bindings", {
   expect_s3_class(assistant, "assistant")
 
   # Delete an assistant file
-  expect_message({ delete_assistant_file(assistant$id, "file-sN6eG4TkNq2Quj1LpgCdUVdo") }, "deleted from")
+  expect_message({ delete_assistant_file(assistant$id, "file-P6XH5bDZSo311u3yKlM6bFFn") }, "deleted from")
 
   # Delete an assistant
   expect_message({ delete_assistant(assistant$id) }, "deleted")
