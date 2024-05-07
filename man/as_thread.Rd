@@ -7,7 +7,7 @@
 as_thread(response)
 }
 \arguments{
-\item{response}{The httr response}
+\item{response}{The httr2 response}
 }
 \description{
 An as_thread method for httr responses

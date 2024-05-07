@@ -1,4 +1,4 @@
-#' Create chat completions with the OpenAI API
+#' Create chat completionsuse with the OpenAI API
 #'
 #' API endpoint is documented at
 #' \url{https://platform.openai.com/docs/api-reference/chat/create}
@@ -22,25 +22,16 @@ complete_GPT.chat <- function(x) {
   )
 
   # POST to chat completion endpoint
-  response <- httr::POST(
-    "https://api.openai.com/v1/chat/completions",
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key)),
-    httr::content_type_json(),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  req <- httr2::request("https://api.openai.com/v1/chat/completions") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key)) |>
+    httr2::req_body_json(params, auto_unbox = TRUE)
+  response <- httr2::req_perform(req)
 
   # Check status code of response
-  if (! response$status_code %in% 200:299) {
-    cli::cli_abort(c(
-        "The OpenAI API returned an error:",
-        "!" = "  Code: {response$status_code}",
-        "!" = "  Type: {httr::content(response)$error$type}",
-        "!" = "  Message: {httr::content(response)$error$message}"
-    ))
-  }
+  check_openai_response(response)
 
   # Extract and return message content
-  content <- httr::content(response)$choices[[1]]$message$content
+  content <- httr2::resp_body_json(response)$choices[[1]]$message$content
   x <- add_message(x, role = "assistant", content = content)
   return(x)
 }

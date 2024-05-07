@@ -2,7 +2,7 @@
 % Please edit documentation in R/openai-chat.R
 \name{complete_GPT.chat}
 \alias{complete_GPT.chat}
-\title{Create chat completions with the OpenAI API}
+\title{Create chat completionsuse with the OpenAI API}
 \usage{
 \method{complete_GPT}{chat}(x)
 }

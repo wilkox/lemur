@@ -17,8 +17,7 @@ Suggests:
     vcr (>= 0.6.0)
 Config/testthat/edition: 3
 Imports: 
-    httr (>= 1.4.6),
-    jsonlite (>= 1.8.4),
+    httr2 (>= 1.0.1),
     stringr (>= 1.5.0),
     cli (>= 3.6.1),
     dplyr (>= 1.1.2),

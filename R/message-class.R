@@ -47,11 +47,11 @@ print.message <- function(x, ...) {
 
 #' An as_message method for httr responses
 #'
-#' @param response The httr response
+#' @param response The httr2 response
 #'
-as_message.response <- function(response) {
+as_message.httr2_response <- function(response) {
 
-  content <- httr::content(response)
+  content <- httr2::resp_body_json(response)
   content$object <- NULL
   content$metadata <- unlist(content$metadata)
   content$content <- content$content[[1]]

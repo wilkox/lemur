@@ -49,20 +49,17 @@ create_assistant <- function(
   if (! testNull(params$metadata)) params$metadata <- as.list(params$metadata)
 
   # POST to assistants endpoint
-  response <- httr::POST(
-    "https://api.openai.com/v1/assistants",
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    httr::content_type_json(),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  response <- httr2::request("https://api.openai.com/v1/assistants") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_body_json(params, auto_unbox = TRUE) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
   # Extract and set id and created_at
-  assistant$id <- httr::content(response)$id
-  assistant$created_at <- httr::content(response)$created_at
+  assistant$id <- httr2::resp_body_json(response)$id
+  assistant$created_at <- httr2::resp_body_json(response)$created_at
   validate_assistant(assistant)
 
   return(assistant)
@@ -88,21 +85,19 @@ create_assistant_file <- function(assistant_id, file_id) {
   params <- list(file_id = file_id)
 
   # POST to assistants endpoint
-  response <- httr::POST(
-    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_body_json(params, auto_unbox = TRUE) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
   # Response
   assistant_file <- assistant_file(
-    id = httr::content(response)$id,
-    created_at = httr::content(response)$created_at,
-    assistant_id = httr::content(response)$assistant_id
+    id = httr2::resp_body_json(response)$id,
+    created_at = httr2::resp_body_json(response)$created_at,
+    assistant_id = httr2::resp_body_json(response)$assistant_id
   )
   validate_assistant_file(assistant_file)
 
@@ -131,23 +126,17 @@ list_assistants <- function(limit = 20, order = "desc", before = NULL, after = N
   if (! testNull(before)) qassert(before, "s1")
   if (! testNull(after)) qassert(after, "s1")
 
-  # Set up params
-  params <- list(limit = limit, order = order, before = before, after = after)
-  params <- Filter(Negate(is.null), params)
-
   # GET from assistants endpoint
-  response <- httr::GET(
-    "https://api.openai.com/v1/assistants",
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    query = params
-  )
+  response <- httr2::request("https://api.openai.com/v1/assistants") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_url_query(limit = limit, order = order, before = before, after = after) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
   # Response
-  response <- httr::content(response)$data
+  response <- httr2::resp_body_json(response)$data
   assistants <- as.data.frame(do.call(rbind, response))
   return(assistants)
 }
@@ -181,18 +170,16 @@ list_assistant_files <- function(assistant_id, limit = 20, order = "desc", befor
   params <- Filter(Negate(is.null), params)
 
   # GET from assistants endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    query = params
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_url_query(limit = limit, order = order, before = before, after = after) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
   # Response
-  response <- httr::content(response)$data
+  response <- httr2::resp_body_json(response)$data
   files <- as.data.frame(do.call(rbind, response))
   return(files)
 }
@@ -212,11 +199,9 @@ retrieve_assistant <- function(assistant_id) {
   qassert(assistant_id, "S1")
 
   # GET from assistants endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -244,20 +229,18 @@ retrieve_assistant_file <- function(assistant_id, file_id) {
   qassert(file_id, "S1")
 
   # GET from assistants endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
   # Response
   assistant_file <- assistant_file(
-    id = httr::content(response)$id,
-    created_at = httr::content(response)$created_at,
-    assistant_id = httr::content(response)$assistant_id
+    id = httr2::resp_body_json(response)$id,
+    created_at = httr2::resp_body_json(response)$created_at,
+    assistant_id = httr2::resp_body_json(response)$assistant_id
   )
   validate_assistant_file(assistant_file)
   return(assistant_file)
@@ -315,13 +298,10 @@ modify_assistant <- function(
   if (! testNull(params$file_ids)) params$file_ids <- as.list(params$file_ids)
 
   # POST to assistants endpoint
-  response <- httr::POST(
-    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    httr::content_type_json(),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_body_json(params, auto_unbox = TRUE) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -348,11 +328,9 @@ delete_assistant <- function(assistant_id) {
   qassert(assistant_id, "S1")
 
   # DELETE to assistants endpoint
-  response <- httr::DELETE(
-    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -377,11 +355,9 @@ delete_assistant_file <- function(assistant_id, file_id) {
   qassert(file_id, "S1")
 
   # DELETE to assistants endpoint
-  response <- httr::DELETE(
-    glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)

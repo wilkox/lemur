@@ -51,10 +51,10 @@ message_file <- function(id = NULL, created_at = NULL, message_id = NULL) {
 
 #' An as_message_file method for httr responses
 #'
-#' @param response The httr response
-as_message_file.response <- function(response) {
+#' @param response The httr2 response
+as_message_file.httr2_response <- function(response) {
 
-  content <- httr::content(response)
+  content <- httr2::resp_body_json(response)
   content$object <- NULL
   message_file <- new_message_file(content)
   message_file <- validate_message_file(message_file)

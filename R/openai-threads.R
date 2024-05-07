@@ -32,13 +32,10 @@ create_thread <- function(messages = NULL, metadata = NULL) {
   if (! testNull(params$metadata)) params$metadata <- as.list(params$metadata)
 
   # POST to thread endpoint
-  response <- httr::POST(
-    "https://api.openai.com/v1/threads",
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    httr::content_type_json(),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  response <- httr2::request("https://api.openai.com/v1/threads") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_body_json(params, auto_unbox = TRUE) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -66,11 +63,9 @@ retrieve_thread <- function(thread_id) {
   qassert(thread_id, "S1")
 
   # GET from threads endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -104,13 +99,10 @@ modify_thread <- function(thread_id, metadata = NULL) {
   if (! testNull(params$metadata)) params$metadata <- as.list(params$metadata)
 
   # POST to threads endpoint
-  response <- httr::POST(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    httr::content_type_json(),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_body_json(params, auto_unbox = TRUE) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -136,11 +128,9 @@ delete_thread <- function(thread_id) {
   qassert(thread_id, "S1")
 
   # DELETE to threads endpoint
-  response <- httr::DELETE(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)

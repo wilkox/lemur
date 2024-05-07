@@ -39,11 +39,11 @@ print.thread <- function(x, ...) {
 
 #' An as_thread method for httr responses
 #'
-#' @param response The httr response
+#' @param response The httr2 response
 #'
 as_thread <- function(response) {
 
-  content <- httr::content(response)
+  content <- httr2::resp_body_json(response)
   content$object <- NULL
   content$metadata <- unlist(content$metadata)
   thread <- new_thread(content)

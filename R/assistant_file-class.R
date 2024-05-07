@@ -50,11 +50,11 @@ assistant_file <- function(id = NULL, created_at = NULL, assistant_id = NULL) {
 
 #' An as_assistant_file method for httr responses
 #'
-#' @param response The httr response
+#' @param response The httr2 response
 #'
-as_assistant_file.response <- function(response) {
+as_assistant_file.httr2_response <- function(response) {
 
-  content <- httr::content(response)
+  content <- httr2::resp_body_json(response)
   content$object <- NULL
   assistant_file <- new_assistant_file(content)
   assistant_file <- validate_assistant_file(assistant_file)

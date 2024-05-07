@@ -47,13 +47,13 @@ print.assistant <- function(x, ...) {
   print(unclass(x))
 }
 
-#' An as_assistant method for httr responses
+#' An as_assistant method for httr2 responses
 #'
-#' @param response The httr response
+#' @param response The httr2 response
 #'
-as_assistant.response <- function(response) {
+as_assistant.httr2_response <- function(response) {
 
-  content <- httr::content(response)
+  content <- httr2::resp_body_json(response)
   if (! testNull(content$tools)) content$tools <- lapply(content$tools, function(tool) assistant_tool(type = tool$type))
   if (! testNull(content$object)) content$object <- NULL
   if (! testNull(content$file_ids)) content$file_ids <- as.character(content$file_ids)

@@ -60,11 +60,11 @@ print.run_step <- function(x, ...) {
 
 #' An as_run_step method for httr responses
 #'
-#' @param response The httr response
+#' @param response The httr2 response
 #'
-as_run_step.response <- function(response) {
+as_run_step.httr2_response <- function(response) {
 
-  content <- httr::content(response)
+  content <- httr2::resp_body_json(response)
   if (! testNull(content$tools)) content$tools <- lapply(content$tools, function(tool) assistant_tool(type = tool$type))
   if (! testNull(content$object)) content$object <- NULL
   if (! testNull(content$file_ids)) content$file_ids <- as.character(content$file_ids)

@@ -58,18 +58,15 @@ create_run <- function(
   if (! testNull(params$metadata)) params$metadata <- as.list(params$metadata)
 
   # POST to threads endpoint
-  response <- httr::POST(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    httr::content_type_json(),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_body_json(params, auto_unbox = TRUE) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
-  # Reponse
+  # Response
   run <- as_run(response)
   validate_run(run)
   return(run)
@@ -99,23 +96,17 @@ list_runs <- function(thread_id, limit = 20, order = "desc", before = NULL, afte
   if (! testNull(before)) qassert(before, "s1")
   if (! testNull(after)) qassert(after, "s1")
 
-  # Set up params
-  params <- list(limit = limit, order = order, before = before, after = after)
-  params <- Filter(Negate(is.null), params)
-
   # GET from threads endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    query = params
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_url_query(limit = limit, order = order, before = before, after = after) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
   # Response
-  response <- httr::content(response)$data
+  response <- httr2::resp_body_json(response)$data
   runs <- as.data.frame(do.call(rbind, response))
   return(runs)
 }
@@ -146,23 +137,17 @@ list_run_steps <- function(thread_id, run_id, limit = 20, order = "desc", before
   if (! testNull(before)) qassert(before, "s1")
   if (! testNull(after)) qassert(after, "s1")
 
-  # Set up params
-  params <- list(limit = limit, order = order, before = before, after = after)
-  params <- Filter(Negate(is.null), params)
-
   # GET from threads endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/steps"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    query = params
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/steps")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_url_query(limit = limit, order = order, before = before, after = after) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
 
   # Response
-  response <- httr::content(response)$data
+  response <- httr2::resp_body_json(response)$data
   run_steps <- as.data.frame(do.call(rbind, response))
   return(run_steps)
 }
@@ -184,11 +169,9 @@ retrieve_run <- function(thread_id, run_id) {
   qassert(run_id, "S1")
 
   # GET from threads endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -218,11 +201,9 @@ retrieve_run_step <- function(thread_id, run_id, step_id) {
   qassert(step_id, "S1")
 
   # GET from threads endpoint
-  response <- httr::GET(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/steps/{step_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/steps/{step_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -260,13 +241,10 @@ modify_run <- function(thread_id, run_id, metadata = NULL) {
   if (! testNull(params$metadata)) params$metadata <- as.list(params$metadata)
 
   # POST to threads endpoint
-  response <- httr::POST(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
-    httr::content_type_json(),
-    body = jsonlite::toJSON(params, auto_unbox = TRUE)
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_body_json(params, auto_unbox = TRUE) |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
@@ -294,11 +272,9 @@ cancel_run <- function(thread_id, run_id) {
   qassert(run_id, "S1")
 
   # POST to threads endpoint
-  response <- httr::POST(
-    glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/cancel"),
-    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
-  )
+  response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/cancel")) |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_perform()
 
   # Check status code of response
   check_openai_response(response)
