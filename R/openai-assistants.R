@@ -14,6 +14,7 @@
 #' @param instructions Instructions for the assistant, an atomic character
 #' vector of maximum length 32,768 characters
 #' @param tools A list of assistant_tool objects, maximum of 128
+#' @param json_mode Assistant must return JSON (FALSE by default)
 #' @param metadata A named character vector of up to 16 metadata values, with
 #' names (keys) maximum 64 characters long and values maximum 512 characters
 #' long
@@ -24,6 +25,7 @@ create_assistant <- function(
   description = NULL,
   instructions = NULL,
   tools = NULL,
+  json_mode = FALSE,
   metadata = NULL
 ) {
 
@@ -34,6 +36,7 @@ create_assistant <- function(
     description = description,
     instructions = instructions,
     tools = tools,
+    response_format = list(type = ifelse(json_mode, "json_object", "text")),
     metadata = metadata
   )
   params <- params[! unlist(lapply(params, is.null))]

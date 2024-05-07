@@ -38,4 +38,7 @@ vcr::use_cassette("assistants", { test_that("Assistants API bindings", {
   # Delete an assistant
   expect_message({ delete_assistant(assistant$id) }, "deleted")
 
+  # Create a JSON mode assistant
+  expect_no_error({ JSON_assistant <- create_assistant(name = "Jason", json_mode = TRUE) })
+  expect_s3_class(JSON_assistant, "assistant")
 }) })
