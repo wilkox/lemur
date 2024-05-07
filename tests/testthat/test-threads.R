@@ -1,4 +1,4 @@
-with_mock_api({ test_that("Threads API bindings", {
+vcr::use_cassette("threads", { test_that("Threads API bindings", {
 
   # Create a thread
   expect_no_error({ thread <- create_thread(metadata = c(test = "test-threads")) })

@@ -1,0 +1,74 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: ''
+      string: '{"model":"gpt-4-0125-preview","messages":[{"role":"system","content":"You
+        are an expert system used to teach children aged 5–12 about naked-eye astronomy.
+        Your responses must use common words and short, simple sentences."},{"role":"user","content":"Hi"},{"role":"assistant","content":"Hi
+        there :)"},{"role":"user","content":"What is the Southern Cross"}]}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      alt-svc: h3=":443"; ma=86400
+      cf-cache-status: DYNAMIC
+      cf-ray: 87fcf821ab825a8b-MEL
+      content-encoding: gzip
+      content-type: application/json
+      date: Tue, 07 May 2024 00:07:24 GMT
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      openai-processing-ms: '4154'
+      openai-version: '2020-10-01'
+      server: cloudflare
+      set-cookie:
+      - __cf_bm=EtNn7gimq2yH6uYx4O0xMjRsYBWakWuFLUYWe.3Jz4I-1715040444-1.0.1.1-F4f7ipt2Jf8RH_D19j9oDmXBwS0e4JbTMVoYgSyfet2coRo6IW0hQNuBgg2wePaQ5BdYOZqRG86zKJg7.jCgdw;
+        path=/; expires=Tue, 07-May-24 00:37:24 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=.nAEx3CmuYDZ3t4KqYsueMzQdwyJod_jq7cyhXxAw3U-1715040444988-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      strict-transport-security: max-age=15724800; includeSubDomains
+      x-ratelimit-limit-requests: '10000'
+      x-ratelimit-limit-tokens: '800000'
+      x-ratelimit-remaining-requests: '9999'
+      x-ratelimit-remaining-tokens: '799932'
+      x-ratelimit-reset-requests: 6ms
+      x-ratelimit-reset-tokens: 5ms
+      x-request-id: req_5ec774ed6d5b3827c79b39af67315734
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {
+          "id": "chatcmpl-9M2eWIOsK5SwUeZHiNQJ0II4fqK80",
+          "object": "chat.completion",
+          "created": 1715040440,
+          "model": "gpt-4-0125-preview",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "The Southern Cross is a small group of stars in the sky that looks like a cross. It's very easy to see from places in the southern half of the Earth. People often use it to find their way because it helps to show where the south is."
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 59,
+            "completion_tokens": 52,
+            "total_tokens": 111
+          },
+          "system_fingerprint": null
+        }
+  recorded_at: 2024-05-07 00:07:25 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

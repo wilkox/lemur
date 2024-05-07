@@ -1,0 +1,62 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:33 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_593b582cc39b6749103dc61ba342d327
+      openai-processing-ms: '90'
+      access-control-allow-origin: '*'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf86fee6d5a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "file",
+              "id": "file-QrV4V9szTBg5dudxhVEJvZbr",
+              "purpose": "assistants",
+              "filename": "BP_target_factors.csv",
+              "bytes": 435,
+              "created_at": 1712031095,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
+              "purpose": "assistants",
+              "filename": "hypertension_guideline.pdf",
+              "bytes": 430044,
+              "created_at": 1712013208,
+              "status": "processed",
+              "status_details": null
+            }
+          ],
+          "has_more": false
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

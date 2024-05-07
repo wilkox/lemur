@@ -1,4 +1,4 @@
-with_mock_api({ test_that("Chat completion works", {
+vcr::use_cassette("API", { test_that("Chat completion works", {
 
   expect_error({ complete_GPT(1) })
 

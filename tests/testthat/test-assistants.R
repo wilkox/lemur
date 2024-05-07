@@ -1,4 +1,4 @@
-with_mock_api({ test_that("Assistants API bindings", {
+vcr::use_cassette("assistants", { test_that("Assistants API bindings", {
 
   # Create an assistant_tool
   expect_no_error({ assistant_tool <- assistant_tool() })

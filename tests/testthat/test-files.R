@@ -1,4 +1,4 @@
-with_mock_api({ test_that("Files API bindings", {
+vcr::use_cassette("files", { test_that("Files API bindings", {
 
   # List files
   expect_no_error({ files_list <- list_files() })

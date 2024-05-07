@@ -1,4 +1,4 @@
-with_mock_api({ test_that("Runs API bindings", {
+vcr::use_cassette("runs", allow_playback_repeats = TRUE, { test_that("Runs API bindings", {
 
   # Create a thread
   expect_no_error({ thread <- create_thread(metadata = c(test = "test-runs")) })
@@ -24,6 +24,12 @@ with_mock_api({ test_that("Runs API bindings", {
   expect_no_error({ retrieved_run <- retrieve_run(thread$id, run$id) })
   expect_s3_class(retrieved_run, "run")
   expect_equal(run$id, retrieved_run$id)
+
+  # Wait until run is completed before proceeding
+  while (! retrieved_run$status == "completed") {
+    Sys.sleep(1)
+    retrieved_run <- retrieve_run(thread$id, run$id) 
+  }
   
   # Retrieve a run step
   expect_no_error({ run_step <- retrieve_run_step(thread$id, run$id, run_steps_list$id[[1]]) })

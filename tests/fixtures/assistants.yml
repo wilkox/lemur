@@ -1,0 +1,860 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants
+    body:
+      encoding: ''
+      string: '{"model":"gpt-4-0125-preview","name":"Socrates","tools":[{"type":"retrieval"}]}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:26 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_643e780481b7c54623cf6a150bf6b173
+      openai-processing-ms: '70'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf846a9755a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX",
+          "object": "assistant",
+          "created_at": 1715040446,
+          "name": "Socrates",
+          "description": null,
+          "model": "gpt-4-0125-preview",
+          "instructions": null,
+          "tools": [
+            {
+              "type": "retrieval"
+            }
+          ],
+          "top_p": 1.0,
+          "temperature": 1.0,
+          "file_ids": [],
+          "metadata": {},
+          "response_format": "auto"
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://api.openai.com/v1/assistants?limit=20&order=desc
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:27 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_e49993afd7fe3c2bba216c52459d9e01
+      openai-processing-ms: '35'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf8493c715a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX",
+              "object": "assistant",
+              "created_at": 1715040446,
+              "name": "Socrates",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {},
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_VDD0sj4tp9uz18xbZ7THY8Ci",
+              "object": "assistant",
+              "created_at": 1715040334,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_nF6lifnTYGPDV2AtPijcj27C",
+              "object": "assistant",
+              "created_at": 1715040326,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_JaQjbnvyqKd9nHra2ECFwCPr",
+              "object": "assistant",
+              "created_at": 1715040215,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_BwYGQJj7ecV2VxRm7tnfLy4X",
+              "object": "assistant",
+              "created_at": 1715040206,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_pnQjQJVvmizCcIrCz7Cw2fDI",
+              "object": "assistant",
+              "created_at": 1715039799,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_UZoA6hJZ4gQDZUSdjWc1H8zl",
+              "object": "assistant",
+              "created_at": 1715039397,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_8Go9RsALHiNCmQj6ba4wguyF",
+              "object": "assistant",
+              "created_at": 1715039386,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_O5I5EB6FwovJgxOmLyFLfxsR",
+              "object": "assistant",
+              "created_at": 1715039173,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_Q9076IQJAfkqjsKprE0aqUCG",
+              "object": "assistant",
+              "created_at": 1715039167,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_BpcHWlpuoEenIcwuMxwnnhmr",
+              "object": "assistant",
+              "created_at": 1715039108,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_WxAqLOT28LGaDVZYkBEwtsYE",
+              "object": "assistant",
+              "created_at": 1715039101,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_wr1Kj7ZP7BoKm7VXsFwxtRFm",
+              "object": "assistant",
+              "created_at": 1715039029,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_60v09E6UTeZSpvzpRW0X1lrF",
+              "object": "assistant",
+              "created_at": 1715039022,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_jhu0fkoWIIuXBx1wBpcsFY8W",
+              "object": "assistant",
+              "created_at": 1715038958,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_74PLnwkCZTfuy4T96PLjkw3s",
+              "object": "assistant",
+              "created_at": 1715038925,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_xhWqU72J5hcKxs5Fg6JUwbkd",
+              "object": "assistant",
+              "created_at": 1715038871,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [],
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_esBfEQPNvibKABzwlEp2oW0v",
+              "object": "assistant",
+              "created_at": 1715038862,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_p15g6rPzNfL4ktQJlahHZNLA",
+              "object": "assistant",
+              "created_at": 1714454933,
+              "name": "Socrates",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {},
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_U0cTGKKho85v8348szU5Rp1F",
+              "object": "assistant",
+              "created_at": 1714454042,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "retrieval"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "file_ids": [
+                "file-P6XH5bDZSo311u3yKlM6bFFn"
+              ],
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            }
+          ],
+          "first_id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX",
+          "last_id": "asst_U0cTGKKho85v8348szU5Rp1F",
+          "has_more": true
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants/asst_KfZE6jlzsyn5s5FrpccE0ZWX/files
+    body:
+      encoding: ''
+      string: '{"file_id":"file-P6XH5bDZSo311u3yKlM6bFFn"}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:29 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_f33d4c9da3e5af5cbb0251b4409c55a7
+      openai-processing-ms: '1776'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf84b8f765a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
+          "object": "assistant.file",
+          "created_at": 1715040447,
+          "assistant_id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX"
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://api.openai.com/v1/assistants/asst_KfZE6jlzsyn5s5FrpccE0ZWX/files?limit=20&order=desc
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:29 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_678ab62c99dacb38f35cff684ed1397a
+      openai-processing-ms: '105'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf858b8005a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
+              "object": "assistant.file",
+              "created_at": 1715040447,
+              "assistant_id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX"
+            }
+          ],
+          "first_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
+          "last_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
+          "has_more": false
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://api.openai.com/v1/assistants/asst_KfZE6jlzsyn5s5FrpccE0ZWX
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:30 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_4bc638a38065393d9f0c52fee2356154
+      openai-processing-ms: '39'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf85bebc95a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX",
+          "object": "assistant",
+          "created_at": 1715040446,
+          "name": "Socrates",
+          "description": null,
+          "model": "gpt-4-0125-preview",
+          "instructions": null,
+          "tools": [
+            {
+              "type": "retrieval"
+            }
+          ],
+          "top_p": 1.0,
+          "temperature": 1.0,
+          "file_ids": [
+            "file-P6XH5bDZSo311u3yKlM6bFFn"
+          ],
+          "metadata": {},
+          "response_format": "auto"
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://api.openai.com/v1/assistants/asst_KfZE6jlzsyn5s5FrpccE0ZWX/files/file-P6XH5bDZSo311u3yKlM6bFFn
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:30 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_61157b825aa1bf4192452439ee4a3cc8
+      openai-processing-ms: '123'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf85eff795a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
+          "object": "assistant.file",
+          "created_at": 1715040447,
+          "assistant_id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX"
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants/asst_KfZE6jlzsyn5s5FrpccE0ZWX
+    body:
+      encoding: ''
+      string: '{"model":"gpt-4-0125-preview","name":"Aristotle"}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:31 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_3cd5cc34d8b133e7abdc901d3e1e335d
+      openai-processing-ms: '87'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf861ebc75a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX",
+          "object": "assistant",
+          "created_at": 1715040446,
+          "name": "Aristotle",
+          "description": null,
+          "model": "gpt-4-0125-preview",
+          "instructions": null,
+          "tools": [
+            {
+              "type": "retrieval"
+            }
+          ],
+          "top_p": 1.0,
+          "temperature": 1.0,
+          "file_ids": [
+            "file-P6XH5bDZSo311u3yKlM6bFFn"
+          ],
+          "metadata": {},
+          "response_format": "auto"
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/assistants/asst_KfZE6jlzsyn5s5FrpccE0ZWX/files/file-P6XH5bDZSo311u3yKlM6bFFn
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:32 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_edd24fe16cef3de1425b16f342a08ec5
+      openai-processing-ms: '909'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf8643e6d5a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
+          "object": "assistant.file.deleted",
+          "deleted": true
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/assistants/asst_KfZE6jlzsyn5s5FrpccE0ZWX
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v1
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 00:07:32 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_a7d9823ed1b86702aca00c767fce281e
+      openai-processing-ms: '114'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fcf86cb9805a8b-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "asst_KfZE6jlzsyn5s5FrpccE0ZWX",
+          "object": "assistant.deleted",
+          "deleted": true
+        }
+  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
