@@ -4,7 +4,7 @@ http_interactions:
     uri: https://api.openai.com/v1/assistants
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","name":"Socrates","tools":[{"type":"file_search"}]}'
+      string: '{"model":"gpt-4-0125-preview","name":"Socrates","tools":[{"type":"file_search"}],"response_format":{"type":"text"}}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
@@ -17,16 +17,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:26 GMT
+      date: Tue, 07 May 2024 03:18:25 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_787fff54a21417ff17a326545023a01b
-      openai-processing-ms: '79'
+      x-request-id: req_a9a73b4e148438bce6600e25d2669186
+      openai-processing-ms: '74'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddcc61fcd2997-MEL
+      cf-ray: 87fe1007bb3377dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -34,9 +34,9 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_6aJrkxPrmE6nACUUnskFeM7X",
+          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
           "object": "assistant",
-          "created_at": 1715049805,
+          "created_at": 1715051905,
           "name": "Socrates",
           "description": null,
           "model": "gpt-4-0125-preview",
@@ -54,9 +54,11 @@ http_interactions:
             }
           },
           "metadata": {},
-          "response_format": "auto"
+          "response_format": {
+            "type": "text"
+          }
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
@@ -75,16 +77,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:26 GMT
+      date: Tue, 07 May 2024 03:18:25 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_5d41bf90d2674e157b2a9f052f9106ec
-      openai-processing-ms: '71'
+      x-request-id: req_1a313a2345aa0129024904413340d4d3
+      openai-processing-ms: '55'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddcc8bb0d2997-MEL
+      cf-ray: 87fe100a2dfd77dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -95,9 +97,9 @@ http_interactions:
           "object": "list",
           "data": [
             {
-              "id": "asst_6aJrkxPrmE6nACUUnskFeM7X",
+              "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
               "object": "assistant",
-              "created_at": 1715049805,
+              "created_at": 1715051905,
               "name": "Socrates",
               "description": null,
               "model": "gpt-4-0125-preview",
@@ -115,6 +117,358 @@ http_interactions:
                 }
               },
               "metadata": {},
+              "response_format": {
+                "type": "text"
+              }
+            },
+            {
+              "id": "asst_dVTHxaHXciP2LBfWobcfqkya",
+              "object": "assistant",
+              "created_at": 1715051880,
+              "name": "Jason",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_spBZnb3D9sjVTSTiNySROBLr",
+              "object": "assistant",
+              "created_at": 1715051664,
+              "name": "Jason",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_srE1pwXDEIosZln35kADQjpd",
+              "object": "assistant",
+              "created_at": 1715051521,
+              "name": "Jason",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_eVJWc6kcmnMW4aPCOC4vnuBe",
+              "object": "assistant",
+              "created_at": 1715051488,
+              "name": "Jason",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_Jreng0kLUsK7zZKIvucy0zmg",
+              "object": "assistant",
+              "created_at": 1715051372,
+              "name": "Jason",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_SiuTgmulS6iaE1yAhGCPq6FU",
+              "object": "assistant",
+              "created_at": 1715050308,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {
+                "test": "long-run"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_PONdcAUJo2V5Qx73rBFMyrsw",
+              "object": "assistant",
+              "created_at": 1715050301,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": []
+                }
+              },
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_JSfdhEhSHhIxHJsso5CLkmts",
+              "object": "assistant",
+              "created_at": 1715050296,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": [
+                    "vs_oAH8xdBl3l2bjSOPJmqWAN8K"
+                  ]
+                }
+              },
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_t1EXgzRoyrIPWnufQSqBRAXt",
+              "object": "assistant",
+              "created_at": 1715050289,
+              "name": "Aristotle",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": [
+                    "vs_vA5Xx3GTJby1weOSClJdqMNf"
+                  ]
+                }
+              },
+              "metadata": {},
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_rXGleFf6XTIqmfzRPApj03Ni",
+              "object": "assistant",
+              "created_at": 1715050263,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {
+                "test": "long-run"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_Q722mpPpiqKdDn9LB0eiOb4W",
+              "object": "assistant",
+              "created_at": 1715050258,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": []
+                }
+              },
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_50rEMNtnHPudMP8OmeaQm88t",
+              "object": "assistant",
+              "created_at": 1715050253,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": [
+                    "vs_fDSNTPjcbZhfnt1k0Y9V54n0"
+                  ]
+                }
+              },
+              "metadata": {
+                "test": "test-messages"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_ESpAdTMJKH6jpm3lLB9fzzOp",
+              "object": "assistant",
+              "created_at": 1715050247,
+              "name": "Aristotle",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": [
+                    "vs_oOnNWgOj0sIFWHUMMQiucTxf"
+                  ]
+                }
+              },
+              "metadata": {},
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_R0YAlUoPEZaFPfviZzSQO5FG",
+              "object": "assistant",
+              "created_at": 1715050232,
+              "name": "Aristotle",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": [
+                    "vs_2uSxNgr6bkFm8OXl4w1V2bks"
+                  ]
+                }
+              },
+              "metadata": {},
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_oeu3qAs7iZmqlWR4HcmQCXXE",
+              "object": "assistant",
+              "created_at": 1715049818,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": []
+                }
+              },
+              "metadata": {
+                "test": "test-runs"
+              },
+              "response_format": "auto"
+            },
+            {
+              "id": "asst_u7XB4yCOQZnSKLfTM7FjJ3HA",
+              "object": "assistant",
+              "created_at": 1715049813,
+              "name": null,
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": null,
+              "tools": [
+                {
+                  "type": "file_search"
+                }
+              ],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {
+                "file_search": {
+                  "vector_store_ids": [
+                    "vs_Z38Kh0ySXQr0uPIDSIhaUmFO"
+                  ]
+                }
+              },
+              "metadata": {
+                "test": "test-messages"
+              },
               "response_format": "auto"
             },
             {
@@ -193,433 +547,17 @@ http_interactions:
                 "test": "test-runs"
               },
               "response_format": "auto"
-            },
-            {
-              "id": "asst_e44BaoeA5dm62NmeiESWzOHN",
-              "object": "assistant",
-              "created_at": 1715049534,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_WfagWaXfV9B4dUFC3C8n6R0W",
-              "object": "assistant",
-              "created_at": 1715049498,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_fMnTqst0xlNENPT9E8wywGoN",
-              "object": "assistant",
-              "created_at": 1715049491,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_URvPPKokGTNKNmcI03A7euR6"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_PhH4gE7xlFdp6nzwD2zSWmaa",
-              "object": "assistant",
-              "created_at": 1715049395,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_eG7RJyENImnEIybJb2lJ8w6q",
-              "object": "assistant",
-              "created_at": 1715049390,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_HBWIUY4SdXMXy45jrNf6fPYZ"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_VRTSDx2JgtMsmSgWPWbsfJsI",
-              "object": "assistant",
-              "created_at": 1715049328,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_gheeLLmFDnX1XBTr7293df7B",
-              "object": "assistant",
-              "created_at": 1715049323,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_TAKZPni2Nj7d2RBwWbxOTslS"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_GCo9RctuF2GDGqqVwLIDmpU3",
-              "object": "assistant",
-              "created_at": 1715049250,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_KfxZNkqGfzalbnwPGiHZEVeP",
-              "object": "assistant",
-              "created_at": 1715049231,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_NmUFNFqXCYNO6EnjQQI54449"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_LOxORWZDGdDiDZSfhkv3jKhQ",
-              "object": "assistant",
-              "created_at": 1715049086,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_mJzdhkTxwa67zIUVASvZTge3"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_lGOEcxk45bFVnO3mtv4C5EF8",
-              "object": "assistant",
-              "created_at": 1715049069,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_S9eqjvzI9Hd9lbWiHcq0gxOF",
-              "object": "assistant",
-              "created_at": 1715049063,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_heaT3HPNYzwh8v75CKOxa0Vl"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_Cm93HDo9CV8nT0fjQEr16AdQ",
-              "object": "assistant",
-              "created_at": 1715048947,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_WH9oQNmIs8E10Nj6IYUZlduy",
-              "object": "assistant",
-              "created_at": 1715048942,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_V1bgIrkQMAmvNmZKVj4OeUsZ"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_er7ztNstfC7tLAwGR8F0jg7I",
-              "object": "assistant",
-              "created_at": 1715048836,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_yFFx05T6mKQ6mUcs5bHHQcxs",
-              "object": "assistant",
-              "created_at": 1715048832,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_1uTEI4swutJC48PT9cwF7VAx"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
             }
           ],
-          "first_id": "asst_6aJrkxPrmE6nACUUnskFeM7X",
-          "last_id": "asst_yFFx05T6mKQ6mUcs5bHHQcxs",
+          "first_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
+          "last_id": "asst_nwGX1LNEyKdLDecIweIdJhU8",
           "has_more": true
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/assistants/asst_6aJrkxPrmE6nACUUnskFeM7X/files
+    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files
     body:
       encoding: ''
       string: '{"file_id":"file-P6XH5bDZSo311u3yKlM6bFFn"}'
@@ -635,16 +573,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:28 GMT
+      date: Tue, 07 May 2024 03:18:28 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_891cb649967ccdf7354996cb65aa3f26
-      openai-processing-ms: '1704'
+      x-request-id: req_96d450c5f72f8854a5b4aed475f993dd
+      openai-processing-ms: '1796'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddccc9fe32997-MEL
+      cf-ray: 87fe100c990077dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -654,14 +592,14 @@ http_interactions:
         {
           "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "object": "assistant.file",
-          "created_at": 1715049807,
-          "assistant_id": "asst_6aJrkxPrmE6nACUUnskFeM7X"
+          "created_at": 1715051906,
+          "assistant_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp"
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants/asst_6aJrkxPrmE6nACUUnskFeM7X/files?limit=20&order=desc
+    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files?limit=20&order=desc
     body:
       encoding: ''
       string: ''
@@ -676,16 +614,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:29 GMT
+      date: Tue, 07 May 2024 03:18:28 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_ceebeb72bf3fce93175e6fe9ab5a9c12
-      openai-processing-ms: '117'
+      x-request-id: req_c33ae23bcbd9d56542a84a6f731d9605
+      openai-processing-ms: '130'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddcd9a89b2997-MEL
+      cf-ray: 87fe1019b90677dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -698,19 +636,19 @@ http_interactions:
             {
               "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
               "object": "assistant.file",
-              "created_at": 1715049807,
-              "assistant_id": "asst_6aJrkxPrmE6nACUUnskFeM7X"
+              "created_at": 1715051906,
+              "assistant_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp"
             }
           ],
           "first_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "last_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "has_more": false
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants/asst_6aJrkxPrmE6nACUUnskFeM7X
+    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp
     body:
       encoding: ''
       string: ''
@@ -725,16 +663,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:29 GMT
+      date: Tue, 07 May 2024 03:18:28 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_d516b293286eda3cd7b1911055461282
-      openai-processing-ms: '42'
+      x-request-id: req_556829469be9ae010580761396d2fa60
+      openai-processing-ms: '39'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddcdcdc242997-MEL
+      cf-ray: 87fe101d0d8777dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -742,9 +680,9 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_6aJrkxPrmE6nACUUnskFeM7X",
+          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
           "object": "assistant",
-          "created_at": 1715049805,
+          "created_at": 1715051905,
           "name": "Socrates",
           "description": null,
           "model": "gpt-4-0125-preview",
@@ -759,18 +697,20 @@ http_interactions:
           "tool_resources": {
             "file_search": {
               "vector_store_ids": [
-                "vs_W86SQdE1wsXyePtbHrq6oMdE"
+                "vs_XYmJ0Ei1MtGiYn5u58IUeVyV"
               ]
             }
           },
           "metadata": {},
-          "response_format": "auto"
+          "response_format": {
+            "type": "text"
+          }
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants/asst_6aJrkxPrmE6nACUUnskFeM7X/files/file-P6XH5bDZSo311u3yKlM6bFFn
+    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files/file-P6XH5bDZSo311u3yKlM6bFFn
     body:
       encoding: ''
       string: ''
@@ -785,16 +725,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:31 GMT
+      date: Tue, 07 May 2024 03:18:29 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_360255f6890648b23d33da7721ddfd0f
-      openai-processing-ms: '988'
+      x-request-id: req_cd00ce50197ae7eb35d41ff892ed34ac
+      openai-processing-ms: '117'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddcdfb8382997-MEL
+      cf-ray: 87fe1020194177dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -804,14 +744,14 @@ http_interactions:
         {
           "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "object": "assistant.file",
-          "created_at": 1715049807,
-          "assistant_id": "asst_6aJrkxPrmE6nACUUnskFeM7X"
+          "created_at": 1715051906,
+          "assistant_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp"
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/assistants/asst_6aJrkxPrmE6nACUUnskFeM7X
+    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp
     body:
       encoding: ''
       string: '{"model":"gpt-4-0125-preview","name":"Aristotle"}'
@@ -827,16 +767,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:31 GMT
+      date: Tue, 07 May 2024 03:18:29 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_d281e889fb98370ad4152c17fcadf1fd
-      openai-processing-ms: '112'
+      x-request-id: req_b17d49a0593753946e4b5de7e78e998e
+      openai-processing-ms: '100'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddce7b9fe2997-MEL
+      cf-ray: 87fe1022ece277dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -844,9 +784,9 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_6aJrkxPrmE6nACUUnskFeM7X",
+          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
           "object": "assistant",
-          "created_at": 1715049805,
+          "created_at": 1715051905,
           "name": "Aristotle",
           "description": null,
           "model": "gpt-4-0125-preview",
@@ -861,18 +801,20 @@ http_interactions:
           "tool_resources": {
             "file_search": {
               "vector_store_ids": [
-                "vs_W86SQdE1wsXyePtbHrq6oMdE"
+                "vs_XYmJ0Ei1MtGiYn5u58IUeVyV"
               ]
             }
           },
           "metadata": {},
-          "response_format": "auto"
+          "response_format": {
+            "type": "text"
+          }
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: delete
-    uri: https://api.openai.com/v1/assistants/asst_6aJrkxPrmE6nACUUnskFeM7X/files/file-P6XH5bDZSo311u3yKlM6bFFn
+    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files/file-P6XH5bDZSo311u3yKlM6bFFn
     body:
       encoding: ''
       string: ''
@@ -888,16 +830,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:32 GMT
+      date: Tue, 07 May 2024 03:18:31 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_758bb62228e18159aebc5832e3357ac4
-      openai-processing-ms: '671'
+      x-request-id: req_87771daf81894af9fad3145a360cdaf9
+      openai-processing-ms: '1032'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddcea6d212997-MEL
+      cf-ray: 87fe1026397177dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -909,11 +851,11 @@ http_interactions:
           "object": "assistant.file.deleted",
           "deleted": true
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: delete
-    uri: https://api.openai.com/v1/assistants/asst_6aJrkxPrmE6nACUUnskFeM7X
+    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp
     body:
       encoding: ''
       string: ''
@@ -929,16 +871,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 02:43:32 GMT
+      date: Tue, 07 May 2024 03:18:31 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_ccb9e911f16e27d75acf667462cd1b4b
-      openai-processing-ms: '45'
+      x-request-id: req_69b732d0c59223faef9dc8620ea61f28
+      openai-processing-ms: '50'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fddcf0bcc12997-MEL
+      cf-ray: 87fe102e5b1077dc-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -946,9 +888,62 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_6aJrkxPrmE6nACUUnskFeM7X",
+          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
           "object": "assistant.deleted",
           "deleted": true
         }
-  recorded_at: 2024-05-07 02:43:32 GMT
+  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants
+    body:
+      encoding: ''
+      string: '{"model":"gpt-4-0125-preview","name":"Jason","response_format":{"type":"json_object"}}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: My bearer token is safe
+      OpenAI-Beta: assistants=v2
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 07 May 2024 03:18:32 GMT
+      content-type: application/json
+      openai-version: '2020-10-01'
+      openai-organization: user-xzxbylwbsz2obysv34wdfreh
+      x-request-id: req_a94c5d66afbfb08320c0146977bb6faf
+      openai-processing-ms: '80'
+      strict-transport-security: max-age=15724800; includeSubDomains
+      cf-cache-status: DYNAMIC
+      server: cloudflare
+      cf-ray: 87fe1030adf977dc-MEL
+      content-encoding: gzip
+      alt-svc: h3=":443"; ma=86400
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "id": "asst_TJJ2vP833ofdFMTbVJpOLKrt",
+          "object": "assistant",
+          "created_at": 1715051911,
+          "name": "Jason",
+          "description": null,
+          "model": "gpt-4-0125-preview",
+          "instructions": null,
+          "tools": [],
+          "top_p": 1.0,
+          "temperature": 1.0,
+          "tool_resources": {},
+          "metadata": {},
+          "response_format": {
+            "type": "json_object"
+          }
+        }
+  recorded_at: 2024-05-07 03:18:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
