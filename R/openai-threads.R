@@ -33,7 +33,7 @@ create_thread <- function(messages = NULL, metadata = NULL) {
 
   # POST to thread endpoint
   response <- httr2::request("https://api.openai.com/v1/threads") |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_body_json(params, auto_unbox = TRUE) |>
     httr2::req_perform()
 
@@ -64,7 +64,7 @@ retrieve_thread <- function(thread_id) {
 
   # GET from threads endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_perform()
 
   # Check status code of response
@@ -100,7 +100,7 @@ modify_thread <- function(thread_id, metadata = NULL) {
 
   # POST to threads endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_body_json(params, auto_unbox = TRUE) |>
     httr2::req_perform()
 
@@ -129,7 +129,7 @@ delete_thread <- function(thread_id) {
 
   # DELETE to threads endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/threads/{thread_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_perform()
 
   # Check status code of response

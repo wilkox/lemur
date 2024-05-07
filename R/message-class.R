@@ -13,7 +13,7 @@ new_message <- function(x = list()) {
 validate_message <- function(x) {
 
   assertList(x)
-  for (param in names(x)) assertChoice(param, c("id", "created_at", "thread_id", "role", "content", "file_ids", "assistant_id", "run_id", "metadata"))
+  for (param in names(x)) assertChoice(param, c("id", "created_at", "thread_id", "role", "content", "attachments", "assistant_id", "run_id", "metadata", "file_ids"))
   qassert(x$id, "S1")
   qassert(x$created_at, "X1")
   qassert(x$thread_id, "S1")
@@ -23,7 +23,6 @@ validate_message <- function(x) {
   assertList(x$content$text)
   assertCharacter(x$content$text$value)
   if (! is.null(x$content$annotations)) assertList(x$content$annotations)
-  assertList(x$file_ids)
   if (! is.null(x$assistant_id)) qassert(x$assistant_id, "S1")
   if (! is.null(x$run_id)) qassert(x$run_id, "S1")
   if (! is.null(x$metadata)) assertCharacter(x$metadata, max.len = 16, max.chars = 512, names = "named")

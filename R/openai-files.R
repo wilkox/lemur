@@ -82,7 +82,7 @@ delete_file <- function(file_id) {
   # DELETE to threads endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/files/{file_id}")) |>
     httr2::req_method("DELETE") |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_perform()
 
   # Check status code of response

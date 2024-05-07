@@ -9,18 +9,19 @@ vcr::use_cassette("runs", allow_playback_repeats = TRUE, { test_that("Runs API b
   expect_s3_class(assistant, "assistant")
 
   # Create a run
+  message <- create_message(thread_id = thread$id, content = "This is a test message")
   expect_no_error({ run <- create_run(thread$id, assistant$id, metadata = c(test = "test-runs")) })
   expect_s3_class(run, "run")
-
-  # List runs
-  expect_no_error({ runs_list <- list_runs(thread$id) })
-  expect_s3_class(runs_list, "data.frame")
 
   # Wait until run is completed before proceeding
   while (! run$status == "completed") {
     Sys.sleep(1)
     run <- retrieve_run(thread$id, run$id) 
   }
+
+  # List runs
+  expect_no_error({ runs_list <- list_runs(thread$id) })
+  expect_s3_class(runs_list, "data.frame")
 
   # List run steps
   expect_no_error({ run_steps_list <- list_run_steps(thread$id, run$id) })

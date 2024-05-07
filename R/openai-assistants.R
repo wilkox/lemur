@@ -14,7 +14,6 @@
 #' @param instructions Instructions for the assistant, an atomic character
 #' vector of maximum length 32,768 characters
 #' @param tools A list of assistant_tool objects, maximum of 128
-#' @param file_ids A vector of file_ids to be attached to the assistant, maximum of 20
 #' @param metadata A named character vector of up to 16 metadata values, with
 #' names (keys) maximum 64 characters long and values maximum 512 characters
 #' long
@@ -25,7 +24,6 @@ create_assistant <- function(
   description = NULL,
   instructions = NULL,
   tools = NULL,
-  file_ids = NULL,
   metadata = NULL
 ) {
 
@@ -36,7 +34,6 @@ create_assistant <- function(
     description = description,
     instructions = instructions,
     tools = tools,
-    file_ids = file_ids,
     metadata = metadata
   )
   params <- params[! unlist(lapply(params, is.null))]
@@ -45,12 +42,11 @@ create_assistant <- function(
 
   # Mung parameters into the format expected by the API
   if (! testNull(params$tools)) params$tools <- lapply(params$tools, unclass)
-  if (! testNull(params$file_ids)) params$file_ids <- as.list(params$file_ids)
   if (! testNull(params$metadata)) params$metadata <- as.list(params$metadata)
 
   # POST to assistants endpoint
   response <- httr2::request("https://api.openai.com/v1/assistants") |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_body_json(params, auto_unbox = TRUE) |>
     httr2::req_perform()
 
@@ -86,7 +82,7 @@ create_assistant_file <- function(assistant_id, file_id) {
 
   # POST to assistants endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_body_json(params, auto_unbox = TRUE) |>
     httr2::req_perform()
 
@@ -128,7 +124,7 @@ list_assistants <- function(limit = 20, order = "desc", before = NULL, after = N
 
   # GET from assistants endpoint
   response <- httr2::request("https://api.openai.com/v1/assistants") |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_url_query(limit = limit, order = order, before = before, after = after) |>
     httr2::req_perform()
 
@@ -171,7 +167,7 @@ list_assistant_files <- function(assistant_id, limit = 20, order = "desc", befor
 
   # GET from assistants endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_url_query(limit = limit, order = order, before = before, after = after) |>
     httr2::req_perform()
 
@@ -200,7 +196,7 @@ retrieve_assistant <- function(assistant_id) {
 
   # GET from assistants endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_perform()
 
   # Check status code of response
@@ -230,7 +226,7 @@ retrieve_assistant_file <- function(assistant_id, file_id) {
 
   # GET from assistants endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_perform()
 
   # Check status code of response
@@ -262,7 +258,6 @@ retrieve_assistant_file <- function(assistant_id, file_id) {
 #' @param instructions Instructions for the assistance, an atomic character
 #' vector of maximum length 32,768 characters
 #' @param tools A list of assistant_tool objects, maximum of 128
-#' @param file_ids A vector of file_ids to be attached to the assistant, maximum of 20
 #' @param metadata A named character vector of up to 16 metadata values, with
 #' names (keys) maximum 64 characters long and values maximum 512 characters
 #' long
@@ -274,7 +269,6 @@ modify_assistant <- function(
   description = NULL,
   instructions = NULL,
   tools = NULL,
-  file_ids = NULL,
   metadata = NULL
 ) {
 
@@ -286,7 +280,6 @@ modify_assistant <- function(
     description = description,
     instructions = instructions,
     tools = tools,
-    file_ids = file_ids,
     metadata = metadata
   )
   params <- params[! unlist(lapply(params, is.null))]
@@ -295,11 +288,10 @@ modify_assistant <- function(
 
   # Mung parameters into the format expected by the API
   if (! testNull(params$tools)) params$tools <- lapply(params$tools, unclass)
-  if (! testNull(params$file_ids)) params$file_ids <- as.list(params$file_ids)
 
   # POST to assistants endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_body_json(params, auto_unbox = TRUE) |>
     httr2::req_perform()
 
@@ -329,7 +321,7 @@ delete_assistant <- function(assistant_id) {
 
   # DELETE to assistants endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_perform()
 
   # Check status code of response
@@ -356,7 +348,7 @@ delete_assistant_file <- function(assistant_id, file_id) {
 
   # DELETE to assistants endpoint
   response <- httr2::request(glue::glue("https://api.openai.com/v1/assistants/{assistant_id}/files/{file_id}")) |>
-    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v1") |>
+    httr2::req_headers("Authorization" = paste("Bearer", openai_api_key()), "OpenAI-Beta" = "assistants=v2") |>
     httr2::req_perform()
 
   # Check status code of response
