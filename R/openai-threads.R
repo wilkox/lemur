@@ -35,7 +35,7 @@ create_thread <- function(messages = NULL, metadata = NULL) {
   response <- httr::POST(
     "https://api.openai.com/v1/threads",
     httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    httr::add_headers("OpenAI-Beta" = "assistants=v2"),
     httr::content_type_json(),
     body = jsonlite::toJSON(params, auto_unbox = TRUE)
   )
@@ -69,7 +69,7 @@ retrieve_thread <- function(thread_id) {
   response <- httr::GET(
     glue::glue("https://api.openai.com/v1/threads/{thread_id}"),
     httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+    httr::add_headers("OpenAI-Beta" = "assistants=v2")
   )
 
   # Check status code of response
@@ -107,7 +107,7 @@ modify_thread <- function(thread_id, metadata = NULL) {
   response <- httr::POST(
     glue::glue("https://api.openai.com/v1/threads/{thread_id}"),
     httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1"),
+    httr::add_headers("OpenAI-Beta" = "assistants=v2"),
     httr::content_type_json(),
     body = jsonlite::toJSON(params, auto_unbox = TRUE)
   )
@@ -139,7 +139,7 @@ delete_thread <- function(thread_id) {
   response <- httr::DELETE(
     glue::glue("https://api.openai.com/v1/threads/{thread_id}"),
     httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+    httr::add_headers("OpenAI-Beta" = "assistants=v2")
   )
 
   # Check status code of response

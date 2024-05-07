@@ -13,7 +13,7 @@ new_thread <- function(x = list()) {
 validate_thread <- function(x) {
 
   assertList(x)
-  for (param in names(x)) assertChoice(param, c("id", "created_at", "metadata"))
+  for (param in names(x)) assertChoice(param, c("id", "created_at", "metadata", "tools", "tool_resources"))
   qassert(x$id, "S1")
   qassert(x$created_at, "X1")
   if (! is.null(x$metadata)) {

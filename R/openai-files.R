@@ -105,7 +105,7 @@ delete_file <- function(file_id) {
   response <- httr::DELETE(
     glue::glue("https://api.openai.com/v1/files/{file_id}"),
     httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
-    httr::add_headers("OpenAI-Beta" = "assistants=v1")
+    httr::add_headers("OpenAI-Beta" = "assistants=v2")
   )
 
   # Check status code of response

@@ -13,7 +13,7 @@ new_assistant <- function(x = list()) {
 validate_assistant <- function(x) {
 
   assertList(x)
-  for (param in names(x)) assertChoice(param, c("id", "created_at", "name", "model", "description", "instructions", "tools", "file_ids", "metadata", "top_p", "temperature", "response_format"))
+  for (param in names(x)) assertChoice(param, c("id", "created_at", "name", "model", "description", "instructions", "tools", "tool_resources", "top_p", "temperature", "response_format", "metadata"))
   qassert(x$id, "S1")
   qassert(x$created_at, "X1")
   assertString(x$model, max.chars = 256)
@@ -24,7 +24,6 @@ validate_assistant <- function(x) {
     assertList(x$tools, max.len = 128)
     for (tool in x$tools) assertClass(tool, "assistant_tool")
   }
-  if (! testNull(x$file_ids)) assertCharacter(x$file_ids, max.len = 20)
   if (! testNull(x$metadata)) {
     assertCharacter(x$metadata, max.len = 16, names = "named")
     for (key in names(x$metadata)) assertString(key, max.chars = 64)
@@ -56,7 +55,6 @@ as_assistant.response <- function(response) {
   content <- httr::content(response)
   if (! testNull(content$tools)) content$tools <- lapply(content$tools, function(tool) assistant_tool(type = tool$type))
   if (! testNull(content$object)) content$object <- NULL
-  if (! testNull(content$file_ids)) content$file_ids <- as.character(content$file_ids)
   if (! testNull(content$metadata)) content$metadata <- unlist(content$metadata)
   assistant <- new_assistant(content)
   assistant <- validate_assistant(assistant)

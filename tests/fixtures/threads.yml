@@ -8,7 +8,7 @@ http_interactions:
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
       Content-Type: application/json
   response:
     status:
@@ -17,16 +17,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:46 GMT
+      date: Tue, 07 May 2024 02:43:45 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_8dc9e5e862eb09b2ba2710f795438edf
-      openai-processing-ms: '28'
+      x-request-id: req_62e77ca3cc948cd09e0f4cc80dcf6eea
+      openai-processing-ms: '21'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf8c4fc745a8b-MEL
+      cf-ray: 87fddd3f3dc72997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -34,25 +34,26 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "thread_zuEC3ob36HSASpo0weVyBnbW",
+          "id": "thread_oMeQZVfJTn3Lu8rLODLyerKJ",
           "object": "thread",
-          "created_at": 1715040466,
+          "created_at": 1715049825,
           "metadata": {
             "test": "test-threads"
-          }
+          },
+          "tool_resources": {}
         }
-  recorded_at: 2024-05-07 00:07:47 GMT
+  recorded_at: 2024-05-07 02:43:46 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_zuEC3ob36HSASpo0weVyBnbW
+    uri: https://api.openai.com/v1/threads/thread_oMeQZVfJTn3Lu8rLODLyerKJ
     body:
       encoding: ''
       string: ''
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
   response:
     status:
       status_code: 200
@@ -60,16 +61,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:47 GMT
+      date: Tue, 07 May 2024 02:43:45 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_04172faee009b30579e4d2daf36b83d5
-      openai-processing-ms: '10'
+      x-request-id: req_4cb9bc5419125f83f1be1d9380a1cad9
+      openai-processing-ms: '24'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf8c81ffd5a8b-MEL
+      cf-ray: 87fddd4108812997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -77,25 +78,30 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "thread_zuEC3ob36HSASpo0weVyBnbW",
+          "id": "thread_oMeQZVfJTn3Lu8rLODLyerKJ",
           "object": "thread",
-          "created_at": 1715040466,
+          "created_at": 1715049825,
           "metadata": {
             "test": "test-threads"
+          },
+          "tool_resources": {
+            "code_interpreter": {
+              "file_ids": []
+            }
           }
         }
-  recorded_at: 2024-05-07 00:07:47 GMT
+  recorded_at: 2024-05-07 02:43:46 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_zuEC3ob36HSASpo0weVyBnbW
+    uri: https://api.openai.com/v1/threads/thread_oMeQZVfJTn3Lu8rLODLyerKJ
     body:
       encoding: ''
       string: '{"metadata":{"test":"test-threads","modified":"TRUE"}}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
       Content-Type: application/json
   response:
     status:
@@ -104,16 +110,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:47 GMT
+      date: Tue, 07 May 2024 02:43:45 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_709caf2a8fed2794edd6af2d8a756af5
-      openai-processing-ms: '20'
+      x-request-id: req_a34daa0af3d9e01e12d8124af64547ac
+      openai-processing-ms: '50'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf8ca0a3a5a8b-MEL
+      cf-ray: 87fddd42caac2997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -121,19 +127,20 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "thread_zuEC3ob36HSASpo0weVyBnbW",
+          "id": "thread_oMeQZVfJTn3Lu8rLODLyerKJ",
           "object": "thread",
-          "created_at": 1715040466,
+          "created_at": 1715049825,
           "metadata": {
             "test": "test-threads",
             "modified": "TRUE"
-          }
+          },
+          "tool_resources": {}
         }
-  recorded_at: 2024-05-07 00:07:47 GMT
+  recorded_at: 2024-05-07 02:43:46 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: delete
-    uri: https://api.openai.com/v1/threads/thread_zuEC3ob36HSASpo0weVyBnbW
+    uri: https://api.openai.com/v1/threads/thread_oMeQZVfJTn3Lu8rLODLyerKJ
     body:
       encoding: ''
       string: ''
@@ -141,7 +148,7 @@ http_interactions:
       Accept: application/json, text/xml, application/xml, */*
       Content-Type: ''
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
   response:
     status:
       status_code: 200
@@ -149,16 +156,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:48 GMT
+      date: Tue, 07 May 2024 02:43:46 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_ab6d9f44db2758a55629619807929d73
-      openai-processing-ms: '33'
+      x-request-id: req_da7b83bd2e4dee869a51aec7210d46cd
+      openai-processing-ms: '68'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf8cc8d125a8b-MEL
+      cf-ray: 87fddd45ff202997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -166,9 +173,9 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "thread_zuEC3ob36HSASpo0weVyBnbW",
+          "id": "thread_oMeQZVfJTn3Lu8rLODLyerKJ",
           "object": "thread.deleted",
           "deleted": true
         }
-  recorded_at: 2024-05-07 00:07:47 GMT
+  recorded_at: 2024-05-07 02:43:46 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0

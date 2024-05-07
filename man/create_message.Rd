@@ -4,13 +4,7 @@
 \alias{create_message}
 \title{Create a message within a thread}
 \usage{
-create_message(
-  thread_id,
-  role = "user",
-  content,
-  file_ids = NULL,
-  metadata = NULL
-)
+create_message(thread_id, role = "user", content, metadata = NULL)
 }
 \arguments{
 \item{thread_id}{The ID of the thread to create the message in (required)}
@@ -18,9 +12,6 @@ create_message(
 \item{role}{The role of the entity that is creating the message, at present must be "user" (required)}
 
 \item{content}{The content of the message (required)}
-
-\item{file_ids}{A character vector of file IDs that the message should use,
-maximum of 10 (optional)}
 
 \item{metadata}{A named character vector of up to 16 metadata values, with
 names (keys) maximum 64 characters long and values maximum 512 characters

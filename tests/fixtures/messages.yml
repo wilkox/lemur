@@ -4,11 +4,11 @@ http_interactions:
     uri: https://api.openai.com/v1/assistants
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","tools":[{"type":"retrieval"}],"metadata":{"test":"test-messages"}}'
+      string: '{"model":"gpt-4-0125-preview","tools":[{"type":"file_search"}],"metadata":{"test":"test-messages"}}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
       Content-Type: application/json
   response:
     status:
@@ -17,16 +17,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:33 GMT
+      date: Tue, 07 May 2024 02:43:33 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_b98f3c530231fb397548e5cd0998a0d9
-      openai-processing-ms: '89'
+      x-request-id: req_9f6476e7f0b7d24d8aaedd45100b39ac
+      openai-processing-ms: '68'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf872da395a8b-MEL
+      cf-ray: 87fddcf73cac2997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -34,31 +34,35 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_muNICXrAWA3kx19MP7ueDQ15",
+          "id": "asst_u7XB4yCOQZnSKLfTM7FjJ3HA",
           "object": "assistant",
-          "created_at": 1715040453,
+          "created_at": 1715049813,
           "name": null,
           "description": null,
           "model": "gpt-4-0125-preview",
           "instructions": null,
           "tools": [
             {
-              "type": "retrieval"
+              "type": "file_search"
             }
           ],
           "top_p": 1.0,
           "temperature": 1.0,
-          "file_ids": [],
+          "tool_resources": {
+            "file_search": {
+              "vector_store_ids": []
+            }
+          },
           "metadata": {
             "test": "test-messages"
           },
           "response_format": "auto"
         }
-  recorded_at: 2024-05-07 00:07:38 GMT
+  recorded_at: 2024-05-07 02:43:37 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/assistants/asst_muNICXrAWA3kx19MP7ueDQ15/files
+    uri: https://api.openai.com/v1/assistants/asst_u7XB4yCOQZnSKLfTM7FjJ3HA/files
     body:
       encoding: ''
       string: '{"file_id":"file-P6XH5bDZSo311u3yKlM6bFFn"}'
@@ -66,7 +70,7 @@ http_interactions:
       Accept: application/json, text/xml, application/xml, */*
       Content-Type: ''
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
   response:
     status:
       status_code: 200
@@ -74,16 +78,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:36 GMT
+      date: Tue, 07 May 2024 02:43:35 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_3d5561fe682efb54a939dd4d568f9fad
-      openai-processing-ms: '1706'
+      x-request-id: req_a4a99fd259bc9597353ff4af8932943b
+      openai-processing-ms: '1530'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf8762eb65a8b-MEL
+      cf-ray: 87fddcf9efb92997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -93,10 +97,10 @@ http_interactions:
         {
           "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "object": "assistant.file",
-          "created_at": 1715040454,
-          "assistant_id": "asst_muNICXrAWA3kx19MP7ueDQ15"
+          "created_at": 1715049814,
+          "assistant_id": "asst_u7XB4yCOQZnSKLfTM7FjJ3HA"
         }
-  recorded_at: 2024-05-07 00:07:38 GMT
+  recorded_at: 2024-05-07 02:43:37 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
@@ -107,7 +111,7 @@ http_interactions:
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
       Content-Type: application/json
   response:
     status:
@@ -116,16 +120,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:36 GMT
+      date: Tue, 07 May 2024 02:43:36 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_16ad3abb1eedf682d2b805ca9976802d
-      openai-processing-ms: '20'
+      x-request-id: req_0c56cd5c0c8a499e58691c2e401f868d
+      openai-processing-ms: '25'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf883bf025a8b-MEL
+      cf-ray: 87fddd05d80b2997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -133,25 +137,26 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "thread_9V5Z7RvnvxXd4OY0BJzXzSiY",
+          "id": "thread_6L5xotimsXHCgp7QsAMU4Oiv",
           "object": "thread",
-          "created_at": 1715040456,
+          "created_at": 1715049816,
           "metadata": {
             "test": "test-messages"
-          }
+          },
+          "tool_resources": {}
         }
-  recorded_at: 2024-05-07 00:07:38 GMT
+  recorded_at: 2024-05-07 02:43:37 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_9V5Z7RvnvxXd4OY0BJzXzSiY/messages
+    uri: https://api.openai.com/v1/threads/thread_6L5xotimsXHCgp7QsAMU4Oiv/messages
     body:
       encoding: ''
-      string: '{"role":"user","content":"Hello, world!","file_ids":["file-P6XH5bDZSo311u3yKlM6bFFn"]}'
+      string: '{"role":"user","content":"Hello, world!"}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
       Content-Type: application/json
   response:
     status:
@@ -160,16 +165,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:37 GMT
+      date: Tue, 07 May 2024 02:43:36 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_b744ed2a3d0e3c1bbf92f11af71e0737
-      openai-processing-ms: '132'
+      x-request-id: req_a2eeb0b0f1c6ca73068faccd4b52a9fe
+      openai-processing-ms: '64'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf886daa05a8b-MEL
+      cf-ray: 87fddd07faeb2997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -177,11 +182,11 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS",
+          "id": "msg_M1u4eZyxkuvRZ43RsCM1G64p",
           "object": "thread.message",
-          "created_at": 1715040456,
+          "created_at": 1715049816,
           "assistant_id": null,
-          "thread_id": "thread_9V5Z7RvnvxXd4OY0BJzXzSiY",
+          "thread_id": "thread_6L5xotimsXHCgp7QsAMU4Oiv",
           "run_id": null,
           "role": "user",
           "content": [
@@ -193,23 +198,21 @@ http_interactions:
               }
             }
           ],
-          "file_ids": [
-            "file-P6XH5bDZSo311u3yKlM6bFFn"
-          ],
+          "attachments": [],
           "metadata": {}
         }
-  recorded_at: 2024-05-07 00:07:38 GMT
+  recorded_at: 2024-05-07 02:43:37 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_9V5Z7RvnvxXd4OY0BJzXzSiY/messages?limit=20&order=desc
+    uri: https://api.openai.com/v1/threads/thread_6L5xotimsXHCgp7QsAMU4Oiv/messages?limit=20&order=desc
     body:
       encoding: ''
       string: ''
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
   response:
     status:
       status_code: 200
@@ -217,16 +220,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:37 GMT
+      date: Tue, 07 May 2024 02:43:37 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_622e52213821ea1735999fa0b57c6698
-      openai-processing-ms: '22'
+      x-request-id: req_1e71c1a34b0843d79c4585f4c1e9c1ea
+      openai-processing-ms: '32'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf88a0ec05a8b-MEL
+      cf-ray: 87fddd0aef852997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -237,11 +240,11 @@ http_interactions:
           "object": "list",
           "data": [
             {
-              "id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS",
+              "id": "msg_M1u4eZyxkuvRZ43RsCM1G64p",
               "object": "thread.message",
-              "created_at": 1715040456,
+              "created_at": 1715049816,
               "assistant_id": null,
-              "thread_id": "thread_9V5Z7RvnvxXd4OY0BJzXzSiY",
+              "thread_id": "thread_6L5xotimsXHCgp7QsAMU4Oiv",
               "run_id": null,
               "role": "user",
               "content": [
@@ -253,28 +256,26 @@ http_interactions:
                   }
                 }
               ],
-              "file_ids": [
-                "file-P6XH5bDZSo311u3yKlM6bFFn"
-              ],
+              "attachments": [],
               "metadata": {}
             }
           ],
-          "first_id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS",
-          "last_id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS",
+          "first_id": "msg_M1u4eZyxkuvRZ43RsCM1G64p",
+          "last_id": "msg_M1u4eZyxkuvRZ43RsCM1G64p",
           "has_more": false
         }
-  recorded_at: 2024-05-07 00:07:38 GMT
+  recorded_at: 2024-05-07 02:43:37 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_9V5Z7RvnvxXd4OY0BJzXzSiY/messages/msg_ZpDG7pA9tgvRHyrD8rKpRnlS/files?limit=20&order=desc
+    uri: https://api.openai.com/v1/threads/thread_6L5xotimsXHCgp7QsAMU4Oiv/messages/msg_M1u4eZyxkuvRZ43RsCM1G64p
     body:
       encoding: ''
       string: ''
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
   response:
     status:
       status_code: 200
@@ -282,16 +283,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:38 GMT
+      date: Tue, 07 May 2024 02:43:37 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_a33603f17b060cbf8934f26a61aa2c0f
-      openai-processing-ms: '22'
+      x-request-id: req_e784fc35509bb620f7a394d101bf6926
+      openai-processing-ms: '32'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf88d3a3c5a8b-MEL
+      cf-ray: 87fddd0e2d382997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -299,60 +300,11 @@ http_interactions:
       file: no
       string: |-
         {
-          "object": "list",
-          "data": [
-            {
-              "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
-              "object": "thread.message.file",
-              "created_at": 1715040456,
-              "message_id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS"
-            }
-          ],
-          "first_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
-          "last_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
-          "has_more": false
-        }
-  recorded_at: 2024-05-07 00:07:38 GMT
-  recorded_with: vcr/1.2.2, webmockr/0.9.0
-- request:
-    method: get
-    uri: https://api.openai.com/v1/threads/thread_9V5Z7RvnvxXd4OY0BJzXzSiY/messages/msg_ZpDG7pA9tgvRHyrD8rKpRnlS
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept: application/json, text/xml, application/xml, */*
-      Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
-  response:
-    status:
-      status_code: 200
-      category: Success
-      reason: OK
-      message: 'Success: (200) OK'
-    headers:
-      date: Tue, 07 May 2024 00:07:38 GMT
-      content-type: application/json
-      openai-version: '2020-10-01'
-      openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_8bf222d7a012cc2dd9edac91ee8c7c49
-      openai-processing-ms: '23'
-      strict-transport-security: max-age=15724800; includeSubDomains
-      cf-cache-status: DYNAMIC
-      server: cloudflare
-      cf-ray: 87fcf8906ddc5a8b-MEL
-      content-encoding: gzip
-      alt-svc: h3=":443"; ma=86400
-    body:
-      encoding: ''
-      file: no
-      string: |-
-        {
-          "id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS",
+          "id": "msg_M1u4eZyxkuvRZ43RsCM1G64p",
           "object": "thread.message",
-          "created_at": 1715040456,
+          "created_at": 1715049816,
           "assistant_id": null,
-          "thread_id": "thread_9V5Z7RvnvxXd4OY0BJzXzSiY",
+          "thread_id": "thread_6L5xotimsXHCgp7QsAMU4Oiv",
           "run_id": null,
           "role": "user",
           "content": [
@@ -364,64 +316,21 @@ http_interactions:
               }
             }
           ],
-          "file_ids": [
-            "file-P6XH5bDZSo311u3yKlM6bFFn"
-          ],
+          "attachments": [],
           "metadata": {}
         }
-  recorded_at: 2024-05-07 00:07:38 GMT
-  recorded_with: vcr/1.2.2, webmockr/0.9.0
-- request:
-    method: get
-    uri: https://api.openai.com/v1/threads/thread_9V5Z7RvnvxXd4OY0BJzXzSiY/messages/msg_ZpDG7pA9tgvRHyrD8rKpRnlS/files/file-P6XH5bDZSo311u3yKlM6bFFn
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept: application/json, text/xml, application/xml, */*
-      Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
-  response:
-    status:
-      status_code: 200
-      category: Success
-      reason: OK
-      message: 'Success: (200) OK'
-    headers:
-      date: Tue, 07 May 2024 00:07:39 GMT
-      content-type: application/json
-      openai-version: '2020-10-01'
-      openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_1ab030a0bec53505280c96427c38c98d
-      openai-processing-ms: '26'
-      strict-transport-security: max-age=15724800; includeSubDomains
-      cf-cache-status: DYNAMIC
-      server: cloudflare
-      cf-ray: 87fcf89369535a8b-MEL
-      content-encoding: gzip
-      alt-svc: h3=":443"; ma=86400
-    body:
-      encoding: ''
-      file: no
-      string: |-
-        {
-          "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
-          "object": "thread.message.file",
-          "created_at": 1715040456,
-          "message_id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS"
-        }
-  recorded_at: 2024-05-07 00:07:38 GMT
+  recorded_at: 2024-05-07 02:43:37 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_9V5Z7RvnvxXd4OY0BJzXzSiY/messages/msg_ZpDG7pA9tgvRHyrD8rKpRnlS
+    uri: https://api.openai.com/v1/threads/thread_6L5xotimsXHCgp7QsAMU4Oiv/messages/msg_M1u4eZyxkuvRZ43RsCM1G64p
     body:
       encoding: ''
       string: '{"metadata":{"test":"test-messages","modified":"TRUE"}}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
-      OpenAI-Beta: assistants=v1
+      OpenAI-Beta: assistants=v2
       Content-Type: application/json
   response:
     status:
@@ -430,16 +339,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:39 GMT
+      date: Tue, 07 May 2024 02:43:37 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_735a64bacd8dfbedac891b3d5c0b5188
-      openai-processing-ms: '30'
+      x-request-id: req_f4f7e6a1fe4265b8c9ac466bc46276e7
+      openai-processing-ms: '37'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf8959be35a8b-MEL
+      cf-ray: 87fddd1028512997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -447,11 +356,11 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "msg_ZpDG7pA9tgvRHyrD8rKpRnlS",
+          "id": "msg_M1u4eZyxkuvRZ43RsCM1G64p",
           "object": "thread.message",
-          "created_at": 1715040456,
+          "created_at": 1715049816,
           "assistant_id": null,
-          "thread_id": "thread_9V5Z7RvnvxXd4OY0BJzXzSiY",
+          "thread_id": "thread_6L5xotimsXHCgp7QsAMU4Oiv",
           "run_id": null,
           "role": "user",
           "content": [
@@ -463,13 +372,11 @@ http_interactions:
               }
             }
           ],
-          "file_ids": [
-            "file-P6XH5bDZSo311u3yKlM6bFFn"
-          ],
+          "file_ids": [],
           "metadata": {
             "test": "test-messages",
             "modified": "TRUE"
           }
         }
-  recorded_at: 2024-05-07 00:07:38 GMT
+  recorded_at: 2024-05-07 02:43:37 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0

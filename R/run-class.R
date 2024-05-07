@@ -13,7 +13,7 @@ new_run <- function(x = list()) {
 validate_run <- function(x) {
 
   assertList(x)
-  for (param in names(x)) assertChoice(param, c("id", "created_at", "assistant_id", "thread_id", "status", "started_at", "expires_at", "cancelled_at", "failed_at", "completed_at", "last_error", "model", "instructions", "tools", "file_ids", "metadata", "usage", "temperature", "required_action", "top_p", "max_completion_tokens", "max_prompt_tokens", "truncation_strategy", "incomplete_details", "response_format", "tool_choice"))
+  for (param in names(x)) assertChoice(param, c("id", "created_at", "assistant_id", "thread_id", "status", "started_at", "expires_at", "cancelled_at", "failed_at", "completed_at", "last_error", "model", "instructions", "tools", "metadata", "usage", "temperature", "required_action", "top_p", "max_completion_tokens", "max_prompt_tokens", "truncation_strategy", "incomplete_details", "response_format", "tool_choice", "tool_resources"))
   qassert(x$id, "S1")
   qassert(x$created_at, "X1")
   qassert(x$assistant_id, "S1")
@@ -35,7 +35,6 @@ validate_run <- function(x) {
   if (! testNull(x$tools)) {
     assertList(x$tools, max.len = 128)
   }
-  if (! testNull(x$file_ids)) assertCharacter(x$file_ids, max.len = 20)
   if (! testNull(x$metadata)) {
     assertCharacter(x$metadata, max.len = 16, names = "named")
     for (key in names(x$metadata)) assertString(key, max.chars = 64)
@@ -73,7 +72,6 @@ as_run.response <- function(response) {
 
   content <- httr::content(response)
   if (! testNull(content$object)) content$object <- NULL
-  if (! testNull(content$file_ids)) content$file_ids <- as.character(content$file_ids)
   if (! testNull(content$metadata)) content$metadata <- unlist(content$metadata)
   run <- new_run(content)
   run <- validate_run(run)

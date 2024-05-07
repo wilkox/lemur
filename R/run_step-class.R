@@ -67,7 +67,6 @@ as_run_step.response <- function(response) {
   content <- httr::content(response)
   if (! testNull(content$tools)) content$tools <- lapply(content$tools, function(tool) assistant_tool(type = tool$type))
   if (! testNull(content$object)) content$object <- NULL
-  if (! testNull(content$file_ids)) content$file_ids <- as.character(content$file_ids)
   run_step <- new_run_step(content)
   run_step <- validate_run_step(run_step)
   run_step

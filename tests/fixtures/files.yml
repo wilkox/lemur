@@ -15,17 +15,17 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 00:07:33 GMT
+      date: Tue, 07 May 2024 02:43:33 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_593b582cc39b6749103dc61ba342d327
-      openai-processing-ms: '90'
+      x-request-id: req_164bb050938260a15608ceff77c1dab0
+      openai-processing-ms: '117'
       access-control-allow-origin: '*'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fcf86fee6d5a8b-MEL
+      cf-ray: 87fddcf408492997-MEL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -58,5 +58,5 @@ http_interactions:
           ],
           "has_more": false
         }
-  recorded_at: 2024-05-07 00:07:32 GMT
+  recorded_at: 2024-05-07 02:43:33 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0

@@ -9,7 +9,6 @@ create_assistant(
   description = NULL,
   instructions = NULL,
   tools = NULL,
-  file_ids = NULL,
   metadata = NULL
 )
 }
@@ -24,8 +23,6 @@ vector of maximum length 512 characters}
 vector of maximum length 32,768 characters}
 
 \item{tools}{A list of assistant_tool objects, maximum of 128}
-
-\item{file_ids}{A vector of file_ids to be attached to the assistant, maximum of 20}
 
 \item{metadata}{A named character vector of up to 16 metadata values, with
 names (keys) maximum 64 characters long and values maximum 512 characters

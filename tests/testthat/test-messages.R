@@ -17,27 +17,17 @@ vcr::use_cassette("messages", { test_that("Messages API bindings", {
   expect_s3_class(thread, "thread")
 
   # Create a message
-  expect_no_error({ message <- create_message(thread_id = thread$id, content = "Hello, world!", file_ids = assistant_file$id) })
+  expect_no_error({ message <- create_message(thread_id = thread$id, content = "Hello, world!") })
   expect_s3_class(message, "message")
 
   # List messages
   expect_no_error({ message_list <- list_messages(thread$id) })
   expect_s3_class(message_list, "data.frame")
 
-  # List message files
-  expect_no_error({ message_files_list <- list_message_files(thread$id, message$id) })
-  expect_s3_class(message_files_list, "data.frame")
-  expect_equal(message_files_list$id[[1]], "file-P6XH5bDZSo311u3yKlM6bFFn")
-
   # Retrieve a message
   expect_no_error({ retrieved_message <- retrieve_message(thread$id, message$id) })
   expect_s3_class(retrieved_message, "message")
   expect_equal(retrieved_message, message)
-
-  # Retrieve a message file
-  expect_no_error({ retrieved_message_file <- retrieve_message_file(thread$id, message$id, assistant_file$id) })
-  expect_s3_class(retrieved_message_file, "message_file")
-  expect_equal(retrieved_message_file$id, assistant_file$id)
 
   # Modify a message
   expect_no_error({ message <- modify_message(thread$id, message$id, metadata = c(test = "test-messages", modified = TRUE)) })
