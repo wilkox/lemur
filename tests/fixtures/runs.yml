@@ -17,16 +17,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:38 GMT
+      date: Tue, 21 May 2024 01:09:45 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_5a351200c19a177f0e4ccd722d777b69
-      openai-processing-ms: '25'
+      x-request-id: req_3c409f62be705f37629a32bd41702b98
+      openai-processing-ms: '40'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1057db0677dc-MEL
+      cf-ray: 8870aecc5839274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -34,22 +34,22 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "object": "thread",
-          "created_at": 1715051918,
+          "created_at": 1716253785,
           "metadata": {
             "test": "test-runs"
           },
           "tool_resources": {}
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
     uri: https://api.openai.com/v1/assistants
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","tools":[{"type":"file_search"}],"response_format":{"type":"text"},"metadata":{"test":"test-runs"}}'
+      string: '{"model":"gpt-4o","tools":[{"type":"file_search"}],"response_format":{"type":"text"},"metadata":{"test":"test-runs"}}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
@@ -62,16 +62,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:38 GMT
+      date: Tue, 21 May 2024 01:09:45 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_82fadc97217b408c6cd93bbccd32d500
-      openai-processing-ms: '68'
+      x-request-id: req_80145a154f69c6708b2aaa354773126c
+      openai-processing-ms: '84'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe105aaeb077dc-MEL
+      cf-ray: 8870aececc44274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -79,12 +79,12 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
+          "id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
           "object": "assistant",
-          "created_at": 1715051918,
+          "created_at": 1716253785,
           "name": null,
           "description": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -105,11 +105,11 @@ http_interactions:
             "type": "text"
           }
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/messages
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/messages
     body:
       encoding: ''
       string: '{"role":"user","content":"This is a test message"}'
@@ -125,16 +125,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:39 GMT
+      date: Tue, 21 May 2024 01:09:46 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_6b42760a9e2922148a45723e72c3dde9
-      openai-processing-ms: '40'
+      x-request-id: req_ef68bdc5f9c64254d6d10d195e960761
+      openai-processing-ms: '44'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe105cf9a377dc-MEL
+      cf-ray: 8870aed1384c274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -142,11 +142,11 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "msg_jga8mOHQnXGMVFjXzdKkyfIK",
+          "id": "msg_j5QYhYBuZMPKRV5dXJ3ewzRS",
           "object": "thread.message",
-          "created_at": 1715051918,
+          "created_at": 1716253785,
           "assistant_id": null,
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "run_id": null,
           "role": "user",
           "content": [
@@ -161,14 +161,14 @@ http_interactions:
           "attachments": [],
           "metadata": {}
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","assistant_id":"asst_rYFmCq5oKVZw3xCCPgsIVTd8","metadata":{"test":"test-runs"},"temperature":1,"stream":false}'
+      string: '{"model":"gpt-4o","assistant_id":"asst_dfmUPpmiSEwPF2Hy7jzlrJa3","metadata":{"test":"test-runs"},"temperature":1,"stream":false}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
@@ -181,16 +181,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:39 GMT
+      date: Tue, 21 May 2024 01:09:46 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_f8b250064bd128b955436b524230487c
-      openai-processing-ms: '233'
+      x-request-id: req_a233739e90742ccda2cc9997da06c111
+      openai-processing-ms: '260'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe105efc3a77dc-MEL
+      cf-ray: 8870aed4adc7274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -198,20 +198,20 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "run_eoiQR81br4VphlCJ7b0vh111",
+          "id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
           "object": "thread.run",
-          "created_at": 1715051919,
-          "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "created_at": 1716253786,
+          "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "status": "queued",
           "started_at": null,
-          "expires_at": 1715052519,
+          "expires_at": 1716254386,
           "cancelled_at": null,
           "failed_at": null,
           "completed_at": null,
           "required_action": null,
           "last_error": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -237,11 +237,11 @@ http_interactions:
           },
           "tool_choice": "auto"
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs/run_eoiQR81br4VphlCJ7b0vh111
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs/run_jx5kmgOMPQEABALOYI6RsJ2T
     body:
       encoding: ''
       string: ''
@@ -256,16 +256,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:41 GMT
+      date: Tue, 21 May 2024 01:09:48 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_36157add38e1e043b17595e4d17e34de
-      openai-processing-ms: '48'
+      x-request-id: req_834d9903950b9fa6caba17c52229813c
+      openai-processing-ms: '57'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe106948ac77dc-MEL
+      cf-ray: 8870aedefe3f274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -273,20 +273,20 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "run_eoiQR81br4VphlCJ7b0vh111",
+          "id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
           "object": "thread.run",
-          "created_at": 1715051919,
-          "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "created_at": 1716253786,
+          "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "status": "completed",
-          "started_at": 1715051919,
+          "started_at": 1716253786,
           "expires_at": null,
           "cancelled_at": null,
           "failed_at": null,
-          "completed_at": 1715051920,
+          "completed_at": 1716253788,
           "required_action": null,
           "last_error": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -307,20 +307,20 @@ http_interactions:
           },
           "incomplete_details": null,
           "usage": {
-            "prompt_tokens": 576,
-            "completion_tokens": 23,
-            "total_tokens": 599
+            "prompt_tokens": 585,
+            "completion_tokens": 30,
+            "total_tokens": 615
           },
           "response_format": {
             "type": "text"
           },
           "tool_choice": "auto"
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs?limit=20&order=desc
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs?limit=20&order=desc
     body:
       encoding: ''
       string: ''
@@ -335,16 +335,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:41 GMT
+      date: Tue, 21 May 2024 01:09:48 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_69e88f7317427b67236b57917a83ced6
-      openai-processing-ms: '53'
+      x-request-id: req_c13491b59edbf29253e9683794ac23d4
+      openai-processing-ms: '47'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe106b7ba377dc-MEL
+      cf-ray: 8870aee16a30274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -355,20 +355,20 @@ http_interactions:
           "object": "list",
           "data": [
             {
-              "id": "run_eoiQR81br4VphlCJ7b0vh111",
+              "id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
               "object": "thread.run",
-              "created_at": 1715051919,
-              "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-              "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+              "created_at": 1716253786,
+              "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+              "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
               "status": "completed",
-              "started_at": 1715051919,
+              "started_at": 1716253786,
               "expires_at": null,
               "cancelled_at": null,
               "failed_at": null,
-              "completed_at": 1715051920,
+              "completed_at": 1716253788,
               "required_action": null,
               "last_error": null,
-              "model": "gpt-4-0125-preview",
+              "model": "gpt-4o",
               "instructions": null,
               "tools": [
                 {
@@ -389,9 +389,9 @@ http_interactions:
               },
               "incomplete_details": null,
               "usage": {
-                "prompt_tokens": 576,
-                "completion_tokens": 23,
-                "total_tokens": 599
+                "prompt_tokens": 585,
+                "completion_tokens": 30,
+                "total_tokens": 615
               },
               "response_format": {
                 "type": "text"
@@ -399,15 +399,15 @@ http_interactions:
               "tool_choice": "auto"
             }
           ],
-          "first_id": "run_eoiQR81br4VphlCJ7b0vh111",
-          "last_id": "run_eoiQR81br4VphlCJ7b0vh111",
+          "first_id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
+          "last_id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
           "has_more": false
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs/run_eoiQR81br4VphlCJ7b0vh111/steps?limit=20&order=desc
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs/run_jx5kmgOMPQEABALOYI6RsJ2T/steps?limit=20&order=desc
     body:
       encoding: ''
       string: ''
@@ -422,16 +422,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:42 GMT
+      date: Tue, 21 May 2024 01:09:49 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_f770021951c423e3bec5397a5e37b81d
-      openai-processing-ms: '64'
+      x-request-id: req_9c95c53679195a7f0c7b3eca931151a5
+      openai-processing-ms: '36'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe106eef4777dc-MEL
+      cf-ray: 8870aee43f5c274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -442,41 +442,41 @@ http_interactions:
           "object": "list",
           "data": [
             {
-              "id": "step_bbXQNiuu401pcWOzboRFcbak",
+              "id": "step_soqQFEAP5hKORX4Euq05AFPn",
               "object": "thread.run.step",
-              "created_at": 1715051920,
-              "run_id": "run_eoiQR81br4VphlCJ7b0vh111",
-              "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-              "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+              "created_at": 1716253787,
+              "run_id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
+              "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+              "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
               "type": "message_creation",
               "status": "completed",
               "cancelled_at": null,
-              "completed_at": 1715051920,
+              "completed_at": 1716253787,
               "expires_at": null,
               "failed_at": null,
               "last_error": null,
               "step_details": {
                 "type": "message_creation",
                 "message_creation": {
-                  "message_id": "msg_xM4rNto6ufX8d4vPXeMrFnVD"
+                  "message_id": "msg_mBXnmJx0jb2fQUmzcsSX4eD6"
                 }
               },
               "usage": {
-                "prompt_tokens": 576,
-                "completion_tokens": 23,
-                "total_tokens": 599
+                "prompt_tokens": 585,
+                "completion_tokens": 30,
+                "total_tokens": 615
               }
             }
           ],
-          "first_id": "step_bbXQNiuu401pcWOzboRFcbak",
-          "last_id": "step_bbXQNiuu401pcWOzboRFcbak",
+          "first_id": "step_soqQFEAP5hKORX4Euq05AFPn",
+          "last_id": "step_soqQFEAP5hKORX4Euq05AFPn",
           "has_more": false
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs/run_eoiQR81br4VphlCJ7b0vh111
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs/run_jx5kmgOMPQEABALOYI6RsJ2T
     body:
       encoding: ''
       string: ''
@@ -491,16 +491,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:42 GMT
+      date: Tue, 21 May 2024 01:09:49 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_e7f5908ee164289529224626b2962dc9
-      openai-processing-ms: '38'
+      x-request-id: req_cb90e878d0bdc39366e1f38819aefd48
+      openai-processing-ms: '92'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1071fb1f77dc-MEL
+      cf-ray: 8870aee69b66274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -508,20 +508,20 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "run_eoiQR81br4VphlCJ7b0vh111",
+          "id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
           "object": "thread.run",
-          "created_at": 1715051919,
-          "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "created_at": 1716253786,
+          "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "status": "completed",
-          "started_at": 1715051919,
+          "started_at": 1716253786,
           "expires_at": null,
           "cancelled_at": null,
           "failed_at": null,
-          "completed_at": 1715051920,
+          "completed_at": 1716253788,
           "required_action": null,
           "last_error": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -542,20 +542,20 @@ http_interactions:
           },
           "incomplete_details": null,
           "usage": {
-            "prompt_tokens": 576,
-            "completion_tokens": 23,
-            "total_tokens": 599
+            "prompt_tokens": 585,
+            "completion_tokens": 30,
+            "total_tokens": 615
           },
           "response_format": {
             "type": "text"
           },
           "tool_choice": "auto"
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs/run_eoiQR81br4VphlCJ7b0vh111/steps/step_bbXQNiuu401pcWOzboRFcbak
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs/run_jx5kmgOMPQEABALOYI6RsJ2T/steps/step_soqQFEAP5hKORX4Euq05AFPn
     body:
       encoding: ''
       string: ''
@@ -570,16 +570,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:42 GMT
+      date: Tue, 21 May 2024 01:09:50 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_4b82dd03f9b31ce678a443a55596af40
-      openai-processing-ms: '44'
+      x-request-id: req_fe1773114e5a97b67dd86ffceb863646
+      openai-processing-ms: '103'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1074de7c77dc-MEL
+      cf-ray: 8870aee9b88c274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -587,36 +587,36 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "step_bbXQNiuu401pcWOzboRFcbak",
+          "id": "step_soqQFEAP5hKORX4Euq05AFPn",
           "object": "thread.run.step",
-          "created_at": 1715051920,
-          "run_id": "run_eoiQR81br4VphlCJ7b0vh111",
-          "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "created_at": 1716253787,
+          "run_id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
+          "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "type": "message_creation",
           "status": "completed",
           "cancelled_at": null,
-          "completed_at": 1715051920,
+          "completed_at": 1716253787,
           "expires_at": null,
           "failed_at": null,
           "last_error": null,
           "step_details": {
             "type": "message_creation",
             "message_creation": {
-              "message_id": "msg_xM4rNto6ufX8d4vPXeMrFnVD"
+              "message_id": "msg_mBXnmJx0jb2fQUmzcsSX4eD6"
             }
           },
           "usage": {
-            "prompt_tokens": 576,
-            "completion_tokens": 23,
-            "total_tokens": 599
+            "prompt_tokens": 585,
+            "completion_tokens": 30,
+            "total_tokens": 615
           }
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs/run_eoiQR81br4VphlCJ7b0vh111
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs/run_jx5kmgOMPQEABALOYI6RsJ2T
     body:
       encoding: ''
       string: '{"metadata":{"test":"test-runs","modified":"TRUE"}}'
@@ -632,16 +632,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:43 GMT
+      date: Tue, 21 May 2024 01:09:50 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_7565a73ed3c27dd7a72e7dafebe5ad86
-      openai-processing-ms: '51'
+      x-request-id: req_36d790ef75c37931e6122bdd5aa6e008
+      openai-processing-ms: '50'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1077598877dc-MEL
+      cf-ray: 8870aeed0d99274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -649,20 +649,20 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "run_eoiQR81br4VphlCJ7b0vh111",
+          "id": "run_jx5kmgOMPQEABALOYI6RsJ2T",
           "object": "thread.run",
-          "created_at": 1715051919,
-          "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "created_at": 1716253786,
+          "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "status": "completed",
-          "started_at": 1715051919,
+          "started_at": 1716253786,
           "expires_at": null,
           "cancelled_at": null,
           "failed_at": null,
-          "completed_at": 1715051920,
+          "completed_at": 1716253788,
           "required_action": null,
           "last_error": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -684,23 +684,23 @@ http_interactions:
           },
           "incomplete_details": null,
           "usage": {
-            "prompt_tokens": 576,
-            "completion_tokens": 23,
-            "total_tokens": 599
+            "prompt_tokens": 585,
+            "completion_tokens": 30,
+            "total_tokens": 615
           },
           "response_format": {
             "type": "text"
           },
           "tool_choice": "auto"
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","assistant_id":"asst_rYFmCq5oKVZw3xCCPgsIVTd8","metadata":{"test":"test-runs","purpose":"cancel"},"temperature":1,"stream":false}'
+      string: '{"model":"gpt-4o","assistant_id":"asst_dfmUPpmiSEwPF2Hy7jzlrJa3","metadata":{"test":"test-runs","purpose":"cancel"},"temperature":1,"stream":false}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
@@ -713,16 +713,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:43 GMT
+      date: Tue, 21 May 2024 01:09:51 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_4412f2769a01b9fcdbc05b18af86c236
-      openai-processing-ms: '235'
+      x-request-id: req_6ca74fcbf1c927aaaee26e10a19bf4ab
+      openai-processing-ms: '336'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1079dcde77dc-MEL
+      cf-ray: 8870aeefaa3a274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -730,20 +730,20 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "run_2VPIGk4B83OZ3V7Js1I8epOo",
+          "id": "run_9rPHuKRrfS58nXfEp09lf3xA",
           "object": "thread.run",
-          "created_at": 1715051923,
-          "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "created_at": 1716253790,
+          "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "status": "queued",
           "started_at": null,
-          "expires_at": 1715052523,
+          "expires_at": 1716254390,
           "cancelled_at": null,
           "failed_at": null,
           "completed_at": null,
           "required_action": null,
           "last_error": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -770,11 +770,11 @@ http_interactions:
           },
           "tool_choice": "auto"
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_zAoaI0wMgYu28WZO8gy0xgMH/runs/run_2VPIGk4B83OZ3V7Js1I8epOo/cancel
+    uri: https://api.openai.com/v1/threads/thread_BkaisJVek7kSBtWk6HTnAVw4/runs/run_9rPHuKRrfS58nXfEp09lf3xA/cancel
     body:
       encoding: ''
       string: ''
@@ -790,16 +790,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:44 GMT
+      date: Tue, 21 May 2024 01:09:51 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_8ad341de3edaf95fa5357825dad21473
-      openai-processing-ms: '142'
+      x-request-id: req_818482377819fb6c3d0e4a33cf726ef3
+      openai-processing-ms: '91'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe107da9bf77dc-MEL
+      cf-ray: 8870aef52b86274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -807,20 +807,20 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "run_2VPIGk4B83OZ3V7Js1I8epOo",
+          "id": "run_9rPHuKRrfS58nXfEp09lf3xA",
           "object": "thread.run",
-          "created_at": 1715051923,
-          "assistant_id": "asst_rYFmCq5oKVZw3xCCPgsIVTd8",
-          "thread_id": "thread_zAoaI0wMgYu28WZO8gy0xgMH",
+          "created_at": 1716253790,
+          "assistant_id": "asst_dfmUPpmiSEwPF2Hy7jzlrJa3",
+          "thread_id": "thread_BkaisJVek7kSBtWk6HTnAVw4",
           "status": "cancelling",
-          "started_at": 1715051923,
-          "expires_at": 1715052523,
+          "started_at": 1716253791,
+          "expires_at": 1716254390,
           "cancelled_at": null,
           "failed_at": null,
           "completed_at": null,
           "required_action": null,
           "last_error": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -847,5 +847,5 @@ http_interactions:
           },
           "tool_choice": "auto"
         }
-  recorded_at: 2024-05-07 03:18:44 GMT
+  recorded_at: 2024-05-21 01:09:51 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0

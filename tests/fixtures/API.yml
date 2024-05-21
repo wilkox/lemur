@@ -4,8 +4,8 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","messages":[{"role":"system","content":"You
-        are an expert system used to teach children aged 5–12 about naked-eye astronomy.
+      string: '{"model":"gpt-4o","messages":[{"role":"system","content":"You are an
+        expert system used to teach children aged 5–12 about naked-eye astronomy.
         Your responses must use common words and short, simple sentences."},{"role":"user","content":"Hi"},{"role":"assistant","content":"Hi
         there :)"},{"role":"user","content":"What is the Southern Cross"}]}'
     headers:
@@ -21,19 +21,19 @@ http_interactions:
     headers:
       alt-svc: h3=":443"; ma=86400
       cf-cache-status: DYNAMIC
-      cf-ray: 87fe0fd97ee977dc-MEL
+      cf-ray: 8870ae71ee49274b-ADL
       content-encoding: gzip
       content-type: application/json
-      date: Tue, 07 May 2024 03:18:25 GMT
+      date: Tue, 21 May 2024 01:09:31 GMT
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      openai-processing-ms: '6932'
+      openai-processing-ms: '805'
       openai-version: '2020-10-01'
       server: cloudflare
       set-cookie:
-      - __cf_bm=Ra7uV__LvCqQp8WH.ErpcHfF0vCgQ4wiEDipLH7vgUU-1715051905-1.0.1.1-9AYSi7EXvz3dJP83nxxsdWb_KU_J_1XWs.ahH58Mgw2FB.qjGs.XUMAaVyw7oQO3siIbcOeTzO4yUP_AwnLxBQ;
-        path=/; expires=Tue, 07-May-24 03:48:25 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=z_cA66aAP0h6_zMMsxcswSOuf9ptmCSU9BmI_F6RZZQ-1716253771-1.0.1.1-spPEgxGnmJ3.1M1TCPN7JTVW3gENanmvausjThP7D0aWGRh2EDOzcToBK5uNnhHip9.Iy6wOxUNuYOMfqdhFQA;
+        path=/; expires=Tue, 21-May-24 01:39:31 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=8zhcczmxe4W4bsnJS74I0H53ie._dPeroQs567V2AR8-1715051905117-0.0.1.1-604800000;
+      - _cfuvid=3GhAUpX3u_GhA9.VuckQ9aDcNS4ub7yVFY4qhcAQkuA-1716253771717-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       strict-transport-security: max-age=15724800; includeSubDomains
       x-ratelimit-limit-requests: '10000'
@@ -42,22 +42,22 @@ http_interactions:
       x-ratelimit-remaining-tokens: '799931'
       x-ratelimit-reset-requests: 6ms
       x-ratelimit-reset-tokens: 5ms
-      x-request-id: req_86a55909ca62f1a01780087e9905139b
+      x-request-id: req_e895fc7a446075c2700742acb9ec32ab
     body:
       encoding: ''
       file: no
       string: |
         {
-          "id": "chatcmpl-9M5dKbNEmo2GT8Mm7kbPaTiXHapN3",
+          "id": "chatcmpl-9R8INnKTUPbF0U45iXbE7F5sNVFGK",
           "object": "chat.completion",
-          "created": 1715051898,
-          "model": "gpt-4-0125-preview",
+          "created": 1716253771,
+          "model": "gpt-4o-2024-05-13",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "The Southern Cross is a small group of stars that looks a bit like a kite or a cross. You can see it in the night sky if you are in the southern part of the world. These stars are very important because sailors a long time ago used them to find their way when they were far out at sea."
+                "content": "The Southern Cross is a group of stars in the sky. It looks like a small cross and can be seen in the southern part of the world. People use it to help find direction at night."
               },
               "logprobs": null,
               "finish_reason": "stop"
@@ -65,10 +65,10 @@ http_interactions:
           ],
           "usage": {
             "prompt_tokens": 59,
-            "completion_tokens": 64,
-            "total_tokens": 123
+            "completion_tokens": 40,
+            "total_tokens": 99
           },
-          "system_fingerprint": null
+          "system_fingerprint": "fp_729ea513f7"
         }
-  recorded_at: 2024-05-07 03:18:25 GMT
+  recorded_at: 2024-05-21 01:09:31 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0

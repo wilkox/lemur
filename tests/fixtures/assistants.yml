@@ -4,7 +4,7 @@ http_interactions:
     uri: https://api.openai.com/v1/assistants
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","name":"Socrates","tools":[{"type":"file_search"}],"response_format":{"type":"text"}}'
+      string: '{"model":"gpt-4o","name":"Socrates","tools":[{"type":"file_search"}],"response_format":{"type":"text"}}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
@@ -17,16 +17,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:25 GMT
+      date: Tue, 21 May 2024 01:09:32 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_a9a73b4e148438bce6600e25d2669186
-      openai-processing-ms: '74'
+      x-request-id: req_689325b03f2d7389c3f92d4b0cb67da4
+      openai-processing-ms: '93'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1007bb3377dc-MEL
+      cf-ray: 8870ae7aac70274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -34,12 +34,12 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
+          "id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR",
           "object": "assistant",
-          "created_at": 1715051905,
+          "created_at": 1716253772,
           "name": "Socrates",
           "description": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -58,7 +58,7 @@ http_interactions:
             "type": "text"
           }
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
@@ -77,16 +77,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:25 GMT
+      date: Tue, 21 May 2024 01:09:32 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_1a313a2345aa0129024904413340d4d3
-      openai-processing-ms: '55'
+      x-request-id: req_c0c837f5216ee22c35fa709a6d76ad95
+      openai-processing-ms: '133'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe100a2dfd77dc-MEL
+      cf-ray: 8870ae7db9ae274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -97,12 +97,12 @@ http_interactions:
           "object": "list",
           "data": [
             {
-              "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
+              "id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR",
               "object": "assistant",
-              "created_at": 1715051905,
+              "created_at": 1716253772,
               "name": "Socrates",
               "description": null,
-              "model": "gpt-4-0125-preview",
+              "model": "gpt-4o",
               "instructions": null,
               "tools": [
                 {
@@ -122,114 +122,12 @@ http_interactions:
               }
             },
             {
-              "id": "asst_dVTHxaHXciP2LBfWobcfqkya",
+              "id": "asst_DKztw8o577CirDw4q2rcxuae",
               "object": "assistant",
-              "created_at": 1715051880,
-              "name": "Jason",
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {},
-              "metadata": {},
-              "response_format": {
-                "type": "json_object"
-              }
-            },
-            {
-              "id": "asst_spBZnb3D9sjVTSTiNySROBLr",
-              "object": "assistant",
-              "created_at": 1715051664,
-              "name": "Jason",
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {},
-              "metadata": {},
-              "response_format": {
-                "type": "json_object"
-              }
-            },
-            {
-              "id": "asst_srE1pwXDEIosZln35kADQjpd",
-              "object": "assistant",
-              "created_at": 1715051521,
-              "name": "Jason",
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {},
-              "metadata": {},
-              "response_format": {
-                "type": "json_object"
-              }
-            },
-            {
-              "id": "asst_eVJWc6kcmnMW4aPCOC4vnuBe",
-              "object": "assistant",
-              "created_at": 1715051488,
-              "name": "Jason",
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {},
-              "metadata": {},
-              "response_format": {
-                "type": "json_object"
-              }
-            },
-            {
-              "id": "asst_Jreng0kLUsK7zZKIvucy0zmg",
-              "object": "assistant",
-              "created_at": 1715051372,
-              "name": "Jason",
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {},
-              "metadata": {},
-              "response_format": {
-                "type": "json_object"
-              }
-            },
-            {
-              "id": "asst_SiuTgmulS6iaE1yAhGCPq6FU",
-              "object": "assistant",
-              "created_at": 1715050308,
+              "created_at": 1716253753,
               "name": null,
               "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {},
-              "metadata": {
-                "test": "long-run"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_PONdcAUJo2V5Qx73rBFMyrsw",
-              "object": "assistant",
-              "created_at": 1715050301,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
+              "model": "gpt-4o",
               "instructions": null,
               "tools": [
                 {
@@ -246,15 +144,17 @@ http_interactions:
               "metadata": {
                 "test": "test-runs"
               },
-              "response_format": "auto"
+              "response_format": {
+                "type": "text"
+              }
             },
             {
-              "id": "asst_JSfdhEhSHhIxHJsso5CLkmts",
+              "id": "asst_xt8GHq7qDKHIhIc6smD4jERM",
               "object": "assistant",
-              "created_at": 1715050296,
+              "created_at": 1716253747,
               "name": null,
               "description": null,
-              "model": "gpt-4-0125-preview",
+              "model": "gpt-4o",
               "instructions": null,
               "tools": [
                 {
@@ -266,298 +166,316 @@ http_interactions:
               "tool_resources": {
                 "file_search": {
                   "vector_store_ids": [
-                    "vs_oAH8xdBl3l2bjSOPJmqWAN8K"
+                    "vs_xF3YsiLZVDOkd3glulu1xdup"
                   ]
                 }
               },
               "metadata": {
                 "test": "test-messages"
               },
-              "response_format": "auto"
+              "response_format": {
+                "type": "text"
+              }
             },
             {
-              "id": "asst_t1EXgzRoyrIPWnufQSqBRAXt",
+              "id": "asst_3YDbKvoRE7mSUISRDJuumHvW",
               "object": "assistant",
-              "created_at": 1715050289,
-              "name": "Aristotle",
+              "created_at": 1716253747,
+              "name": "Jason",
               "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_vA5Xx3GTJby1weOSClJdqMNf"
-                  ]
-                }
-              },
-              "metadata": {},
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_rXGleFf6XTIqmfzRPApj03Ni",
-              "object": "assistant",
-              "created_at": 1715050263,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
+              "model": "gpt-4o",
               "instructions": null,
               "tools": [],
               "top_p": 1.0,
               "temperature": 1.0,
               "tool_resources": {},
-              "metadata": {
-                "test": "long-run"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_Q722mpPpiqKdDn9LB0eiOb4W",
-              "object": "assistant",
-              "created_at": 1715050258,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_50rEMNtnHPudMP8OmeaQm88t",
-              "object": "assistant",
-              "created_at": 1715050253,
-              "name": null,
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_fDSNTPjcbZhfnt1k0Y9V54n0"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
-            },
-            {
-              "id": "asst_ESpAdTMJKH6jpm3lLB9fzzOp",
-              "object": "assistant",
-              "created_at": 1715050247,
-              "name": "Aristotle",
-              "description": null,
-              "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
-              "top_p": 1.0,
-              "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_oOnNWgOj0sIFWHUMMQiucTxf"
-                  ]
-                }
-              },
               "metadata": {},
-              "response_format": "auto"
+              "response_format": {
+                "type": "json_object"
+              }
             },
             {
-              "id": "asst_R0YAlUoPEZaFPfviZzSQO5FG",
+              "id": "asst_am2o59tgr9rUF9ERbXCDs8W0",
               "object": "assistant",
-              "created_at": 1715050232,
-              "name": "Aristotle",
+              "created_at": 1715670233,
+              "name": "Medication allergy assistant",
               "description": null,
               "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
               "top_p": 1.0,
               "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_2uSxNgr6bkFm8OXl4w1V2bks"
-                  ]
-                }
-              },
+              "tool_resources": {},
               "metadata": {},
-              "response_format": "auto"
+              "response_format": {
+                "type": "json_object"
+              }
             },
             {
-              "id": "asst_oeu3qAs7iZmqlWR4HcmQCXXE",
+              "id": "asst_zguU32AXg4F3r2jVKIrMcIOl",
               "object": "assistant",
-              "created_at": 1715049818,
-              "name": null,
+              "created_at": 1715670229,
+              "name": "Medication allergy assistant",
               "description": null,
               "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
               "top_p": 1.0,
               "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
             },
             {
-              "id": "asst_u7XB4yCOQZnSKLfTM7FjJ3HA",
+              "id": "asst_zp0f7IwEQRrZXM52hahzPzMg",
               "object": "assistant",
-              "created_at": 1715049813,
-              "name": null,
+              "created_at": 1715670225,
+              "name": "Medication allergy assistant",
               "description": null,
               "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
               "top_p": 1.0,
               "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_Z38Kh0ySXQr0uPIDSIhaUmFO"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
             },
             {
-              "id": "asst_zhkt7b5ukX2AegD4VETkIO1f",
+              "id": "asst_ke8wQ7jBRqXQRWMTnHeoMe3v",
               "object": "assistant",
-              "created_at": 1715049742,
-              "name": null,
+              "created_at": 1715670220,
+              "name": "Medication allergy assistant",
               "description": null,
               "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
               "top_p": 1.0,
               "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
             },
             {
-              "id": "asst_6JnWtKTVnlnOnIysXOASQ3W8",
+              "id": "asst_9nEvyPYWdFYe5E3ySMPSdHwQ",
               "object": "assistant",
-              "created_at": 1715049737,
-              "name": null,
+              "created_at": 1715670207,
+              "name": "Medication list assistant",
               "description": null,
               "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
+              "instructions": "You are a subagent in a medical AI system. Your task is to extract a list of medications from a patient profile. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['medications', 'error'],\n  'properties': {\n    'medications': {\n      'type': 'array',\n      'description': 'Array of medication objects',\n       'items': {\n        'type': 'object',\n        'required': ['name', 'dose', 'dose_units', 'frequency', 'PRN'],\n        'properties': {\n          'name': {\n            'type': 'string'\n          },\n          'dose': {\n            'type': 'number'\n          },\n          'dose_units': {\n            'enum': ['microg', 'mg', 'g', 'mL'],\n          },\n          'frequency': {\n            'enum': ['daily', 'mane', 'midi', 'nocte', 'BD', 'TDS', 'QID'],\n          },\n          'PRN': {\n            'type': 'boolean'\n          }\n        }\n       }\n    },\n    'error': {\n      'type': 'boolean',\n      'description': 'Whether an error is returned'\n    },\n    'error_message': {\n      'type': 'string', \n      'description': 'If an error is returned, a message explaining the error (e.g. The dose of thyroxine was unclear).'\n    }\n  }\n}\n```\n\nErr on the side of caution and be conservative. You may return an error if you do not recognise the name of a medication (there is always the possibility of a typographic error), or the information given does not conform to the medication schema (for example, the dose is given in a non-permissible unit), or if there is conflicting information, or if the information is unclear for any other reason. If in doubt, just return an error. This will prompt clarifying information to be sought. If no medications are listed in the patient profile, do not return an error, just return an empty list of medications. A medication allergy is not a reason to return an error, as there are other subagents responsible for detecting potential medication allergies.\n\nThe next message will contain the free-form patient profile.",
+              "tools": [],
               "top_p": 1.0,
               "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": [
-                    "vs_u5e2UzYX8SpVy0fTZaZXpmOx"
-                  ]
-                }
-              },
-              "metadata": {
-                "test": "test-messages"
-              },
-              "response_format": "auto"
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
             },
             {
-              "id": "asst_nwGX1LNEyKdLDecIweIdJhU8",
+              "id": "asst_IqOSnytChU9SlctBnYwcZqPv",
               "object": "assistant",
-              "created_at": 1715049681,
-              "name": null,
+              "created_at": 1715670201,
+              "name": "BP target factors assistant",
               "description": null,
               "model": "gpt-4-0125-preview",
-              "instructions": null,
-              "tools": [
-                {
-                  "type": "file_search"
-                }
-              ],
+              "instructions": "You are an agent that forms part of a constellation advising a General Practitioner (GP) on the management of hypertension. Your specific task is to extract from a free-form patient profile any factors that are relevant to determining their blood pressure (BP) target.\n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. The keys in the schema each represent a factor that is relevant to determining a patient's blood pressure target. For each factor, provide a boolean value indicating whether the factor applies to the patient. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'properties': {\n    'high_CVR': {\n      'type': 'boolean',\n      'description': ['Does the patient have calculated absolute cardiovascular risk > 15%?'\n    },\n    'over_75': {\n      'type': 'boolean',\n      'description': 'Is the patient aged over 75?'\n    },\n    'CKD': {\n      'type': 'boolean',\n      'description': 'Does the patient have chronic kidney disease?'\n    },\n    'diabetes': {\n      'type': 'boolean',\n      'description': 'Does the patient have diabetes?'\n    },\n    'stroke_prevention_prioritised': {\n      'type': 'boolean',\n      'description': 'Has stroke prevention been identified as a clinical priority for this patient?'\n    },\n    'moderate_CVR': {\n      'type': 'boolean',\n      'description': 'Does the patient have cardiovascular risk 10–15%?'\n    },\n    'stroke_history': {\n      'type': 'boolean',\n      'description': 'Does the patient have a history of stroke or TIA?'\n      },\n    'PAD': {\n      'type': 'boolean',\n      'description': 'Does the patient have peripheral artery disease?'\n    }\n  'required': ['high_CVR', 'over_75', 'CKD', 'diabetes', 'stroke_prevention_prioritised', 'moderate_CVR', 'stroke_history', 'PAD']\n}\n```\n\nIt is important to note that calculating absolute cardiovascular risk is done with a specific algorithm, so do not assume a value for CVD risk unless it is explicitly provided.\n\nThe next message will contain the free-form patient profile.",
+              "tools": [],
               "top_p": 1.0,
               "temperature": 1.0,
-              "tool_resources": {
-                "file_search": {
-                  "vector_store_ids": []
-                }
-              },
-              "metadata": {
-                "test": "test-runs"
-              },
-              "response_format": "auto"
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_IRPENJ4gByo19XBSrbqLC0F2",
+              "object": "assistant",
+              "created_at": 1715670116,
+              "name": "Medication allergy assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_YBOHtVle2htPUvabOgdBF0bH",
+              "object": "assistant",
+              "created_at": 1715670112,
+              "name": "Medication allergy assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_7PwTqGBzHIZIsg0NibONhEQn",
+              "object": "assistant",
+              "created_at": 1715670108,
+              "name": "Medication allergy assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_LoTCkjz0cjl0xGLcrvBDZVy9",
+              "object": "assistant",
+              "created_at": 1715670104,
+              "name": "Medication allergy assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_Z7YQzCx7yuRvnnE4Tbc9qs3s",
+              "object": "assistant",
+              "created_at": 1715670092,
+              "name": "Medication list assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to extract a list of medications from a patient profile. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['medications', 'error'],\n  'properties': {\n    'medications': {\n      'type': 'array',\n      'description': 'Array of medication objects',\n       'items': {\n        'type': 'object',\n        'required': ['name', 'dose', 'dose_units', 'frequency', 'PRN'],\n        'properties': {\n          'name': {\n            'type': 'string'\n          },\n          'dose': {\n            'type': 'number'\n          },\n          'dose_units': {\n            'enum': ['microg', 'mg', 'g', 'mL'],\n          },\n          'frequency': {\n            'enum': ['daily', 'mane', 'midi', 'nocte', 'BD', 'TDS', 'QID'],\n          },\n          'PRN': {\n            'type': 'boolean'\n          }\n        }\n       }\n    },\n    'error': {\n      'type': 'boolean',\n      'description': 'Whether an error is returned'\n    },\n    'error_message': {\n      'type': 'string', \n      'description': 'If an error is returned, a message explaining the error (e.g. The dose of thyroxine was unclear).'\n    }\n  }\n}\n```\n\nErr on the side of caution and be conservative. You may return an error if you do not recognise the name of a medication (there is always the possibility of a typographic error), or the information given does not conform to the medication schema (for example, the dose is given in a non-permissible unit), or if there is conflicting information, or if the information is unclear for any other reason. If in doubt, just return an error. This will prompt clarifying information to be sought. If no medications are listed in the patient profile, do not return an error, just return an empty list of medications. A medication allergy is not a reason to return an error, as there are other subagents responsible for detecting potential medication allergies.\n\nThe next message will contain the free-form patient profile.",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_DnvVBWYHVxL2x9LgdXjixlmp",
+              "object": "assistant",
+              "created_at": 1715670085,
+              "name": "BP target factors assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are an agent that forms part of a constellation advising a General Practitioner (GP) on the management of hypertension. Your specific task is to extract from a free-form patient profile any factors that are relevant to determining their blood pressure (BP) target.\n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. The keys in the schema each represent a factor that is relevant to determining a patient's blood pressure target. For each factor, provide a boolean value indicating whether the factor applies to the patient. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'properties': {\n    'high_CVR': {\n      'type': 'boolean',\n      'description': ['Does the patient have calculated absolute cardiovascular risk > 15%?'\n    },\n    'over_75': {\n      'type': 'boolean',\n      'description': 'Is the patient aged over 75?'\n    },\n    'CKD': {\n      'type': 'boolean',\n      'description': 'Does the patient have chronic kidney disease?'\n    },\n    'diabetes': {\n      'type': 'boolean',\n      'description': 'Does the patient have diabetes?'\n    },\n    'stroke_prevention_prioritised': {\n      'type': 'boolean',\n      'description': 'Has stroke prevention been identified as a clinical priority for this patient?'\n    },\n    'moderate_CVR': {\n      'type': 'boolean',\n      'description': 'Does the patient have cardiovascular risk 10–15%?'\n    },\n    'stroke_history': {\n      'type': 'boolean',\n      'description': 'Does the patient have a history of stroke or TIA?'\n      },\n    'PAD': {\n      'type': 'boolean',\n      'description': 'Does the patient have peripheral artery disease?'\n    }\n  'required': ['high_CVR', 'over_75', 'CKD', 'diabetes', 'stroke_prevention_prioritised', 'moderate_CVR', 'stroke_history', 'PAD']\n}\n```\n\nIt is important to note that calculating absolute cardiovascular risk is done with a specific algorithm, so do not assume a value for CVD risk unless it is explicitly provided.\n\nThe next message will contain the free-form patient profile.",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_ipCbBeNpYVRYCjTkBf92VmfV",
+              "object": "assistant",
+              "created_at": 1715669995,
+              "name": "Medication allergy assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_d0vdDQvHKU4iQRCyfuzQMIfj",
+              "object": "assistant",
+              "created_at": 1715669991,
+              "name": "Medication allergy assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_fx7UAAYdt3GRgWtePj3pqxVN",
+              "object": "assistant",
+              "created_at": 1715669987,
+              "name": "Medication allergy assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to examine a patient profile to determine if they may be allergic to a particular medication. When making your decision, take into account both formally documented allergies, as well as information that suggests a possible allergy. Err on the side of caution. If there is a potential allergy, the medication will be flagged for human review. The next two messages will contain the free-form patient profile, then the name of the medication. You should then respond with your decision regarding whether or not the patient has an allergy to the medication. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['potential_allergy'],\n  'properties': {\n    'potential_allergy': {\n      'type': 'boolean', \n      'description': 'Does the patient have a potential allergy to the medication?'\n    }\n  }\n}\n```\n",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
+            },
+            {
+              "id": "asst_dcunqamasWfck8iqJaTtbufp",
+              "object": "assistant",
+              "created_at": 1715669978,
+              "name": "Medication list assistant",
+              "description": null,
+              "model": "gpt-4-0125-preview",
+              "instructions": "You are a subagent in a medical AI system. Your task is to extract a list of medications from a patient profile. \n\nYou MUST respond in JSON and you MUST follow the JSON schema provided below. NEVER deviate from the schema. Here is the schema:\n\n```\n{\n  'type': 'object',\n  'required': ['medications', 'error'],\n  'properties': {\n    'medications': {\n      'type': 'array',\n      'description': 'Array of medication objects',\n       'items': {\n        'type': 'object',\n        'required': ['name', 'dose', 'dose_units', 'frequency', 'PRN'],\n        'properties': {\n          'name': {\n            'type': 'string'\n          },\n          'dose': {\n            'type': 'number'\n          },\n          'dose_units': {\n            'enum': ['microg', 'mg', 'g', 'mL'],\n          },\n          'frequency': {\n            'enum': ['daily', 'mane', 'midi', 'nocte', 'BD', 'TDS', 'QID'],\n          },\n          'PRN': {\n            'type': 'boolean'\n          }\n        }\n       }\n    },\n    'error': {\n      'type': 'boolean',\n      'description': 'Whether an error is returned'\n    },\n    'error_message': {\n      'type': 'string', \n      'description': 'If an error is returned, a message explaining the error (e.g. The dose of thyroxine was unclear).'\n    }\n  }\n}\n```\n\nErr on the side of caution and be conservative. You may return an error if you do not recognise the name of a medication (there is always the possibility of a typographic error), or the information given does not conform to the medication schema (for example, the dose is given in a non-permissible unit), or if there is conflicting information, or if the information is unclear for any other reason. If in doubt, just return an error. This will prompt clarifying information to be sought. If no medications are listed in the patient profile, do not return an error, just return an empty list of medications. A medication allergy is not a reason to return an error, as there are other subagents responsible for detecting potential medication allergies.\n\nThe next message will contain the free-form patient profile.",
+              "tools": [],
+              "top_p": 1.0,
+              "temperature": 1.0,
+              "tool_resources": {},
+              "metadata": {},
+              "response_format": {
+                "type": "json_object"
+              }
             }
           ],
-          "first_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
-          "last_id": "asst_nwGX1LNEyKdLDecIweIdJhU8",
+          "first_id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR",
+          "last_id": "asst_dcunqamasWfck8iqJaTtbufp",
           "has_more": true
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files
+    uri: https://api.openai.com/v1/assistants/asst_gxDbA4CKIXfCaZVW0eVd4cPR/files
     body:
       encoding: ''
       string: '{"file_id":"file-P6XH5bDZSo311u3yKlM6bFFn"}'
@@ -573,16 +491,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:28 GMT
+      date: Tue, 21 May 2024 01:09:35 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_96d450c5f72f8854a5b4aed475f993dd
-      openai-processing-ms: '1796'
+      x-request-id: req_567e55f2a92ec6588013a6ae8ff281a0
+      openai-processing-ms: '1722'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe100c990077dc-MEL
+      cf-ray: 8870ae81e8b7274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -592,14 +510,14 @@ http_interactions:
         {
           "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "object": "assistant.file",
-          "created_at": 1715051906,
-          "assistant_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp"
+          "created_at": 1716253773,
+          "assistant_id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR"
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files?limit=20&order=desc
+    uri: https://api.openai.com/v1/assistants/asst_gxDbA4CKIXfCaZVW0eVd4cPR/files?limit=20&order=desc
     body:
       encoding: ''
       string: ''
@@ -614,16 +532,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:28 GMT
+      date: Tue, 21 May 2024 01:09:35 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_c33ae23bcbd9d56542a84a6f731d9605
-      openai-processing-ms: '130'
+      x-request-id: req_781a3a8933535647804bde774255930f
+      openai-processing-ms: '126'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1019b90677dc-MEL
+      cf-ray: 8870ae8f6dee274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -636,19 +554,19 @@ http_interactions:
             {
               "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
               "object": "assistant.file",
-              "created_at": 1715051906,
-              "assistant_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp"
+              "created_at": 1716253773,
+              "assistant_id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR"
             }
           ],
           "first_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "last_id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "has_more": false
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp
+    uri: https://api.openai.com/v1/assistants/asst_gxDbA4CKIXfCaZVW0eVd4cPR
     body:
       encoding: ''
       string: ''
@@ -663,16 +581,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:28 GMT
+      date: Tue, 21 May 2024 01:09:36 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_556829469be9ae010580761396d2fa60
-      openai-processing-ms: '39'
+      x-request-id: req_8e8d83ec461b340256acb656d9302a09
+      openai-processing-ms: '41'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe101d0d8777dc-MEL
+      cf-ray: 8870ae935bf1274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -680,12 +598,12 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
+          "id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR",
           "object": "assistant",
-          "created_at": 1715051905,
+          "created_at": 1716253772,
           "name": "Socrates",
           "description": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -697,7 +615,7 @@ http_interactions:
           "tool_resources": {
             "file_search": {
               "vector_store_ids": [
-                "vs_XYmJ0Ei1MtGiYn5u58IUeVyV"
+                "vs_wppumFQRMBq2Fx0Llbu4JIqA"
               ]
             }
           },
@@ -706,11 +624,11 @@ http_interactions:
             "type": "text"
           }
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files/file-P6XH5bDZSo311u3yKlM6bFFn
+    uri: https://api.openai.com/v1/assistants/asst_gxDbA4CKIXfCaZVW0eVd4cPR/files/file-P6XH5bDZSo311u3yKlM6bFFn
     body:
       encoding: ''
       string: ''
@@ -725,16 +643,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:29 GMT
+      date: Tue, 21 May 2024 01:09:36 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_cd00ce50197ae7eb35d41ff892ed34ac
-      openai-processing-ms: '117'
+      x-request-id: req_63bdc60e124e8d194cda12c609cc1cc3
+      openai-processing-ms: '169'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1020194177dc-MEL
+      cf-ray: 8870ae96987b274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -744,17 +662,17 @@ http_interactions:
         {
           "id": "file-P6XH5bDZSo311u3yKlM6bFFn",
           "object": "assistant.file",
-          "created_at": 1715051906,
-          "assistant_id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp"
+          "created_at": 1716253773,
+          "assistant_id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR"
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
-    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp
+    uri: https://api.openai.com/v1/assistants/asst_gxDbA4CKIXfCaZVW0eVd4cPR
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","name":"Aristotle"}'
+      string: '{"model":"gpt-4o","name":"Aristotle"}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
@@ -767,16 +685,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:29 GMT
+      date: Tue, 21 May 2024 01:09:37 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_b17d49a0593753946e4b5de7e78e998e
-      openai-processing-ms: '100'
+      x-request-id: req_0246dc3692b84e6cb40ce5b8891a7402
+      openai-processing-ms: '113'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1022ece277dc-MEL
+      cf-ray: 8870ae99ad7e274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -784,12 +702,12 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
+          "id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR",
           "object": "assistant",
-          "created_at": 1715051905,
+          "created_at": 1716253772,
           "name": "Aristotle",
           "description": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [
             {
@@ -801,7 +719,7 @@ http_interactions:
           "tool_resources": {
             "file_search": {
               "vector_store_ids": [
-                "vs_XYmJ0Ei1MtGiYn5u58IUeVyV"
+                "vs_wppumFQRMBq2Fx0Llbu4JIqA"
               ]
             }
           },
@@ -810,11 +728,11 @@ http_interactions:
             "type": "text"
           }
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: delete
-    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp/files/file-P6XH5bDZSo311u3yKlM6bFFn
+    uri: https://api.openai.com/v1/assistants/asst_gxDbA4CKIXfCaZVW0eVd4cPR/files/file-P6XH5bDZSo311u3yKlM6bFFn
     body:
       encoding: ''
       string: ''
@@ -830,16 +748,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:31 GMT
+      date: Tue, 21 May 2024 01:09:38 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_87771daf81894af9fad3145a360cdaf9
-      openai-processing-ms: '1032'
+      x-request-id: req_78991cb270866016826b446bafa33a84
+      openai-processing-ms: '928'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1026397177dc-MEL
+      cf-ray: 8870ae9caadc274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -851,11 +769,11 @@ http_interactions:
           "object": "assistant.file.deleted",
           "deleted": true
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: delete
-    uri: https://api.openai.com/v1/assistants/asst_UOCPQ6Dmaviy175kqlYZ6dNp
+    uri: https://api.openai.com/v1/assistants/asst_gxDbA4CKIXfCaZVW0eVd4cPR
     body:
       encoding: ''
       string: ''
@@ -871,16 +789,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:31 GMT
+      date: Tue, 21 May 2024 01:09:38 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_69b732d0c59223faef9dc8620ea61f28
-      openai-processing-ms: '50'
+      x-request-id: req_cbe48b22d8347849f6e122e867fd2c5f
+      openai-processing-ms: '36'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe102e5b1077dc-MEL
+      cf-ray: 8870aea4a8cc274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -888,18 +806,18 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_UOCPQ6Dmaviy175kqlYZ6dNp",
+          "id": "asst_gxDbA4CKIXfCaZVW0eVd4cPR",
           "object": "assistant.deleted",
           "deleted": true
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: post
     uri: https://api.openai.com/v1/assistants
     body:
       encoding: ''
-      string: '{"model":"gpt-4-0125-preview","name":"Jason","response_format":{"type":"json_object"}}'
+      string: '{"model":"gpt-4o","name":"Jason","response_format":{"type":"json_object"}}'
     headers:
       Accept: application/json, text/xml, application/xml, */*
       Authorization: My bearer token is safe
@@ -912,16 +830,16 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Tue, 07 May 2024 03:18:32 GMT
+      date: Tue, 21 May 2024 01:09:39 GMT
       content-type: application/json
       openai-version: '2020-10-01'
       openai-organization: user-xzxbylwbsz2obysv34wdfreh
-      x-request-id: req_a94c5d66afbfb08320c0146977bb6faf
-      openai-processing-ms: '80'
+      x-request-id: req_1b673a4e4694dcb7880e103628fc548b
+      openai-processing-ms: '107'
       strict-transport-security: max-age=15724800; includeSubDomains
       cf-cache-status: DYNAMIC
       server: cloudflare
-      cf-ray: 87fe1030adf977dc-MEL
+      cf-ray: 8870aea6fc99274b-ADL
       content-encoding: gzip
       alt-svc: h3=":443"; ma=86400
     body:
@@ -929,12 +847,12 @@ http_interactions:
       file: no
       string: |-
         {
-          "id": "asst_TJJ2vP833ofdFMTbVJpOLKrt",
+          "id": "asst_LHLdSCsakltqpBydRcoTbaWD",
           "object": "assistant",
-          "created_at": 1715051911,
+          "created_at": 1716253779,
           "name": "Jason",
           "description": null,
-          "model": "gpt-4-0125-preview",
+          "model": "gpt-4o",
           "instructions": null,
           "tools": [],
           "top_p": 1.0,
@@ -945,5 +863,5 @@ http_interactions:
             "type": "json_object"
           }
         }
-  recorded_at: 2024-05-07 03:18:31 GMT
+  recorded_at: 2024-05-21 01:09:39 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
