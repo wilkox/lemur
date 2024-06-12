@@ -13,7 +13,7 @@ new_run <- function(x = list()) {
 validate_run <- function(x) {
 
   assertList(x)
-  for (param in names(x)) assertChoice(param, c("id", "created_at", "assistant_id", "thread_id", "status", "started_at", "expires_at", "cancelled_at", "failed_at", "completed_at", "last_error", "model", "instructions", "tools", "metadata", "usage", "temperature", "required_action", "top_p", "max_completion_tokens", "max_prompt_tokens", "truncation_strategy", "incomplete_details", "response_format", "tool_choice", "tool_resources"))
+  for (param in names(x)) assertChoice(param, c("id", "created_at", "assistant_id", "thread_id", "status", "started_at", "expires_at", "cancelled_at", "failed_at", "completed_at", "last_error", "model", "instructions", "tools", "metadata", "usage", "temperature", "required_action", "top_p", "max_completion_tokens", "max_prompt_tokens", "truncation_strategy", "incomplete_details", "response_format", "tool_choice", "tool_resources", "parallel_tool_calls"))
   qassert(x$id, "S1")
   qassert(x$created_at, "X1")
   qassert(x$assistant_id, "S1")
