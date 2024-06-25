@@ -17,7 +17,7 @@ validate_assistant_tool <- function(x) {
   assertList(params)
   for (param in names(params)) assertChoice(param, c("type"))
   qassert(params$type, "S1")
-  assertChoice(params$type, c("code_interpreter", "file_search", "function"))
+  assertChoice(params$type, c("code_interpreter", "retrieval", "file_search", "function"))
 
   x
 }
@@ -37,7 +37,8 @@ print.assistant_tool <- function(x, ...) {
 
 #' Helper to create assistant_tool objects
 #'
-#' @param type The type of tool, one of "file_search" (the default), "code_interpreter", or "function"
+#' @param type The type of tool, one of "file_search" (the default),
+#' "retrieval", "code_interpreter", or "function"
 #' @export
 assistant_tool <- function(type = "file_search") {
   x <- list(type = type)
