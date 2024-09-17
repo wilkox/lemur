@@ -1,4 +1,5 @@
 .onLoad <- function(libname, pkgname) {
-  check_API_key()
+  set_vendor()
   set_model()
+  if (get_vendor() == "OpenAI") check_openai_API_key()
 }

@@ -7,7 +7,8 @@
 assistant_tool(type = "file_search")
 }
 \arguments{
-\item{type}{The type of tool, one of "file_search" (the default), "code_interpreter", or "function"}
+\item{type}{The type of tool, one of "file_search" (the default),
+"retrieval", "code_interpreter", or "function"}
 }
 \description{
 Helper to create assistant_tool objects

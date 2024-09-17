@@ -8,38 +8,13 @@ openai_api_key <- function() {
   openai_api_key
 }
 
-#' Retrieve model from the OPENAI_MODEL environmental variable
-#'
-openai_model <- function() {
-  model <- Sys.getenv("OPENAI_MODEL")
-  if (stringr::str_length(model) == 0 | is.na(model)) {
-    cli::cli_abort("Cannot find environmental variable {.envvar OPENAI_MODEL}")
-  }
-  model
-}
-
-#' Set model to the OPENAI_MODEL environmental variable
-#'
-#' @export
-set_model <- function() {
-  model <- Sys.getenv("OPENAI_MODEL")
-  if (model == "") model <- "gpt-4o"
-  Sys.setenv(OPENAI_MODEL = model)
-  msg <- paste0(
-    cli::col_blue("{cli::symbol$info}"),
-    " The model is set to ",
-    cli::col_blue(model)
-  )
-  rlang::inform(cli::format_inline(msg), class = "packageStartupMessage")
-}
-
 #' Check that the OPENAI_API_KEY environmental variable is set
 #'
 #' @param show_key If TRUE, and if the environmental variable is set, the key
 #' will be printed to the console. Defaults to FALSE.
 #'
 #' @export
-check_API_key <- function(show_key = FALSE) {
+check_openai_API_key <- function(show_key = FALSE) {
 
   key <- Sys.getenv("OPENAI_API_KEY")
 
