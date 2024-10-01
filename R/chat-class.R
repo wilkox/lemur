@@ -157,3 +157,20 @@ transcript.chat <- function(chat, ...) {
 
   }
 }
+
+#' Get the last response sent by the model in a a chat
+#'
+#' @param chat The chat object
+#' @param ... Other service-specific arguments
+#'
+#' @export
+last_response <- function(chat, ...) {
+  UseMethod("last_response")
+}
+
+#' @rdname last_response
+#'
+#' @export
+last_response.chat <- function(chat, ...) {
+  NextMethod()
+}

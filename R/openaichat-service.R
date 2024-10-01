@@ -76,3 +76,15 @@ messages.openaichat <- function(chat) {
 print.openaichat <- function(chat) {
   chat
 }
+
+#' Get the last response sent by the model in an openaichat
+#'
+#' @param chat The chat
+#'
+#' @export
+last_response.openaichat <- function(chat) {
+  messages <- messages(chat)
+  messages <- messages[which(messages$role == "assistant"), ]
+  if (nrow(messages) == 0) return(NA_character_)
+  tail(messages$content, 1)
+}
