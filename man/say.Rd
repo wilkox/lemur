@@ -3,7 +3,7 @@
 \name{say}
 \alias{say}
 \alias{say.chat}
-\title{Sent a message in a chat}
+\title{Send a message in a chat}
 \usage{
 say(chat, content, ...)
 
@@ -17,5 +17,5 @@ say(chat, content, ...)
 \item{...}{Other service-specific arguments}
 }
 \description{
-Sent a message in a chat
+Send a message in a chat
 }

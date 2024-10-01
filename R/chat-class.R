@@ -75,7 +75,7 @@ initialise.chat <- function(chat, ...) {
   chat
 }
 
-#' Sent a message in a chat
+#' Send a message in a chat
 #'
 #' @param chat The chat object
 #' @param content The message content
@@ -92,4 +92,24 @@ say <- function(chat, content, ...) {
 say.chat <- function(chat, ...) {
   chat <- NextMethod()
   chat
+}
+
+#' Transcript of messages in a chat
+#'
+#' @param chat The chat object
+#' @param ... Other service-specific arguments
+#'
+#' @return A data frame
+#'
+#' @export
+transcript <- function(chat, transcript, ...) {
+  UseMethod("transcript")
+}
+
+#' @rdname transcript
+#'
+#' @export
+transcript.chat <- function(chat, ...) {
+  transcript <- NextMethod()
+  transcript
 }

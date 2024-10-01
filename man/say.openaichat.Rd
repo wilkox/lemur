@@ -4,7 +4,7 @@
 \alias{say.openaichat}
 \title{Send a message in an openaichat chat}
 \usage{
-\method{say}{openaichat}(chat, content, role)
+\method{say}{openaichat}(chat, content, role = "user")
 }
 \arguments{
 \item{chat}{The chat}
