@@ -78,7 +78,7 @@ print.openaiassistant <- function(chat) {
   chat
 }
 
-#' Send a message in an openaiassistant chat
+#' @rdname say
 #'
 #' @param chat The chat
 #' @param content The message content. Text only

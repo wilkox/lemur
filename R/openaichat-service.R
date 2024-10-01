@@ -1,6 +1,4 @@
-#' Initialise an openaichat chat
-#'
-#' @param chat The chat object
+#' @rdname initialise
 #'
 #' @export
 initialise.openaichat <- function(chat) {
@@ -21,10 +19,8 @@ initialise.openaichat <- function(chat) {
   chat
 }
 
-#' Send a message in an openaichat chat
+#' @rdname say
 #'
-#' @param chat The chat
-#' @param content The message content. Text only
 #' @param role The role, one of "user" (default) or "system"
 #'
 #' @export

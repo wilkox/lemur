@@ -89,7 +89,7 @@ say <- function(chat, content, ...) {
 #' @rdname say
 #'
 #' @export
-say.chat <- function(chat, ...) {
+say.chat <- function(chat, content, ...) {
   chat <- NextMethod()
   chat
 }

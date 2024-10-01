@@ -2,7 +2,7 @@
 % Please edit documentation in R/openaichat-service.R
 \name{last_response.openaichat}
 \alias{last_response.openaichat}
-\title{Get the last response sent by the model in an openaichat}
+\title{Get the last response sent by the model in an openaichat chat}
 \usage{
 \method{last_response}{openaichat}(chat)
 }
@@ -10,5 +10,5 @@
 \item{chat}{The chat}
 }
 \description{
-Get the last response sent by the model in an openaichat
+Get the last response sent by the model in an openaichat chat
 }
