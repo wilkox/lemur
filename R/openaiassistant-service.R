@@ -82,9 +82,13 @@ print.openaiassistant <- function(chat) {
 #'
 #' @param chat The chat
 #' @param content The message content. Text only
+#' @param respond If TRUE (the default), after sending the message the
+#' assistant will be run to generate a response. Setting `respond = FALSE`
+#' allows sending multiple messages to the assistant before it is asked to
+#' respond
 #'
 #' @export
-say.openaiassistant <- function(chat, content) {
+say.openaiassistant <- function(chat, content, respond = TRUE) {
 
   # Check content
   if (! checkmate::qtest(content, "S1")) {
@@ -109,6 +113,11 @@ say.openaiassistant <- function(chat, content) {
 
   # Check status code of response
   check_openai_response(response)
+
+  # If no response is needed, can finish here
+  if (! respond) {
+    return(chat)
+  }
 
   # Set up and validate the parameters
   cli::cli_progress_step("Running assistant on thread...", msg_done = "Ran assistant on thread")
@@ -136,7 +145,6 @@ say.openaiassistant <- function(chat, content) {
   # Check status code of response
   check_openai_response(response)
 
-  cli::cli_alert_success("OpenAI assistant run complete")
   chat
 }
 
