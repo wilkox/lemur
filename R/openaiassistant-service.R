@@ -175,11 +175,15 @@ messages.openaiassistant <- function(chat) {
   messages <- as.data.frame(do.call(rbind, response))
 
   # Clean up response
-  messages <- messages[, c("role", "content")]
-  messages$role <- messages$role |> unlist()
-  messages$content <- messages$content |>
-    lapply(function(x) x[[1]]$text$value) |>
-    unlist()
+  if (nrow(messages) == 0) {
+    messages <- data.frame(role = character(), content = character())
+  } else {
+    messages <- messages[, c("role", "content")]
+    messages$role <- messages$role |> unlist()
+    messages$content <- messages$content |>
+      lapply(function(x) x[[1]]$text$value) |>
+      unlist()
+  }
 
   # Threads with >= 100 messages will require pagination
   if (nrow(messages) >= 100) {
