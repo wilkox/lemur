@@ -52,26 +52,44 @@ validate_chat <- function(x) {
   x
 }
 
-#' Generic initialise method
+#' Initialise a chat
 #'
+#' Performs whatever steps and checks are needed to initialise a chat
+#' for a given service. Dispatches to service-specific subclass
+#' methods.
 #'
-#' @param x An object
+#' @param chat The chat object
+#' @param ... Other service-specific arguments
 #'
 #' @export
-initialise <- function(x) {
+initialise <- function(chat, ...) {
   UseMethod("initialise")
 }
 
-#' Initialise a chat
-#'
-#' Performs whatever steps and checks are needed to initialise a chat for a
-#' given service. Dispatches to service-specific subclass methods.
-#'
-#' @param chat The chat object
+#' @rdname initialise
 #'
 #' @export
-initialise.chat <- function(chat) {
+initialise.chat <- function(chat, ...) {
   chat <- NextMethod()
   cli::cli_alert_success("Ready to chat")
+  chat
+}
+
+#' Sent a message in a chat
+#'
+#' @param chat The chat object
+#' @param content The message content
+#' @param ... Other service-specific arguments
+#'
+#' @export
+say <- function(chat, content, ...) {
+  UseMethod("say")
+}
+
+#' @rdname say
+#'
+#' @export
+say.chat <- function(chat, ...) {
+  chat <- NextMethod()
   chat
 }

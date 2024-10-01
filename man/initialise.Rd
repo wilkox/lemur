@@ -2,13 +2,20 @@
 % Please edit documentation in R/chat-class.R
 \name{initialise}
 \alias{initialise}
-\title{Generic initialise method}
+\alias{initialise.chat}
+\title{Initialise a chat}
 \usage{
-initialise(x)
+initialise(chat, ...)
+
+\method{initialise}{chat}(chat, ...)
 }
 \arguments{
-\item{x}{An object}
+\item{chat}{The chat object}
+
+\item{...}{Other service-specific arguments}
 }
 \description{
-Generic initialise method
+Performs whatever steps and checks are needed to initialise a chat
+for a given service. Dispatches to service-specific subclass
+methods.
 }
