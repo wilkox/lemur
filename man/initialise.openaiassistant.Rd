@@ -2,13 +2,15 @@
 % Please edit documentation in R/openaiassistant-service.R
 \name{initialise.openaiassistant}
 \alias{initialise.openaiassistant}
-\title{Initialise a chat}
+\title{Initialise an openaiassistant chat}
 \usage{
-\method{initialise}{openaiassistant}(chat)
+\method{initialise}{openaiassistant}(chat, json = FALSE)
 }
 \arguments{
 \item{chat}{The chat object}
+
+\item{json}{If TRUE, the model will respond in JSON. Defaults to FALSE}
 }
 \description{
-Initialise a chat
+Initialise an openaiassistant chat
 }

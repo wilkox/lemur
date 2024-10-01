@@ -11,7 +11,7 @@
 
 \item{content}{The message content. Text only}
 
-\item{role}{The role, one of "user" (default), "system", or "assistant"}
+\item{role}{The role, one of "user" (default) or "system"}
 }
 \description{
 Send a message in an openaichat chat

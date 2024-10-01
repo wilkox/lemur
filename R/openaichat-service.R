@@ -25,7 +25,7 @@ initialise.openaichat <- function(chat) {
 #'
 #' @param chat The chat
 #' @param content The message content. Text only
-#' @param role The role, one of "user" (default), "system", or "assistant"
+#' @param role The role, one of "user" (default) or "system"
 #'
 #' @export
 say.openaichat <- function(chat, content, role = "user") {
@@ -36,8 +36,8 @@ say.openaichat <- function(chat, content, role = "user") {
   }
 
   # Check role
-  if (! role %in% c("user", "system", "assistant")) {
-    cli::cli_abort("{.arg role} must be one of {.val user}, {.val system}, or {.val assistant}")
+  if (! role %in% c("user", "system")) {
+    cli::cli_abort("{.arg role} must be one of {.val user} or {.val system}")
   }
 
   # Add message to messages
@@ -77,7 +77,7 @@ print.openaichat <- function(chat) {
   chat
 }
 
-#' Get the last response sent by the model in an openaichat
+#' Get the last response sent by the model in an openaichat chat
 #'
 #' @param chat The chat
 #'
