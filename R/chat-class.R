@@ -94,7 +94,7 @@ say.chat <- function(chat, ...) {
   chat
 }
 
-#' Transcript of messages in a chat
+#' Get messages from a chat
 #'
 #' @param chat The chat object
 #' @param ... Other service-specific arguments
@@ -102,7 +102,41 @@ say.chat <- function(chat, ...) {
 #' @return A data frame
 #'
 #' @export
-transcript <- function(chat, transcript, ...) {
+messages <- function(chat, ...) {
+  UseMethod("messages")
+}
+
+#' @rdname messages
+#'
+#' @export
+messages.chat <- function(chat, ...) {
+  chat <- NextMethod()
+  chat
+}
+
+#' @export
+print.chat <- function(chat, ...) {
+
+  n_messages <- nrow(messages(chat))
+  cli::cli_h1("lemur chat with {n_messages} messages")
+  cli::cli_dl(c(
+    Service = "{.val {chat$service}}",
+    Model = "{.val {chat$model}}"
+  ))
+
+  NextMethod()
+
+  cli::cli_alert_info("Use the {.fn transcript} function to view a transcript of the chat")
+
+}
+
+#' Print a transcript of a chat
+#'
+#' @param chat The chat object
+#' @param ... Other service-specific arguments
+#'
+#' @export
+transcript <- function(chat, ...) {
   UseMethod("transcript")
 }
 
@@ -110,6 +144,16 @@ transcript <- function(chat, transcript, ...) {
 #'
 #' @export
 transcript.chat <- function(chat, ...) {
-  transcript <- NextMethod()
-  transcript
+  messages <- messages(chat)
+
+  if (nrow(messages) == 0) {
+    cli::cli_alert_info("The chat is empty")
+  }
+  
+  for (i in seq_len(nrow(messages))) {
+
+    cli::cli_h2(messages$role[i])
+    cli::cli_verbatim(messages$content[i])
+
+  }
 }
