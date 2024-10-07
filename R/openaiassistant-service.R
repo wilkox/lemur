@@ -75,6 +75,9 @@ initialise.openaiassistant <- function(chat, json = FALSE) {
 #'
 #' @export
 print.openaiassistant <- function(chat) {
+  cli::cli_dl(c(
+    `JSON mode` = "{.val {chat$json}}"
+  ))
   chat
 }
 
