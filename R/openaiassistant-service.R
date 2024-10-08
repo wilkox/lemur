@@ -30,10 +30,7 @@ initialise.openaiassistant <- function(chat, json = FALSE) {
   # if (! testNull(params$tools)) params$tools <- lapply(params$tools, unclass)
 
   # POST to assistants endpoint
-  cli::cli_progress_step(
-    "Setting up assistant...",
-    msg_done = "Set up assistant"
-  )
+  cli::cli_alert_info("Setting up assistant...")
   response <- httr::POST(
     "https://api.openai.com/v1/assistants",
     httr::add_headers("Authorization" = paste("Bearer", chat$openai_api_key)),
@@ -49,10 +46,7 @@ initialise.openaiassistant <- function(chat, json = FALSE) {
   chat$assistant_id <- httr::content(response)$id
 
   # POST to thread endpoint
-  cli::cli_progress_step(
-    "Setting up thread...",
-    msg_done = "Set up thread"
-  )
+  cli::cli_alert_info("Setting up thread...")
   response <- httr::POST(
     "https://api.openai.com/v1/threads",
     httr::add_headers("Authorization" = paste("Bearer", chat$openai_api_key)),
@@ -99,7 +93,7 @@ say.openaiassistant <- function(chat, content, respond = TRUE) {
   }
 
   # Add message to thread
-  cli::cli_progress_step("Adding message to thread...", msg_done = "Added message to thread")
+  cli::cli_alert_info("Adding message to thread...")
   params <- list(
     role = "user",
     content = content
@@ -181,7 +175,7 @@ messages.openaiassistant <- function(chat) {
   params <- list(limit = 100, order = "asc")
 
   # GET from threads endpoint
-  cli::cli_progress_step("Retrieving messages from thread...", msg_done = "Retrieved messages from thread")
+  cli::cli_alert_info("Retrieving messages from thread...")
   response <- httr::GET(
     glue::glue("https://api.openai.com/v1/threads/{chat$thread_id}/messages"),
     httr::add_headers("Authorization" = paste("Bearer", chat$openai_api_key)),
