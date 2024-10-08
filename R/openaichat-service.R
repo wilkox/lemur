@@ -8,11 +8,6 @@ initialise.openaichat <- function(chat) {
   # Check and set OpenAI API key
   chat$openai_api_key <- openai_api_key()
 
-  # Check model
-  if (! chat$model %in% c("gpt-4o")) {
-    cli::cli_abort("Unrecognised model {.val {chat$model}}")
-  }
-
   # Set up messages data frame
   chat$messages <- data.frame(role = character(), content = character())
 

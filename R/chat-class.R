@@ -15,7 +15,7 @@ chat <- function(service = "openaichat", model = "gpt-4o", ...) {
   x <- list(service = service, model = model, ...)
   x <- new_chat(x)
   x <- validate_chat(x)
-  x <- initialise(x)
+  x <- initialise(x, ...)
   x
 }
 

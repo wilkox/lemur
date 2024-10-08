@@ -1,33 +1,34 @@
 #' Initialise an openaiassistant chat
 #'
 #' @param chat The chat object
-#' @param json If TRUE, the model will respond in JSON. Defaults to FALSE
+#' @param json_schema (Optional) A JSON schema that the response must strictly
+#' adhere to
 #'
 #' @export
-initialise.openaiassistant <- function(chat, json = FALSE) {
+initialise.openaiassistant <- function(chat, json_schema = NULL) {
 
   cli::cli_alert_info("Initialising OpenAI assistant chat...")
 
   # Check and set OpenAI API key
   chat$openai_api_key <- openai_api_key()
 
-  # Check model
-  if (! chat$model %in% c("gpt-4o")) {
-    cli::cli_abort("Unrecognised model {.val {chat$model}}")
-  }
-
   # Set up messages data frame
   chat$messages <- data.frame(role = character(), content = character())
 
   # Set up parameters for the assistant
+  if (is.null(json_schema)) {
+    response_format <- "auto"
+  } else {
+    response_format <- list(type = "json_schema", "json_schema" = list(
+      name = "JSON_response_schema",
+      schema = jsonlite::fromJSON(json_schema),
+      strict = TRUE
+    ))
+  }
   params <- list(
     model = chat$model,
-    # tools = tools,
-    response_format = list(type = ifelse(json, "json_object", "text"))
+    response_format = response_format
   )
-
-  # Mung parameters into the format expected by the API
-  # if (! testNull(params$tools)) params$tools <- lapply(params$tools, unclass)
 
   # POST to assistants endpoint
   cli::cli_alert_info("Setting up assistant...")
