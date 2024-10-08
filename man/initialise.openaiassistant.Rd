@@ -4,13 +4,15 @@
 \alias{initialise.openaiassistant}
 \title{Initialise an openaiassistant chat}
 \usage{
-\method{initialise}{openaiassistant}(chat, json_schema = NULL)
+\method{initialise}{openaiassistant}(chat, json_schema = NULL, ...)
 }
 \arguments{
 \item{chat}{The chat object}
 
 \item{json_schema}{(Optional) A JSON schema that the response must strictly
 adhere to}
+
+\item{...}{Further arguments passed from other methods}
 }
 \description{
 Initialise an openaiassistant chat

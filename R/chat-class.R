@@ -38,16 +38,16 @@ validate_chat <- function(x) {
   values <- unclass(x)
 
   # Must be a list
-  if (! is.list(x)) cli_abort("Chat object not a list")
+  if (! is.list(x)) cli::cli_abort("Chat object not a list")
 
   # Must contain a known service
-  if (! "service" %in% names(x)) cli_abort("Chat object does not contain service")
+  if (! "service" %in% names(x)) cli::cli_abort("Chat object does not contain service")
   if (! x$service %in% c("openaichat", "openaiassistant", "ollama")) {
-    cli_abort("Service {.val {x$service}} is not recognised")
+    cli::cli_abort("Service {.val {x$service}} is not recognised")
   }
 
   # Must contain a model
-  if (! "model" %in% names(x)) cli_abort("Chat object does not contain model")
+  if (! "model" %in% names(x)) cli::cli_abort("Chat object does not contain model")
 
   x
 }
@@ -115,13 +115,13 @@ messages.chat <- function(chat, ...) {
 }
 
 #' @export
-print.chat <- function(chat, ...) {
+print.chat <- function(x, ...) {
 
-  n_messages <- nrow(messages(chat))
+  n_messages <- nrow(messages(x))
   cli::cli_h1("lemur chat with {n_messages} messages")
   cli::cli_dl(c(
-    Service = "{.val {chat$service}}",
-    Model = "{.val {chat$model}}"
+    Service = "{.val {x$service}}",
+    Model = "{.val {x$model}}"
   ))
 
   NextMethod()

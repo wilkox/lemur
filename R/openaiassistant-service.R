@@ -3,9 +3,10 @@
 #' @param chat The chat object
 #' @param json_schema (Optional) A JSON schema that the response must strictly
 #' adhere to
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-initialise.openaiassistant <- function(chat, json_schema = NULL) {
+initialise.openaiassistant <- function(chat, json_schema = NULL, ...) {
 
   cli::cli_alert_info("Initialising OpenAI assistant chat...")
 
@@ -18,12 +19,14 @@ initialise.openaiassistant <- function(chat, json_schema = NULL) {
   # Set up parameters for the assistant
   if (is.null(json_schema)) {
     response_format <- "auto"
+    chat$json_schema <- FALSE
   } else {
     response_format <- list(type = "json_schema", "json_schema" = list(
       name = "JSON_response_schema",
       schema = jsonlite::fromJSON(json_schema),
       strict = TRUE
     ))
+    chat$json_schema <- json_schema
   }
   params <- list(
     model = chat$model,
@@ -66,12 +69,13 @@ initialise.openaiassistant <- function(chat, json_schema = NULL) {
 
 #' Print information about an openaiassistant chat
 #'
-#' @param chat The chat
+#' @param x The chat
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-print.openaiassistant <- function(chat) {
+print.openaiassistant <- function(x, ...) {
   cli::cli_dl(c(
-    `JSON mode` = "{.val {chat$json}}"
+    `JSON schema` = "{.val {ifelse(is.logical(x$json_schema, x$json_schema, TRUE)}}"
   ))
   chat
 }
@@ -86,7 +90,7 @@ print.openaiassistant <- function(chat) {
 #' respond
 #'
 #' @export
-say.openaiassistant <- function(chat, content, respond = TRUE) {
+say.openaiassistant <- function(chat, content, respond = TRUE, ...) {
 
   # Check content
   if (! checkmate::qtest(content, "S1")) {
@@ -168,9 +172,10 @@ say.openaiassistant <- function(chat, content, respond = TRUE) {
 #' Get messages from an openaiassistant chat
 #'
 #' @param chat The chat
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-messages.openaiassistant <- function(chat) {
+messages.openaiassistant <- function(chat, ...) {
 
   # Set up params
   params <- list(limit = 100, order = "asc")
@@ -214,11 +219,12 @@ messages.openaiassistant <- function(chat) {
 #' Get the last response sent by the model in an openaiassistant chat
 #'
 #' @param chat The chat
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-last_response.openaiassistant <- function(chat) {
+last_response.openaiassistant <- function(chat, ...) {
   messages <- messages(chat)
   messages <- messages[which(messages$role == "assistant"), ]
   if (nrow(messages) == 0) return(NA_character_)
-  tail(messages$content, 1)
+  utils::tail(messages$content, 1)
 }

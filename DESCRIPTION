@@ -21,9 +21,6 @@ Imports:
     jsonlite (>= 1.8.4),
     stringr (>= 1.5.0),
     cli (>= 3.6.1),
-    dplyr (>= 1.1.2),
-    rlang (>= 1.1.1),
     checkmate,
-    fs,
     glue
 VignetteBuilder: knitr

@@ -4,10 +4,12 @@
 \alias{messages.openaiassistant}
 \title{Get messages from an openaiassistant chat}
 \usage{
-\method{messages}{openaiassistant}(chat)
+\method{messages}{openaiassistant}(chat, ...)
 }
 \arguments{
 \item{chat}{The chat}
+
+\item{...}{Further arguments passed from other methods}
 }
 \description{
 Get messages from an openaiassistant chat

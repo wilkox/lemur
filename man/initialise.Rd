@@ -10,7 +10,7 @@ initialise(chat, ...)
 
 \method{initialise}{chat}(chat, ...)
 
-\method{initialise}{openaichat}(chat)
+\method{initialise}{openaichat}(chat, ...)
 }
 \arguments{
 \item{chat}{The chat object}

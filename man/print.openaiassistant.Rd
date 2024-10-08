@@ -4,10 +4,12 @@
 \alias{print.openaiassistant}
 \title{Print information about an openaiassistant chat}
 \usage{
-\method{print}{openaiassistant}(chat)
+\method{print}{openaiassistant}(x, ...)
 }
 \arguments{
-\item{chat}{The chat}
+\item{x}{The chat}
+
+\item{...}{Further arguments passed from other methods}
 }
 \description{
 Print information about an openaiassistant chat

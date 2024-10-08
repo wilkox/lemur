@@ -4,10 +4,12 @@
 \alias{last_response.openaichat}
 \title{Get the last response sent by the model in an openaichat chat}
 \usage{
-\method{last_response}{openaichat}(chat)
+\method{last_response}{openaichat}(chat, ...)
 }
 \arguments{
 \item{chat}{The chat}
+
+\item{...}{Further arguments passed from other methods}
 }
 \description{
 Get the last response sent by the model in an openaichat chat

@@ -1,7 +1,7 @@
 #' @rdname initialise
 #'
 #' @export
-initialise.openaichat <- function(chat) {
+initialise.openaichat <- function(chat, ...) {
 
   cli::cli_alert_info("Initialising OpenAI chat...")
 
@@ -17,9 +17,10 @@ initialise.openaichat <- function(chat) {
 #' @rdname say
 #'
 #' @param role The role, one of "user" (default) or "system"
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-say.openaichat <- function(chat, content, role = "user") {
+say.openaichat <- function(chat, content, role = "user", ...) {
 
   # Check content
   if (! checkmate::qtest(content, "S1")) {
@@ -53,29 +54,32 @@ say.openaichat <- function(chat, content, role = "user") {
 #' Get messages from an openaichat chat
 #'
 #' @param chat The chat
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-messages.openaichat <- function(chat) {
+messages.openaichat <- function(chat, ...) {
   chat$messages
 }
 
 #' Print information about an openaichat chat
 #'
-#' @param chat The chat
+#' @param x The chat
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-print.openaichat <- function(chat) {
-  chat
+print.openaichat <- function(x, ...) {
+  x
 }
 
 #' Get the last response sent by the model in an openaichat chat
 #'
 #' @param chat The chat
+#' @param ... Further arguments passed from other methods
 #'
 #' @export
-last_response.openaichat <- function(chat) {
+last_response.openaichat <- function(chat, ...) {
   messages <- messages(chat)
   messages <- messages[which(messages$role == "assistant"), ]
   if (nrow(messages) == 0) return(NA_character_)
-  tail(messages$content, 1)
+  utils::tail(messages$content, 1)
 }
