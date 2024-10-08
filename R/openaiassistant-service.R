@@ -123,7 +123,7 @@ say.openaiassistant <- function(chat, content, respond = TRUE) {
   }
 
   # Set up and validate the parameters
-  cli::cli_progress_step("Running assistant on thread...", msg_done = "Ran assistant on thread")
+  cli::cli_alert_info("Running assistant on thread...")
   params <- list(
     model = chat$model,
     assistant_id = chat$assistant_id,
@@ -147,6 +147,25 @@ say.openaiassistant <- function(chat, content, respond = TRUE) {
 
   # Check status code of response
   check_openai_response(response)
+
+  # Get run id
+  response <- response |> httr::content() 
+  chat$run_id <- response$id
+
+  # Wait for the run status to be 'completed'
+  run_status <- "pending"
+  while (! run_status == "completed") {
+    Sys.sleep(1)
+    run <- httr::GET(
+      glue::glue("https://api.openai.com/v1/threads/{chat$thread_id}/runs/{chat$run_id}"),
+      httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+      httr::add_headers("OpenAI-Beta" = "assistants=v2")
+    ) |> httr::content()
+    run_status <- run$status
+    cli::cli_alert_info("Run status is {.val {run_status}}...")
+    if (run_status == "failed") cli::cli_abort("Run failed")
+  }
+  cli::cli_alert_success("Run complete")
 
   chat
 }
