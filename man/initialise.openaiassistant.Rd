@@ -4,13 +4,15 @@
 \alias{initialise.openaiassistant}
 \title{Initialise an openaiassistant chat}
 \usage{
-\method{initialise}{openaiassistant}(chat, json_schema = NULL, ...)
+\method{initialise}{openaiassistant}(chat, json_schema = NULL, .verbose = TRUE, ...)
 }
 \arguments{
 \item{chat}{The chat object}
 
 \item{json_schema}{(Optional) A JSON schema that the response must strictly
 adhere to}
+
+\item{.verbose}{If FALSE, progress messages will be suppressed}
 
 \item{...}{Further arguments passed from other methods}
 }

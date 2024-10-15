@@ -1,9 +1,9 @@
 #' @rdname initialise
 #'
 #' @export
-initialise.openaichat <- function(chat, ...) {
+initialise.openaichat <- function(chat, .verbose = TRUE, ...) {
 
-  cli::cli_alert_info("Initialising OpenAI chat...")
+  if (.verbose) cli::cli_alert_info("Initialising OpenAI chat...")
 
   # Check and set OpenAI API key
   chat$openai_api_key <- openai_api_key()
@@ -17,10 +17,11 @@ initialise.openaichat <- function(chat, ...) {
 #' @rdname say
 #'
 #' @param role The role, one of "user" (default) or "system"
+#' @param .verbose If FALSE, progress messages will be suppressed
 #' @param ... Further arguments passed from other methods
 #'
 #' @export
-say.openaichat <- function(chat, content, role = "user", ...) {
+say.openaichat <- function(chat, content, role = "user", .verbose = TRUE, ...) {
 
   # Check content
   if (! checkmate::qtest(content, "S1")) {

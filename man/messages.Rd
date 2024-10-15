@@ -7,12 +7,14 @@
 \usage{
 messages(chat, ...)
 
-\method{messages}{chat}(chat, ...)
+\method{messages}{chat}(chat, .verbose = TRUE, ...)
 }
 \arguments{
 \item{chat}{The chat object}
 
 \item{...}{Other service-specific arguments}
+
+\item{.verbose}{If FALSE, progress messages will be suppressed}
 }
 \value{
 A data frame

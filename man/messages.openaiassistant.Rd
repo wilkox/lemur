@@ -4,10 +4,12 @@
 \alias{messages.openaiassistant}
 \title{Get messages from an openaiassistant chat}
 \usage{
-\method{messages}{openaiassistant}(chat, ...)
+\method{messages}{openaiassistant}(chat, .verbose = TRUE, ...)
 }
 \arguments{
 \item{chat}{The chat}
+
+\item{.verbose}{If FALSE, progress messages will be suppressed}
 
 \item{...}{Further arguments passed from other methods}
 }

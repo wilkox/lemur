@@ -4,12 +4,14 @@
 \alias{chat}
 \title{Create a new chat object}
 \usage{
-chat(service = "openaichat", model = "gpt-4o", ...)
+chat(service = "openaichat", model = "gpt-4o", .verbose = TRUE, ...)
 }
 \arguments{
 \item{service}{The service to use for the chat, defaults to 'openaichat'}
 
 \item{model}{The model to use for the chat, defaults to 'gpt-4o'}
+
+\item{.verbose}{If FALSE, progress messages will be suppressed}
 
 \item{...}{Other service-specific arguments}
 }

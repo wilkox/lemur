@@ -2,10 +2,11 @@
 #'
 #' @param service The service to use for the chat, defaults to 'openaichat'
 #' @param model The model to use for the chat, defaults to 'gpt-4o'
+#' @param .verbose If FALSE, progress messages will be suppressed
 #' @param ... Other service-specific arguments
 #'
 #' @export
-chat <- function(service = "openaichat", model = "gpt-4o", ...) {
+chat <- function(service = "openaichat", model = "gpt-4o", .verbose = TRUE, ...) {
 
   # User-friendly check of service
   if (! service %in% c("openaichat", "openaiassistant", "ollama")) {
@@ -15,7 +16,7 @@ chat <- function(service = "openaichat", model = "gpt-4o", ...) {
   x <- list(service = service, model = model, ...)
   x <- new_chat(x)
   x <- validate_chat(x)
-  x <- initialise(x, ...)
+  x <- initialise(x, .verbose = .verbose, ...)
   x
 }
 
@@ -68,10 +69,12 @@ initialise <- function(chat, ...) {
 
 #' @rdname initialise
 #'
+#' @param .verbose If FALSE, progress messages will be suppressed
+#'
 #' @export
-initialise.chat <- function(chat, ...) {
+initialise.chat <- function(chat, .verbose = TRUE, ...) {
   chat <- NextMethod()
-  cli::cli_alert_success("Ready to chat")
+  if (.verbose) cli::cli_alert_success("Ready to chat")
   chat
 }
 
@@ -89,7 +92,7 @@ say <- function(chat, content, ...) {
 #' @rdname say
 #'
 #' @export
-say.chat <- function(chat, content, ...) {
+say.chat <- function(chat, content, .verbose = TRUE, ...) {
   chat <- NextMethod()
   chat
 }
@@ -108,8 +111,10 @@ messages <- function(chat, ...) {
 
 #' @rdname messages
 #'
+#' @param .verbose If FALSE, progress messages will be suppressed
+#'
 #' @export
-messages.chat <- function(chat, ...) {
+messages.chat <- function(chat, .verbose = TRUE, ...) {
   chat <- NextMethod()
   chat
 }

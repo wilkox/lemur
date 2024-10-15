@@ -3,12 +3,13 @@
 #' @param chat The chat object
 #' @param json_schema (Optional) A JSON schema that the response must strictly
 #' adhere to
+#' @param .verbose If FALSE, progress messages will be suppressed
 #' @param ... Further arguments passed from other methods
 #'
 #' @export
-initialise.openaiassistant <- function(chat, json_schema = NULL, ...) {
+initialise.openaiassistant <- function(chat, json_schema = NULL, .verbose = TRUE, ...) {
 
-  cli::cli_alert_info("Initialising OpenAI assistant chat...")
+  if (.verbose) cli::cli_alert_info("Initialising OpenAI assistant chat...")
 
   # Check and set OpenAI API key
   chat$openai_api_key <- openai_api_key()
@@ -34,7 +35,7 @@ initialise.openaiassistant <- function(chat, json_schema = NULL, ...) {
   )
 
   # POST to assistants endpoint
-  cli::cli_alert_info("Setting up assistant...")
+  if (.verbose) cli::cli_alert_info("Setting up assistant...")
   response <- httr::POST(
     "https://api.openai.com/v1/assistants",
     httr::add_headers("Authorization" = paste("Bearer", chat$openai_api_key)),
@@ -50,7 +51,7 @@ initialise.openaiassistant <- function(chat, json_schema = NULL, ...) {
   chat$assistant_id <- httr::content(response)$id
 
   # POST to thread endpoint
-  cli::cli_alert_info("Setting up thread...")
+  if (.verbose) cli::cli_alert_info("Setting up thread...")
   response <- httr::POST(
     "https://api.openai.com/v1/threads",
     httr::add_headers("Authorization" = paste("Bearer", chat$openai_api_key)),
@@ -90,7 +91,7 @@ print.openaiassistant <- function(x, ...) {
 #' respond
 #'
 #' @export
-say.openaiassistant <- function(chat, content, respond = TRUE, ...) {
+say.openaiassistant <- function(chat, content, respond = TRUE, .verbose = TRUE, ...) {
 
   # Check content
   if (! checkmate::qtest(content, "S1")) {
@@ -98,7 +99,7 @@ say.openaiassistant <- function(chat, content, respond = TRUE, ...) {
   }
 
   # Add message to thread
-  cli::cli_alert_info("Adding message to thread...")
+  if (.verbose) cli::cli_alert_info("Adding message to thread...")
   params <- list(
     role = "user",
     content = content
@@ -122,7 +123,7 @@ say.openaiassistant <- function(chat, content, respond = TRUE, ...) {
   }
 
   # Set up and validate the parameters
-  cli::cli_alert_info("Running assistant on thread...")
+  if (.verbose) cli::cli_alert_info("Running assistant on thread...")
   params <- list(
     model = chat$model,
     assistant_id = chat$assistant_id,
@@ -161,10 +162,10 @@ say.openaiassistant <- function(chat, content, respond = TRUE, ...) {
       httr::add_headers("OpenAI-Beta" = "assistants=v2")
     ) |> httr::content()
     run_status <- run$status
-    cli::cli_alert_info("Run status is {.val {run_status}}...")
+    if (.verbose) cli::cli_alert_info("Run status is {.val {run_status}}...")
     if (run_status == "failed") cli::cli_abort("Run failed")
   }
-  cli::cli_alert_success("Run complete")
+  if (.verbose) cli::cli_alert_success("Run complete")
 
   chat
 }
@@ -172,16 +173,17 @@ say.openaiassistant <- function(chat, content, respond = TRUE, ...) {
 #' Get messages from an openaiassistant chat
 #'
 #' @param chat The chat
+#' @param .verbose If FALSE, progress messages will be suppressed
 #' @param ... Further arguments passed from other methods
 #'
 #' @export
-messages.openaiassistant <- function(chat, ...) {
+messages.openaiassistant <- function(chat, .verbose = TRUE, ...) {
 
   # Set up params
   params <- list(limit = 100, order = "asc")
 
   # GET from threads endpoint
-  cli::cli_alert_info("Retrieving messages from thread...")
+  if (.verbose) cli::cli_alert_info("Retrieving messages from thread...")
   response <- httr::GET(
     glue::glue("https://api.openai.com/v1/threads/{chat$thread_id}/messages"),
     httr::add_headers("Authorization" = paste("Bearer", chat$openai_api_key)),
@@ -212,7 +214,7 @@ messages.openaiassistant <- function(chat, ...) {
     cli::cli_abort("OpenAI assistants threads with 100 or more messages are not yet supported by lemur")
   }
 
-  cli::cli_alert_success("The thread has {cli::no(nrow(messages))} message{?s}")
+  if (.verbose) cli::cli_alert_success("The thread has {cli::no(nrow(messages))} message{?s}")
   messages
 }
 

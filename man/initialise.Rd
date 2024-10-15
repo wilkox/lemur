@@ -10,16 +10,18 @@
 \usage{
 initialise(chat, ...)
 
-\method{initialise}{chat}(chat, ...)
+\method{initialise}{chat}(chat, .verbose = TRUE, ...)
 
-\method{initialise}{ollama}(chat, ...)
+\method{initialise}{ollama}(chat, .verbose = TRUE, ...)
 
-\method{initialise}{openaichat}(chat, ...)
+\method{initialise}{openaichat}(chat, .verbose = TRUE, ...)
 }
 \arguments{
 \item{chat}{The chat object}
 
 \item{...}{Other service-specific arguments}
+
+\item{.verbose}{If FALSE, progress messages will be suppressed}
 }
 \description{
 Performs whatever steps and checks are needed to initialise a chat

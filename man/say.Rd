@@ -11,13 +11,13 @@
 \usage{
 say(chat, content, ...)
 
-\method{say}{chat}(chat, content, ...)
+\method{say}{chat}(chat, content, .verbose = TRUE, ...)
 
-\method{say}{ollama}(chat, content, ...)
+\method{say}{ollama}(chat, content, .verbose = TRUE, ...)
 
-\method{say}{openaiassistant}(chat, content, respond = TRUE, ...)
+\method{say}{openaiassistant}(chat, content, respond = TRUE, .verbose = TRUE, ...)
 
-\method{say}{openaichat}(chat, content, role = "user", ...)
+\method{say}{openaichat}(chat, content, role = "user", .verbose = TRUE, ...)
 }
 \arguments{
 \item{chat}{The chat}
@@ -25,6 +25,8 @@ say(chat, content, ...)
 \item{content}{The message content. Text only}
 
 \item{...}{Further arguments passed from other methods}
+
+\item{.verbose}{If FALSE, progress messages will be suppressed}
 
 \item{respond}{If TRUE (the default), after sending the message the
 assistant will be run to generate a response. Setting \code{respond = FALSE}

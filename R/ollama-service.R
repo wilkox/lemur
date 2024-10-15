@@ -1,16 +1,16 @@
 #' @rdname initialise
 #'
 #' @export
-initialise.ollama <- function(chat, ...) {
+initialise.ollama <- function(chat, .verbose = TRUE, ...) {
 
-  cli::cli_alert_info("Initialising ollama chat with model {.val {chat$model}}...")
+  if (.verbose) cli::cli_alert_info("Initialising ollama chat with model {.val {chat$model}}...")
 
   # Check if ollama server is running
   invisible(olist <- system2("ollama", "list", stderr = TRUE, stdout = TRUE))
   if (is.null(attr(olist, "status"))) {
-    cli::cli_alert_success("ollama server running")
+    if (.verbose) cli::cli_alert_success("ollama server running")
   } else if (attr(olist, "status") == 1) {
-    cli::cli_alert_info("ollama server not running, starting with {.code ollama serve}...")
+    if (.verbose) cli::cli_alert_info("ollama server not running, starting with {.code ollama serve}...")
     invisible(system2("ollama", "serve", stdout = FALSE, stderr = FALSE, wait = FALSE))
     invisible(olist <- system2("ollama", "list", stderr = TRUE, stdout = TRUE))
     if (attr(olist, "status") == 1) {
@@ -21,7 +21,7 @@ initialise.ollama <- function(chat, ...) {
   }
 
   # Load the model into memory
-  cli::cli_alert_info("Loading model {.val {chat$model}} into memory...")
+  if (.verbose) cli::cli_alert_info("Loading model {.val {chat$model}} into memory...")
   response <- httr::POST(
     "http://localhost:11434/api/generate",
     httr::content_type_json(),
@@ -34,7 +34,7 @@ initialise.ollama <- function(chat, ...) {
       i = "Try running {.code ollama pull {chat$model}} at the command line"
     ))
   } else if (httr::content(response)$done) {
-    cli::cli_alert_success("Model loaded")
+    if (.verbose) cli::cli_alert_success("Model loaded")
   } else {
     cli::cli_abort("Unexpected response from model load")
   }
@@ -65,7 +65,7 @@ check_ollama_response <- function(response) {
 #' @param ... Further arguments passed from other methods
 #'
 #' @export
-say.ollama <- function(chat, content, ...) {
+say.ollama <- function(chat, content, .verbose = TRUE, ...) {
 
   # Check content
   if (! checkmate::qtest(content, "S1")) {
@@ -76,7 +76,7 @@ say.ollama <- function(chat, content, ...) {
   chat$messages <- rbind(chat$messages, data.frame(role = "user", content = content))
 
   # POST chat request
-  cli::cli_alert_info("Sending message...")
+  if (.verbose) cli::cli_alert_info("Sending message...")
   response <- httr::POST(
     "http://localhost:11434/api/chat",
     httr::content_type_json(),
@@ -97,7 +97,7 @@ say.ollama <- function(chat, content, ...) {
   # Extract the reply
   reply <- httr::content(response)$message$content
   chat$messages <- rbind(chat$messages, data.frame(role = "assistant", content = reply))
-  cli::cli_alert_success("Response received")
+  if (.verbose) cli::cli_alert_success("Response received")
 
   return(chat)
 }
