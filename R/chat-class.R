@@ -126,7 +126,7 @@ print.chat <- function(x, ...) {
 
   NextMethod()
 
-  cli::cli_alert_info("Use the {.fn transcript} function to view a transcript of the chat")
+  cli::cli_alert_info("Use the {.fn lemur::transcript} function to view a transcript of the chat")
 
 }
 
