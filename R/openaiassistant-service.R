@@ -76,7 +76,7 @@ initialise.openaiassistant <- function(chat, json_schema = NULL, .verbose = TRUE
 #' @export
 print.openaiassistant <- function(x, ...) {
   cli::cli_dl(c(
-    `JSON schema` = "{.val {ifelse(is.logical(x$json_schema, x$json_schema, TRUE)}}"
+    `JSON schema` = "{.val {ifelse(is.logical(x$json_schema), x$json_schema, TRUE)}}"
   ))
   chat
 }
