@@ -1,13 +1,15 @@
 #' Initialise an openaiassistant chat
 #'
 #' @param chat The chat object
-#' @param json_schema (Optional) A JSON schema that the response must strictly
+#' @param json_schema (optional) A JSON schema that the response must strictly
 #' adhere to
+#' @param paths (optional) Paths to files to be used with the file_search tool;
+#' they will be uploaded to a vector store
 #' @param .verbose If FALSE, progress messages will be suppressed
 #' @param ... Further arguments passed from other methods
 #'
 #' @export
-initialise.openaiassistant <- function(chat, json_schema = NULL, .verbose = TRUE, ...) {
+initialise.openaiassistant <- function(chat, json_schema = NULL, paths = NULL, .verbose = TRUE, ...) {
 
   if (.verbose) cli::cli_alert_info("Initialising OpenAI assistant chat...")
 
@@ -33,6 +35,15 @@ initialise.openaiassistant <- function(chat, json_schema = NULL, .verbose = TRUE
     model = chat$model,
     response_format = response_format
   )
+  if (! is.null(paths)) {
+    params <- c(
+      params,
+      list(
+        tools = data.frame(type = "file_search"),
+        tool_resources = list(file_search = list(vector_store_ids = I(create_vector_store(paths))))
+      )
+    )
+  }
 
   # POST to assistants endpoint
   if (.verbose) cli::cli_alert_info("Setting up assistant...")
@@ -229,4 +240,57 @@ last_response.openaiassistant <- function(chat, ...) {
   messages <- messages[which(messages$role == "assistant"), ]
   if (nrow(messages) == 0) return(NA_character_)
   utils::tail(messages$content, 1)
+}
+
+#' Create a vector store with associated file(s), to use with the file_search
+#' tool
+#'
+#' @param paths List of paths to files to be attached to the vector store
+create_vector_store <- function(paths) {
+
+  # Check that paths are valid
+  if (length(paths) == 0) { cli::cli_abort("Must specify at least one file path") }
+  for (path in paths) {
+    if (! fs::file_exists(path)) {
+      cli::cli_abort("Path {path} does not exist")
+    }
+  }
+
+  # Upload each file
+  file_ids <- vapply(paths, function(path) {
+
+    cli::cli_alert_info("Uploading {path} to vector store...")
+
+    response <- httr::POST(
+      "https://api.openai.com/v1/files",
+      httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+      httr::add_headers("OpenAI-Beta" = "assistants=v2"),
+      body = list(file = httr::upload_file(path), purpose = "assistants"),
+      endcode = "multipart"
+    )
+
+    # Check status code of response
+    check_openai_response(response)
+
+    # Get file id
+    response <- response |> httr::content() 
+    response$id
+
+  }, character(1))
+
+  # Create vector store
+  response <- httr::POST(
+    "https://api.openai.com/v1/vector_stores",
+    httr::add_headers("Authorization" = paste("Bearer", openai_api_key())),
+    httr::add_headers("OpenAI-Beta" = "assistants=v2"),
+    httr::content_type_json(),
+    body = jsonlite::toJSON(list(file_ids = unname(file_ids)))
+  )
+
+  # Check status code of response
+  check_openai_response(response)
+
+  # Return the vector store ID
+  response <- response |> httr::content()
+  return(response$id)
 }

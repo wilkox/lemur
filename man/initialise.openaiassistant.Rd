@@ -4,13 +4,16 @@
 \alias{initialise.openaiassistant}
 \title{Initialise an openaiassistant chat}
 \usage{
-\method{initialise}{openaiassistant}(chat, json_schema = NULL, .verbose = TRUE, ...)
+\method{initialise}{openaiassistant}(chat, json_schema = NULL, paths = NULL, .verbose = TRUE, ...)
 }
 \arguments{
 \item{chat}{The chat object}
 
-\item{json_schema}{(Optional) A JSON schema that the response must strictly
+\item{json_schema}{(optional) A JSON schema that the response must strictly
 adhere to}
+
+\item{paths}{(optional) Paths to files to be used with the file_search tool;
+they will be uploaded to a vector store}
 
 \item{.verbose}{If FALSE, progress messages will be suppressed}
 

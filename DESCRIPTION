@@ -22,5 +22,6 @@ Imports:
     stringr (>= 1.5.0),
     cli (>= 3.6.1),
     checkmate,
-    glue
+    glue,
+    fs
 VignetteBuilder: knitr
