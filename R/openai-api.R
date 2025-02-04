@@ -1,5 +1,6 @@
 #' Retrieve OpenAI API key from the OPENAI_API_KEY environmental variable
 #'
+#' @export
 openai_api_key <- function() {
 
   # Check if already set in options
