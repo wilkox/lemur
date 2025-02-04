@@ -1,14 +1,16 @@
 #' Retrieve OpenAI API key from the OPENAI_API_KEY environmental variable
 #'
+#' @param verbose Print messages? Defaults to TRUE. Errors will always be
+#' printed.
 #' @export
-openai_api_key <- function() {
+openai_api_key <- function(verbose = TRUE) {
 
   # Check if already set in options
   if (! is.null(getOption("lemur.OPENAI_API_KEY"))) {
     return(getOption("lemur.OPENAI_API_KEY"))
   }
 
-  cli::cli_alert_info("Retrieving OpenAI API key from {.envvar OPENAI_API_KEY} environmental variable...")
+  if (verbose) cli::cli_alert_info("Retrieving OpenAI API key from {.envvar OPENAI_API_KEY} environmental variable...")
   openai_api_key <- Sys.getenv("OPENAI_API_KEY")
   if (stringr::str_length(openai_api_key) == 0 | is.na(openai_api_key)) {
     cli::cli_abort("Cannot find environmental variable {.envvar OPENAI_API_KEY}")
