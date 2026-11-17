@@ -5,10 +5,11 @@
 
 <!-- badges: start -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle: deprecated](https://img.shields.io/badge/lifecycle-deprecated-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#deprecated)
 [![R-CMD-check](https://github.com/wilkox/lemur/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilkox/lemur/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
+
+**This package is deprecated and no longer maintained. For LLM APIs in R, consider [ellmer](https://ellmer.tidyverse.org).**
 
 lemur is an R package that provides a wrapper for the OpenAI GPT API. It
 is a repackaging of code I originally developed for [the GPTscreenR
